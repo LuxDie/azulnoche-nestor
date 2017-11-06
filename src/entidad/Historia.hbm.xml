@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 02/10/2017 16:06:16 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="basedato" name="entidad.Historia" optimistic-lock="version" table="historia">
+    <id name="idHistoria" type="java.lang.Integer">
+      <column name="idHistoria"/>
+      <generator class="identity"/>
+    </id>
+    <property name="idIdioma" type="java.lang.Integer">
+      <column name="idIdioma"/>
+    </property>
+    <property name="titulo" type="string">
+      <column length="64" name="titulo" not-null="true"/>
+    </property>
+    <property name="descripcion" type="string">
+      <column length="256" name="descripcion" not-null="true"/>
+    </property>
+    <property name="codigoMensajeInicio" type="string">
+      <column length="32" name="codigoMensajeInicio" not-null="true"/>
+    </property>
+    
+  </class>
+</hibernate-mapping>

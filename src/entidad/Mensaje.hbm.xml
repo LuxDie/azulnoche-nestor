@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 02/10/2017 16:06:16 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="basedato" name="entidad.Mensaje" optimistic-lock="version" table="mensaje">
+    <id name="idMensaje" type="java.lang.Integer">
+      <column name="idMensaje"/>
+      <generator class="identity"/>
+    </id>
+    <property name="idHistoria" type="java.lang.Integer">
+      <column name="idHistoria"/>
+    </property>
+    <property name="codigoMensaje" type="string">
+      <column length="32" name="codigoMensaje" not-null="true"/>
+    </property>
+   
+    <property name="obligatorio" type="boolean">
+      <column name="obligatorio"/>
+    </property>
+   
+    <property name="mostrarMensaje" type="boolean">
+      <column name="mostrarMensaje"/>
+    </property>
+    <property name="mensajePopUp" type="boolean">
+      <column name="mensajePopUp"/>
+    </property>
+    <property name="codigoMensajeSiguiente" type="string">
+      <column length="32" name="codigoMensajeSiguiente" />
+    </property>
+  </class>
+</hibernate-mapping>

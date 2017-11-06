@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 02/10/2017 16:06:16 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="basedato" name="entidad.TextoComando" optimistic-lock="version" table="textocomando">
+    <id name="idTextoComando" type="java.lang.Integer">
+      <column name="idTextoComando"/>
+      <generator class="identity"/>
+    </id>
+    <property name="idComando" type="java.lang.Integer">
+      <column name="idComando"/>
+    </property>
+    <property name="idIdioma" type="java.lang.Integer">
+      <column name="idIdioma"/>
+    </property>
+    <property name="textoComando" type="string">
+      <column length="1024" name="textoComando" not-null="true"/>
+    </property>
+   
+  </class>
+</hibernate-mapping>
