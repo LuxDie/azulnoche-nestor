@@ -38,6 +38,8 @@ import org.xml.sax.Attributes;
  */
 public class Interfaz extends javax.swing.JFrame {
 
+    private final static String KEY_CANDADO = "8764";
+    private boolean isCandadoAbierto = false;
     /**
      * Creates new form Interfaz
      */
@@ -84,15 +86,15 @@ public class Interfaz extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        spn_pass1 = new javax.swing.JSpinner();
+        spn_pass2 = new javax.swing.JSpinner();
+        spn_pass3 = new javax.swing.JSpinner();
+        spn_pass4 = new javax.swing.JSpinner();
+        lbl_candado = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -118,17 +120,6 @@ public class Interfaz extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(40, 60, 330, 360);
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Inventario");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(510, 34, 160, 40);
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/introjuego/correccion2.png"))); // NOI18N
-        jLabel4.setText("Inventario");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(500, 30, 170, 60);
-
         jButton1.setText("Enviar");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -143,32 +134,67 @@ public class Interfaz extends javax.swing.JFrame {
         getContentPane().add(jButton1);
         jButton1.setBounds(280, 480, 80, 30);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/introjuego/correcion.png"))); // NOI18N
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(430, 30, 65, 30);
-
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/introjuego/correccion2.png"))); // NOI18N
         jLabel8.setText("Inventario");
         getContentPane().add(jLabel8);
         jLabel8.setBounds(40, 430, 170, 140);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/introjuego/inventario.png"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(440, 30, 306, 497);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/introjuego/correccion2.png"))); // NOI18N
         jLabel7.setText("Inventario");
         getContentPane().add(jLabel7);
         jLabel7.setBounds(200, 470, 180, 60);
 
+        spn_pass1.setFont(new java.awt.Font("Year supply of fairy cakes", 1, 24)); // NOI18N
+        spn_pass1.setModel(new javax.swing.SpinnerNumberModel(0, 0, 9, 1));
+        spn_pass1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        spn_pass1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                spn_pass1StateChanged(evt);
+            }
+        });
+        getContentPane().add(spn_pass1);
+        spn_pass1.setBounds(460, 300, 55, 70);
+
+        spn_pass2.setFont(new java.awt.Font("Year supply of fairy cakes", 1, 24)); // NOI18N
+        spn_pass2.setModel(new javax.swing.SpinnerNumberModel(0, 0, 9, 1));
+        spn_pass2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        spn_pass2.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                spn_pass2StateChanged(evt);
+            }
+        });
+        getContentPane().add(spn_pass2);
+        spn_pass2.setBounds(520, 300, 55, 70);
+
+        spn_pass3.setFont(new java.awt.Font("Year supply of fairy cakes", 1, 24)); // NOI18N
+        spn_pass3.setModel(new javax.swing.SpinnerNumberModel(0, 0, 9, 1));
+        spn_pass3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        spn_pass3.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                spn_pass3StateChanged(evt);
+            }
+        });
+        getContentPane().add(spn_pass3);
+        spn_pass3.setBounds(580, 300, 55, 70);
+
+        spn_pass4.setFont(new java.awt.Font("Year supply of fairy cakes", 1, 24)); // NOI18N
+        spn_pass4.setModel(new javax.swing.SpinnerNumberModel(0, 0, 9, 1));
+        spn_pass4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        spn_pass4.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                spn_pass4StateChanged(evt);
+            }
+        });
+        getContentPane().add(spn_pass4);
+        spn_pass4.setBounds(640, 300, 55, 70);
+
+        lbl_candado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/introjuego/candadoCerradoPNG.png"))); // NOI18N
+        getContentPane().add(lbl_candado);
+        lbl_candado.setBounds(420, 10, 370, 490);
+
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/introjuego/resize.jpg"))); // NOI18N
         getContentPane().add(jLabel2);
         jLabel2.setBounds(0, 0, 840, 564);
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/introjuego/correccion2.png"))); // NOI18N
-        jLabel6.setText("Inventario");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(500, 30, 170, 60);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -203,6 +229,26 @@ public class Interfaz extends javax.swing.JFrame {
             mostrarProximoMensaje();
         }
     }//GEN-LAST:event_jTextArea1KeyPressed
+
+    private void spn_pass1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spn_pass1StateChanged
+        // TODO add your handling code here:
+        intentarAbrirCandado();
+    }//GEN-LAST:event_spn_pass1StateChanged
+
+    private void spn_pass2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spn_pass2StateChanged
+        // TODO add your handling code here:
+        intentarAbrirCandado();
+    }//GEN-LAST:event_spn_pass2StateChanged
+
+    private void spn_pass3StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spn_pass3StateChanged
+        // TODO add your handling code here:
+        intentarAbrirCandado();
+    }//GEN-LAST:event_spn_pass3StateChanged
+
+    private void spn_pass4StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spn_pass4StateChanged
+        // TODO add your handling code here:
+        intentarAbrirCandado();
+    }//GEN-LAST:event_spn_pass4StateChanged
 
     /**
      * @param args the command line arguments
@@ -375,20 +421,41 @@ public class Interfaz extends javax.swing.JFrame {
     private void leerScriptHistoria() {
         historia.cargarHistoriaDesceScript("historia1.txt");
     }
+
+    private boolean isKeyCandado(){
+        String auxiliar="";
+        auxiliar += String.valueOf(spn_pass1.getValue());
+        auxiliar += String.valueOf(spn_pass2.getValue());
+        auxiliar += String.valueOf(spn_pass3.getValue());
+        auxiliar += String.valueOf(spn_pass4.getValue());
+        if(KEY_CANDADO.equalsIgnoreCase(auxiliar))System.out.println("Contraseña Correcta");
+        return KEY_CANDADO.equalsIgnoreCase(auxiliar);
+    }
     
+    private void intentarAbrirCandado(){
+        if(isKeyCandado()){
+            lbl_candado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/introjuego/candadoAbiertoPNG.png")));
+            isCandadoAbierto = true;
+            spn_pass1.removeAll();
+            spn_pass2.removeAll();
+            spn_pass3.removeAll();
+            spn_pass4.removeAll();
+        }
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lbl_candado;
+    private javax.swing.JSpinner spn_pass1;
+    private javax.swing.JSpinner spn_pass2;
+    private javax.swing.JSpinner spn_pass3;
+    private javax.swing.JSpinner spn_pass4;
     // End of variables declaration//GEN-END:variables
 }
+
