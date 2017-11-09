@@ -1,7 +1,6 @@
 package logicajuego;
 
 import entidad.Mensaje;
-import entidad.Tarea;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -111,12 +110,12 @@ public class NarracionLogica {
 
     public void agregarTarea(String codigoMensaje, Integer numeroTarea, String detalleTarea) {
             if (listaMensajes.containsKey(codigoMensaje)) {
-                    MensajeLogica mensaje = listaMensajes.get(codigoMensaje);
-                    mensaje.setNumeroTarea(numeroTarea);
-            mensaje.setObligatorio(true);
-            mensaje.setDetalleTarea(detalleTarea);
-            mensaje.setMensajeMostrado(false);
-            listaMensajes.put(codigoMensaje, mensaje);
+                MensajeLogica mensaje = listaMensajes.get(codigoMensaje);
+                mensaje.setNumeroTarea(numeroTarea);
+                mensaje.setObligatorio(true);
+                mensaje.setDetalleTarea(detalleTarea);
+                mensaje.setMensajeMostrado(false);
+                listaMensajes.put(codigoMensaje, mensaje);
             } else {
                     //mostrar error
             }
@@ -137,8 +136,8 @@ public class NarracionLogica {
 
     }
 
-    public Tarea obtenerPrimerTareaPendiente() {
-        Tarea tarea = new Tarea();
+    public TareaLogica obtenerPrimerTareaPendiente() {
+        TareaLogica tareaLogica = new TareaLogica();
         String codigoMensajeConPrimerTareaPendiente = null;
         int numeroTarea = 1000000;
 
@@ -158,13 +157,13 @@ public class NarracionLogica {
 
                     if (codigoMensajeConPrimerTareaPendiente != null) {
             MensajeLogica mensaje2 = listaMensajes.get(codigoMensajeConPrimerTareaPendiente);
-            tarea.setTareaValida(true);
-            tarea.setNumeroTarea(mensaje2.getNumeroTarea());
-            tarea.setDetalleTarea(mensaje2.getDetalleTarea());
+            tareaLogica.setTareaValida(true);
+            tareaLogica.setNumeroTarea(mensaje2.getNumeroTarea());
+            tareaLogica.setDetalleTarea(mensaje2.getDetalleTarea());
         } else {
-            tarea.setTareaValida(false);
+            tareaLogica.setTareaValida(false);
         }
-        return tarea;
+        return tareaLogica;
 
         /*
         int cantidadMensajes = listaMensajes.size();
@@ -311,6 +310,15 @@ public class NarracionLogica {
     public void setListaMensajes(Map<String, MensajeLogica> listaMensajes) {
         this.listaMensajes = listaMensajes;
     }
+
+    public String getCodigoMensajeProximo() {
+        return codigoMensajeProximo;
+    }
+
+    public void setCodigoMensajeProximo(String codigoMensajeProximo) {
+        this.codigoMensajeProximo = codigoMensajeProximo;
+    }
+    
     
     
 	

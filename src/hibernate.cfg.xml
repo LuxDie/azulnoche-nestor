@@ -50,5 +50,6 @@ Contributor(s):
     <mapping resource="entidad/TextoMensaje.hbm.xml"/>
     <mapping resource="entidad/Comando.hbm.xml"/>
     <mapping resource="entidad/TextoComando.hbm.xml"/>
+    <mapping resource="entidad/Tarea.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
