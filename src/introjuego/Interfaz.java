@@ -8,6 +8,7 @@ package introjuego;
 import dato.ComandoDato;
 import dato.HistoriaDato;
 import dato.MensajeDato;
+import dato.TareaDato;
 import dato.TextoComandoDato;
 import dato.TextoMensajeDato;
 import entidad.Comando;
@@ -24,8 +25,10 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import logicajuego.EstadoScript;
 import logicajuego.HistoriaLogica;
 import logicajuego.MensajeLogica;
+import logicajuego.TareaLogica;
 //import narracion.Historia;
 //import narracion.Mensaje;
 //import narracion.Tarea;
@@ -53,12 +56,21 @@ public class Interfaz extends javax.swing.JFrame {
         ///
         historia = new HistoriaLogica();
         //--------------------------------
-        //historia.cargarHistoriaPorDefecto();
+        //se carga la historia desde la clase HistoriaLogica
+        historia.cargarHistoriaPorDefecto();
         
         //Si ya se grabo la historia por defecto en la base de dato...
-        cargarHistoriaPorDefectoDesdeBaseDato();
+        //cargarHistoriaPorDefectoDesdeBaseDato();
+        
+        //si ya se qiere cargar la historia por defecto desde el archivo de script
+        //cargarHistoriaPorDefectoDesdeScript();
+        
         //---------------------------------
         mostrarProximoMensaje();
+        
+        ///////////////////////
+        //////////////////////
+        /////////////////////
         /*
         Mensaje mensaje = historia.getMensaje();
         String textoMensaje = mensaje.getMensaje();
@@ -182,7 +194,7 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        //procesarComando(jTextField1.getText());
+        procesarComando(jTextField1.getText());
         //insertarHistoria();//ok
         //insertarMensaje();//ok
         //cargarHistoriasTodas();//ok
@@ -192,8 +204,10 @@ public class Interfaz extends javax.swing.JFrame {
         //cargarComandosDeIdMensaje();//ok
         //insertarTextoComando();
         //cargarTextoComadoPorIdComandoIdIdioma();
+        //insertarTarea();
+        //cargarTareaPorIdMensaje();
         //insertarHIstoriaCompletaEnBaseDato();
-        leerScriptHistoria();
+        //cargarHistoriaPorDefectoDesdeScript();
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jTextArea1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextArea1KeyPressed
@@ -258,12 +272,12 @@ public class Interfaz extends javax.swing.JFrame {
     
     private void procesarComando(String textoComando) {
         if (textoComando.equals("tarea pendiente")) {
-            Tarea tarea = historia.obtenerPrimerTareaPendiente();
-            if (tarea.getTareaValida()) {
+            TareaLogica tareaLogica = historia.obtenerPrimerTareaPendiente();
+            if (tareaLogica.getTareaValida()) {
                 //System.out.println("TAREA PENDIENTE");
                 jTextArea1.append("TAREA PENDIENTE" + "\n");
                 
-                jTextArea1.append(tarea.getDetalleTarea() + "\n");
+                jTextArea1.append(tareaLogica.getDetalleTarea() + "\n");
             } else {
                 jTextArea1.append("No hay tarea pendiente" + "\n");
             }
@@ -364,6 +378,22 @@ public class Interfaz extends javax.swing.JFrame {
         System.out.println(textoComando.getTextoComando());
     }
     
+    private void insertarTarea() {
+        TareaDato tareaDato = new TareaDato();
+        Tarea tarea = new Tarea();
+        tarea.setIdMensaje(1);
+        tarea.setNumeroTarea(1);
+        tarea.setDetalleTarea("primer tarea");
+        tareaDato.insertarTarea(tarea);
+    }
+    
+    private void cargarTareaPorIdMensaje() {
+        TareaDato tareaDato = new TareaDato();
+        ArrayList<Tarea> listaTarea = tareaDato.obtenerListaTareaPorIdMensaje(1);
+        Tarea tarea = listaTarea.get(0);
+        System.out.println(tarea.getDetalleTarea());
+    }
+    
     private void insertarHIstoriaCompletaEnBaseDato() {
         historia.insertarHistoriaCompleta();
     }
@@ -372,8 +402,12 @@ public class Interfaz extends javax.swing.JFrame {
         historia.obtenerHistoriaCompletaPorId(1, 1, "intro_manejasAuto");
     }
     
-    private void leerScriptHistoria() {
-        historia.cargarHistoriaDesceScript("historia1.txt");
+    private void cargarHistoriaPorDefectoDesdeScript() {
+        EstadoScript estadoScript = historia.cargarHistoriaDesceScript("historia2.txt", 1, "primer titulo", "descripcion 1");
+        if (!estadoScript.getScriptValido()) {
+            jTextArea1.append(estadoScript.getDetalle() + "\n");
+            jTextArea1.append(estadoScript.getLineaInvalida());
+        }
     }
     
     

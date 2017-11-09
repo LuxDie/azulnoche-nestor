@@ -11,10 +11,10 @@
       <column name="idMensaje" not-null="true"/>
     </property>
     <property name="codigoComando" type="string">
-      <column length="32" name="codigoComando" not-null="true"/>
+      <column length="64" name="codigoComando" not-null="true"/>
     </property>
     <property name="codigoMensajeSiguiente" type="string">
-      <column length="32" name="codigoMensajeSiguiente" not-null="true"/>
+      <column length="64" name="codigoMensajeSiguiente" not-null="true"/>
     </property>
   </class>
 </hibernate-mapping>

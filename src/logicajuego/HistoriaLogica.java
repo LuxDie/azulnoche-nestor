@@ -8,12 +8,14 @@ package logicajuego;
 import dato.ComandoDato;
 import dato.HistoriaDato;
 import dato.MensajeDato;
+import dato.TareaDato;
 import dato.TextoComandoDato;
 import dato.TextoMensajeDato;
 import entidad.Comando;
 import entidad.Historia;
 import entidad.Mensaje;
 import entidad.Tarea;
+import logicajuego.TareaLogica;
 import entidad.TextoComando;
 import entidad.TextoMensaje;
 import java.util.ArrayList;
@@ -43,7 +45,7 @@ public class HistoriaLogica {
         return this.narracion.getMensaje();
     }
     
-    public Tarea obtenerPrimerTareaPendiente() {
+    public TareaLogica obtenerPrimerTareaPendiente() {
         return this.narracion.obtenerPrimerTareaPendiente();
     }
     
@@ -107,6 +109,16 @@ public class HistoriaLogica {
                 }
                 
             }
+            
+            if (mensajeLogica.getObligatorio()) {
+                TareaDato tareaDato = new TareaDato();
+                Tarea tarea = new Tarea();
+                tarea.setIdMensaje(idMensaje);
+                tarea.setNumeroTarea(mensajeLogica.getNumeroTarea());
+                tarea.setDetalleTarea(mensajeLogica.getDetalleTarea());
+                tareaDato.insertarTarea(tarea);
+                
+            }
         }
         return this.idHistoria;
     }
@@ -151,6 +163,18 @@ public class HistoriaLogica {
                 mensajeLogica.agregarComando(comandoLogica);
             }
             mensajeLogica.setProcesarRespuesta(contieneComando);
+            
+            //hay que modificar la estructura y logica de las tareas...
+            TareaDato tareaDato = new TareaDato();
+            ArrayList<Tarea> listaTareas = tareaDato.obtenerListaTareaPorIdMensaje(mensaje.getIdMensaje());
+            for (Tarea tarea : listaTareas) {
+                
+                mensajeLogica.setObligatorio(true);
+                mensajeLogica.setNumeroTarea(tarea.getNumeroTarea());
+                mensajeLogica.setDetalleTarea(tarea.getDetalleTarea());
+                mensajeLogica.setMensajeMostrado(false);
+            }
+            
             this.narracion.agregarMensaje(mensajeLogica);
         }
         this.narracion.setProximoMensajeDeNarracion(codigoMensajeInicio);
@@ -161,37 +185,113 @@ public class HistoriaLogica {
         return listaHistoria;
     }
     
-    public Boolean cargarHistoriaDesceScript(String archivo) {
-        
-        return leerScript(archivo);
-    }
-    
-    public Boolean leerScript(String archivo) {
+    public EstadoScript cargarHistoriaDesceScript(String archivo, Integer idIdioma, String titulo, String descripcion) {
+        EstadoScript estadoScript = new EstadoScript();
         NarracionLogica narracionLogica = new NarracionLogica();
-        Boolean estado = false;
+        Boolean scriptValido = false;
+        Boolean contieneInicioNarracion = false;
         if (AdministradorArchivo.archivoExiste(archivo)) {
             ArrayList<String> lineas = AdministradorArchivo.leerlineas(archivo);
             for(int i=0; i < lineas.size(); i++) {
                 String linea = lineas.get(i);
-                String[] parametros = linea.split("\t");
+                //String[] parametros = linea.split("\t");
+                String[] parametros = linea.split("\", \"");
                 String comando = parametros[0];
-                if (comando.equals("agregarMensaje")) {
-                    int cantidadParametros = parametros.length;
-                    switch (cantidadParametros) {
-                        case 3:
-                            narracionLogica.agregarMensaje(parametros[1], parametros[2]);
-                            estado = true;
-                            break;
-                        case 4:
-                            narracionLogica.agregarMensaje(parametros[1], parametros[2], parametros[3]);
-                            estado = true;
-                            break;
-                    }
-                    
+                
+                switch (comando) {
+                    case "agregarMensaje":
+                        int cantidadParametros = parametros.length;
+                        switch (cantidadParametros) {
+                            case 3:
+                                narracionLogica.agregarMensaje(parametros[1], parametros[2]);
+                                scriptValido = true;
+                                break;
+                            case 4:
+                                narracionLogica.agregarMensaje(parametros[1], parametros[2], parametros[3]);
+                                scriptValido = true;
+                                break;
+                            default:
+                                estadoScript.setDetalle("Cantidad de parametros no valido");
+                                estadoScript.setLineaInvalida(linea);
+                                scriptValido = false;
+                        }
+                        break;
+                    case "agregarTarea":
+                        if (parametros.length == 4) {
+                            narracionLogica.agregarTarea(parametros[1], Integer.valueOf(parametros[2]), parametros[3]);
+                            scriptValido = true;
+                        } else {
+                            estadoScript.setDetalle("Cantidad de parametros no valido");
+                            estadoScript.setLineaInvalida(linea);
+                            scriptValido = false;
+                        }
+                        break;
+                    case "agregarMensajePopUp":
+                        if (parametros.length == 3) {
+                            narracionLogica.agregarMensajePopUp(parametros[1], parametros[2]);
+                            scriptValido = true;
+                        } else {
+                            estadoScript.setDetalle("Cantidad de parametros no valido");
+                            estadoScript.setLineaInvalida(linea);
+                            scriptValido = false;
+                        }
+                        break;
+                    case "agregarComandoAMensaje":
+                        if (parametros.length == 5) {
+                            narracionLogica.agregarComandoAMensaje(parametros[1], parametros[2], parametros[3], parametros[4]);
+                            scriptValido = true;
+                        } else {
+                            estadoScript.setDetalle("Cantidad de parametros no valido");
+                            estadoScript.setLineaInvalida(linea);
+                            scriptValido = false;
+                        }
+                        break;
+                    case "setProximoMensajeDeMensajeEnLista":
+                        if (parametros.length == 3) {
+                            narracionLogica.setProximoMensajeDeMensajeEnLista(parametros[1], parametros[2]);
+                            scriptValido = true;
+                        }
+                        break;
+                    case "setProximoMensajeDeNarracion":
+                        if (parametros.length == 2) {
+                            narracionLogica.setProximoMensajeDeNarracion(parametros[1]);
+                            contieneInicioNarracion = true;
+                            scriptValido = true;
+                        } else {
+                            estadoScript.setDetalle("Cantidad de parametros no valido");
+                            estadoScript.setLineaInvalida(linea);
+                            scriptValido = false;
+                        }
+                        break;
+                    default:
+                        estadoScript.setDetalle("no se reconoce el comando");
+                        estadoScript.setLineaInvalida(linea);
+                        scriptValido = false;
+                        break;
+                        
                 }
+                if (!scriptValido) {
+                    break;
+                }
+                    
             }
         }
-        return estado;
+        if (scriptValido) {
+            if (contieneInicioNarracion) {
+                this.narracion = narracionLogica;
+                this.codigoMensajeInicio = this.narracion.getCodigoMensajeProximo();
+                this.idIdioma = idIdioma;
+                this.titulo = titulo;
+                this.descripcion = descripcion;
+                estadoScript.setScriptValido(true);
+            } else {
+                estadoScript.setDetalle("Script incompleto. No se encontro inicio de la historia...");
+                estadoScript.setLineaInvalida("-");
+                estadoScript.setScriptValido(false);
+            }
+            
+        }
+        return estadoScript;
     }
     ////////////
     

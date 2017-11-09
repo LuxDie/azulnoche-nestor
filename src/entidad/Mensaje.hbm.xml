@@ -11,7 +11,7 @@
       <column name="idHistoria"/>
     </property>
     <property name="codigoMensaje" type="string">
-      <column length="32" name="codigoMensaje" not-null="true"/>
+      <column length="64" name="codigoMensaje" not-null="true"/>
     </property>
    
     <property name="obligatorio" type="boolean">
@@ -25,7 +25,7 @@
       <column name="mensajePopUp"/>
     </property>
     <property name="codigoMensajeSiguiente" type="string">
-      <column length="32" name="codigoMensajeSiguiente" />
+      <column length="64" name="codigoMensajeSiguiente" />
     </property>
   </class>
 </hibernate-mapping>

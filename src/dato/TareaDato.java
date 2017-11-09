@@ -5,33 +5,29 @@
  */
 package dato;
 
-import entidad.Historia;
-import entidad.Mensaje;
+import entidad.Tarea;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import utils.AdministradorArchivo;
 
 /**
  *
  * @author fabian
  */
-public class HistoriaDato {
+public class TareaDato {
     
-    
-    
-    public ArrayList<Historia> obtenerListHistoriasTodo() {
-        return (ArrayList<Historia>) executeHQLQuery(query);
+    public Integer insertarTarea(Tarea tarea) {
+        return save(tarea);
     }
     
-    public Integer insertarHistoria(Historia historia) {
-        return save(historia);
+    public ArrayList<Tarea> obtenerListaTareaPorIdMensaje(Integer idMensaje) {
+        List resultList = executeHQLQuery(query.concat(" WHERE t.idMensaje = ").concat(String.valueOf(idMensaje)));
+        return (ArrayList<Tarea>) resultList;
     }
-    
-    private String query = "from Historia h";
+    private String query = "from Tarea t";
     
     private List executeHQLQuery(String hql) {
         List resultList = null;
@@ -55,6 +51,7 @@ public class HistoriaDato {
             session.beginTransaction();
             newId = (int) session.save(serializable);
             session.getTransaction().commit();
+            session.close();
         } catch (HibernateException he) {
             he.printStackTrace();
         }

@@ -14,7 +14,7 @@
       <column name="idIdioma"/>
     </property>
     <property name="textoComando" type="string">
-      <column length="1024" name="textoComando" not-null="true"/>
+      <column length="64" name="textoComando" not-null="true"/>
     </property>
    
   </class>
