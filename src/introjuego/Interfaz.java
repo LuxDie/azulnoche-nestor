@@ -121,7 +121,9 @@ public class Interfaz extends javax.swing.JFrame {
         jTextField1.setBounds(50, 480, 220, 30);
 
         jTextArea1.setColumns(20);
+        jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
+        jTextArea1.setWrapStyleWord(true);
         jTextArea1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextArea1KeyPressed(evt);
@@ -302,10 +304,10 @@ public class Interfaz extends javax.swing.JFrame {
     private void mostrarProximoMensaje() {
         ultimoMensajeMostrado = historia.getMensaje();
         if (ultimoMensajeMostrado != null) {
-            String textoMensaje = ManipulacionDeTextos.formatearTexto(ultimoMensajeMostrado.getMensaje(), 40);
+            //String textoMensaje = ultimoMensajeMostrado.getMensaje();
 
             if (ultimoMensajeMostrado.getMostrarMensaje()) {
-                jTextArea1.append(textoMensaje + "\n");//SE DEBE DEFINIR SI ES NECESARIO VOLVER A ACTIVAR  
+                jTextArea1.append(ultimoMensajeMostrado.getMensaje() + "\n");//SE DEBE DEFINIR SI ES NECESARIO VOLVER A ACTIVAR  
             }
 
             if (!ultimoMensajeMostrado.getProcesarRespuesta()) {
