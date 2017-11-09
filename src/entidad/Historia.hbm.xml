@@ -17,7 +17,7 @@
       <column length="256" name="descripcion" not-null="true"/>
     </property>
     <property name="codigoMensajeInicio" type="string">
-      <column length="32" name="codigoMensajeInicio" not-null="true"/>
+      <column length="64" name="codigoMensajeInicio" not-null="true"/>
     </property>
     
   </class>

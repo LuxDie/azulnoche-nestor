@@ -8,12 +8,14 @@ package logicajuego;
 import dato.ComandoDato;
 import dato.HistoriaDato;
 import dato.MensajeDato;
+import dato.TareaDato;
 import dato.TextoComandoDato;
 import dato.TextoMensajeDato;
 import entidad.Comando;
 import entidad.Historia;
 import entidad.Mensaje;
 import entidad.Tarea;
+import logicajuego.TareaLogica;
 import entidad.TextoComando;
 import entidad.TextoMensaje;
 import java.util.ArrayList;
@@ -43,7 +45,7 @@ public class HistoriaLogica {
         return this.narracion.getMensaje();
     }
     
-    public Tarea obtenerPrimerTareaPendiente() {
+    public TareaLogica obtenerPrimerTareaPendiente() {
         return this.narracion.obtenerPrimerTareaPendiente();
     }
     
@@ -107,6 +109,16 @@ public class HistoriaLogica {
                 }
                 
             }
+            
+            if (mensajeLogica.getObligatorio()) {
+                TareaDato tareaDato = new TareaDato();
+                Tarea tarea = new Tarea();
+                tarea.setIdMensaje(idMensaje);
+                tarea.setNumeroTarea(mensajeLogica.getNumeroTarea());
+                tarea.setDetalleTarea(mensajeLogica.getDetalleTarea());
+                tareaDato.insertarTarea(tarea);
+                
+            }
         }
         return this.idHistoria;
     }
@@ -151,6 +163,18 @@ public class HistoriaLogica {
                 mensajeLogica.agregarComando(comandoLogica);
             }
             mensajeLogica.setProcesarRespuesta(contieneComando);
+            
+            //hay que modificar la estructura y logica de las tareas...
+            TareaDato tareaDato = new TareaDato();
+            ArrayList<Tarea> listaTareas = tareaDato.obtenerListaTareaPorIdMensaje(mensaje.getIdMensaje());
+            for (Tarea tarea : listaTareas) {
+                
+                mensajeLogica.setObligatorio(true);
+                mensajeLogica.setNumeroTarea(tarea.getNumeroTarea());
+                mensajeLogica.setDetalleTarea(tarea.getDetalleTarea());
+                mensajeLogica.setMensajeMostrado(false);
+            }
+            
             this.narracion.agregarMensaje(mensajeLogica);
         }
         this.narracion.setProximoMensajeDeNarracion(codigoMensajeInicio);
@@ -161,37 +185,113 @@ public class HistoriaLogica {
         return listaHistoria;
     }
     
-    public Boolean cargarHistoriaDesceScript(String archivo) {
-        
-        return leerScript(archivo);
-    }
-    
-    public Boolean leerScript(String archivo) {
+    public EstadoScript cargarHistoriaDesceScript(String archivo, Integer idIdioma, String titulo, String descripcion) {
+        EstadoScript estadoScript = new EstadoScript();
         NarracionLogica narracionLogica = new NarracionLogica();
-        Boolean estado = false;
+        Boolean scriptValido = false;
+        Boolean contieneInicioNarracion = false;
         if (AdministradorArchivo.archivoExiste(archivo)) {
             ArrayList<String> lineas = AdministradorArchivo.leerlineas(archivo);
             for(int i=0; i < lineas.size(); i++) {
                 String linea = lineas.get(i);
-                String[] parametros = linea.split("\t");
+                //String[] parametros = linea.split("\t");
+                String[] parametros = linea.split("\", \"");
                 String comando = parametros[0];
-                if (comando.equals("agregarMensaje")) {
-                    int cantidadParametros = parametros.length;
-                    switch (cantidadParametros) {
-                        case 3:
-                            narracionLogica.agregarMensaje(parametros[1], parametros[2]);
-                            estado = true;
-                            break;
-                        case 4:
-                            narracionLogica.agregarMensaje(parametros[1], parametros[2], parametros[3]);
-                            estado = true;
-                            break;
-                    }
-                    
+                
+                switch (comando) {
+                    case "agregarMensaje":
+                        int cantidadParametros = parametros.length;
+                        switch (cantidadParametros) {
+                            case 3:
+                                narracionLogica.agregarMensaje(parametros[1], parametros[2]);
+                                scriptValido = true;
+                                break;
+                            case 4:
+                                narracionLogica.agregarMensaje(parametros[1], parametros[2], parametros[3]);
+                                scriptValido = true;
+                                break;
+                            default:
+                                estadoScript.setDetalle("Cantidad de parametros no valido");
+                                estadoScript.setLineaInvalida(linea);
+                                scriptValido = false;
+                        }
+                        break;
+                    case "agregarTarea":
+                        if (parametros.length == 4) {
+                            narracionLogica.agregarTarea(parametros[1], Integer.valueOf(parametros[2]), parametros[3]);
+                            scriptValido = true;
+                        } else {
+                            estadoScript.setDetalle("Cantidad de parametros no valido");
+                            estadoScript.setLineaInvalida(linea);
+                            scriptValido = false;
+                        }
+                        break;
+                    case "agregarMensajePopUp":
+                        if (parametros.length == 3) {
+                            narracionLogica.agregarMensajePopUp(parametros[1], parametros[2]);
+                            scriptValido = true;
+                        } else {
+                            estadoScript.setDetalle("Cantidad de parametros no valido");
+                            estadoScript.setLineaInvalida(linea);
+                            scriptValido = false;
+                        }
+                        break;
+                    case "agregarComandoAMensaje":
+                        if (parametros.length == 5) {
+                            narracionLogica.agregarComandoAMensaje(parametros[1], parametros[2], parametros[3], parametros[4]);
+                            scriptValido = true;
+                        } else {
+                            estadoScript.setDetalle("Cantidad de parametros no valido");
+                            estadoScript.setLineaInvalida(linea);
+                            scriptValido = false;
+                        }
+                        break;
+                    case "setProximoMensajeDeMensajeEnLista":
+                        if (parametros.length == 3) {
+                            narracionLogica.setProximoMensajeDeMensajeEnLista(parametros[1], parametros[2]);
+                            scriptValido = true;
+                        }
+                        break;
+                    case "setProximoMensajeDeNarracion":
+                        if (parametros.length == 2) {
+                            narracionLogica.setProximoMensajeDeNarracion(parametros[1]);
+                            contieneInicioNarracion = true;
+                            scriptValido = true;
+                        } else {
+                            estadoScript.setDetalle("Cantidad de parametros no valido");
+                            estadoScript.setLineaInvalida(linea);
+                            scriptValido = false;
+                        }
+                        break;
+                    default:
+                        estadoScript.setDetalle("no se reconoce el comando");
+                        estadoScript.setLineaInvalida(linea);
+                        scriptValido = false;
+                        break;
+                        
                 }
+                if (!scriptValido) {
+                    break;
+                }
+                    
             }
         }
-        return estado;
+        if (scriptValido) {
+            if (contieneInicioNarracion) {
+                this.narracion = narracionLogica;
+                this.codigoMensajeInicio = this.narracion.getCodigoMensajeProximo();
+                this.idIdioma = idIdioma;
+                this.titulo = titulo;
+                this.descripcion = descripcion;
+                estadoScript.setScriptValido(true);
+            } else {
+                estadoScript.setDetalle("Script incompleto. No se encontro inicio de la historia...");
+                estadoScript.setLineaInvalida("-");
+                estadoScript.setScriptValido(false);
+            }
+            
+        }
+        return estadoScript;
     }
     ////////////
     
@@ -304,13 +404,41 @@ public class HistoriaLogica {
         this.narracion.agregarMensaje("intro_callePueblo5", "A primera vista parece no haber nadie. No escuchas ruido alguno. No sale música del bar como sucedió siempre. Ni los pájaros cantan.", "intro_callePueblo4");
         this.narracion.agregarMensaje("intro_callePueblo6", "A tu izquierda hay una casa, a la derecha hay otra casa y frente a vos la calle principal.", "intro_callePueblo5");
         this.narracion.agregarMensaje("intro_callePueblo7", "qué deseas hacer? Podes CAMINAR IZQUIERDA, CAMINAR DERECHA, CAMINAR ADELANTE o ENTRAR AL BAR", "intro_callePueblo6");
+       
+                // mensajes de casa1 y 2 y recuerdo1 es lo nuevo
+            
+        this.narracion.agregarMensaje("casa1a", "Entreas a la casa a tu izquierda. Se ve vieja, humeda y descuidada. Buscas por todos lados pero  lo único que llama tu atención es un viejo cuaderno. Es un diario íntimo. Pertenece a Doña Aurora." );
+        this.narracion.agregarMensaje("casa1b", "Cuando dejaste el pueblo ya era una señora grande, algo desequilibrada. Tenía por costumbre regalar higos pero para que fueran gratis debias pedirlo en la lengua que hablaba su abuelo.", "casa1a");
+        this.narracion.agregarMensaje("casa1c", " Ya no te acordas que idioma hablaba aquel hombre, que claro está usabas para pedir higos gratis todos los días. Doña Aurora te escuchaba y gustosa te regalaba dos o tres porque lo hablabas muy bien.", "casa1b");
+        this.narracion.agregarMensaje("casa1d", "El diario íntimo tiene las hojas del medio arrancadas. Las primeras páginas hablan de cosas sin importancia. Y las ultimas estan llenas de garabatos. Da la impresión que Doña Aurora se terminó de volver loca. O no? Acaso podría ser una pista escondida?.","casa1c" );
+        this.narracion.agregarMensaje("casa1e", "La vieja se hizo pasar por loca y escribió todo en ese idioma casi muerto?\n" + "Miras de nuevo el diario, y siguen pareciendo garabatos. Aunque algunos dibujos podrían ser letras o Numeros.", "casa1d");        
+        this.narracion.agregarMensaje("casa1f","Mirando el diario con mayor atencion vez, debajo de todos los garabatos, un garabato mucho mas grande. Lo reconoces es el equivalente al numero 3. Es otra cosa para averiguar." , "casa1e" );        
+        this.narracion.agregarMensaje("casa1g", "salis de la casa de Aurora. La verdad todo se ve igual, avandonado, absolutamente todo esta humedo, icluso con moho.", "casa1f");
+        this.narracion.agregarMensaje("casa1h", "Donde ir ahora? una buena pregunta. Podes CAMINAR ADELANTE y entrar a la otra casa, DOBLAR IZQUIERDA e ir a la calle princial", "casa1g");
+
+        this.narracion.agregarMensaje("casa2", "Entras a la casa. Esta todo desordenado, cubierto de polvo. Hay un olor muy fuerte, es una pésima señal, una vez que se huele ese hedor nunca más se olvida.", "casa1h");
+        this.narracion.agregarMensaje("casa2a", "\n En el living hay un sillón de tres cuerpos que parece no estar en el sitio que le corresponde. Detras del sillon parece haber un vulto.", "casa2");
+        this.narracion.agregarMensaje("casa2b", "Te acercas un poco y enseguida te das cuenta de que es un cuerpo.\n" + "Te acercas más y es notorio que esa persona lleva bastante tiempo muerta. Lo reconoces fácilmente. Es Don Mateo.", "casa2a");
+        this.narracion.agregarMensaje("casa2c", "En la mitad de la espalda hay una gran mancha de sangre. Fue atacado por la espalda. con un cuchillo grande o bien un machete.","casa2b" );
+        this.narracion.agregarMensaje("casa2d", "El pecho se te comprime, casi de golpe. Don Mateo era un Hombre con mucha historia, era dueño de un inmenso y muy particular humor serio, como él solía decir. ", "casa2c");
+        this.narracion.agregarMensaje("casa2e", "El arma que se llevó su vida no está. Al menos en esa casa, eso es obvio. \n" + "La sangre en el suelo se secó hace rato ya. Solo queda la marca en el suelo de madera. ", "casa2d");
+        this.narracion.agregarMensaje("casa2f", "El cadáver tiene su mano derecha en un bolsillo. ¿Queres sacarle la mano del bolsillo? SI o NO ", "casa2e");
+        this.narracion.agregarMensaje("casa2g", "Sacas la mano del cadáver del bolsillo. Aun agarra con fuerza unos papeles. Los sacas de la mano. \n" + "Es un boleto de compraventa, está roto en dos pedazos.", "casa2f");
+        this.narracion.agregarMensaje("casa2h","Lo revisas un rato, una empresa quería comprarle la casa a Don Mateo, “Aceites del Sud SA”.\n" + "El nombre de la empresa no te suena para nada. Pero te preguntas ¿Porque  dejaron el cuerpo ahí?¿porque no lo enterraron? ", "casa2g");
+        this.narracion.agregarMensaje("casa2i", "¿Quién lo mató?¿Tanta impunidad tiene que es capaz de dejar el cuerpo ahí tirado, cuando es notorio que se trata de un asesinato?", "casa2h"); 
+        this.narracion.agregarMensaje("casa2j", "Revisas un poco más la casa pero no encontraba nada que de algún indicio de lo que sucedió.\n" + "Salís de la casa con una mezcla de sentimientos, tristeza, bronca, indignación pero por sobre todas ellas, el deseo. El deseo de agarrar al culpable y hacerlo pagar.","casa2i");
+        this.narracion.agregarMensaje("casa2k", "Te preguntas ¿acaso voy a encontrar a todo el pueblo muerto en sus casas? ", "casa2j");
         
-        this.narracion.agregarMensaje("casa1", "casa1 no definida");
-        
-        this.narracion.agregarMensaje("casa2", "casa2 no definida");
-        
-        this.narracion.agregarMensaje("callePrincipalSector1", "no definido...");
-        
+        this.narracion.agregarMensaje("recuerdo1","Un escalofrío recorre todo tu cuerpo. De inmediato pensas en tus papás y en Enrique, tu hermano. La última vez que lo viste solo tenía dos años y vos 17.", "casa2k");        
+        this.narracion.agregarMensaje("recuerdo2", "Tus padres se venían venir la charla. \n " + "Papá, mamá- les dirías mientras ellos te mirarían espectantes pero sabiendo muy bien cuáles serían tus próximas palabras. \n" + " Quiero estudiar en la capital- harías una pausa. \n " + " Para volver como un gran policía y de esa forma ayudar al pueblo-", "recuerdo1");
+        this.narracion.agregarMensaje("recuerdo3", "Ellos llorarían y así lo hicieron. Te abrazarían como si fuese la última vez que te verían y así lo hicieron. \n "+" Una pregunta se te clava en el pecho, bien adentro.", "recuerdo2");
+        this.narracion.agregarMensaje("recuerdo4", "¿será esa, aquella, la última vez que nos  viéramos? \n" + "¿será aquel abrazo el último ? \n" + "Caes de rodillas al piso. \n" + "No - te decís casi gritando.", "recuerdo3");
+        this.narracion.agregarMensaje("recuerdo5", "Esa no será la última vez, no puede, no lo vas a permitir. Vas a hacer todo lo posible  para evitarlo. \n" + " Con mucho esfuerzo te levantas, respiras hondo y salis a la calle", "recuerdo4");
+              
+        this.narracion.agregarMensaje("callePrincipal", " Es la calle principal del pueblo, hay plantas que crecen desparramadas en la calle, la verda, hay grandes charcos, papeles y basura por todos lados.", "recuerdo5");
+        this.narracion.agregarMensaje("callePrincipal1", "A unos metros hay 1 poste de luz con un cartel pegado. Te acercas para ver lo que dice. Esta viejo con algunas letras gastadas.", "callePrincipal1");
+        this.narracion.agregarMensaje("callePrincipal2","Es un pedazo de plastico que dice: \n" + " Venda su propiedad a TIEMPO, no espere a que se desvalorice \n" + "\n" + "Mas abajo hay un logo pero esta gastado y no llegas a entenderlo"  ,"callePrincipal1");
+                       
         ////////////////////////////////////////////////////////////
         //SE AGREGAN LOS COMANDOS...
         this.narracion.agregarComandoAMensaje("intro_manejasAut11b", "doblarIzquierda", "DOBLAR IZQUIERDA", "intro_manejasAut12");
@@ -339,11 +467,19 @@ public class HistoriaLogica {
         
         
         this.narracion.agregarComandoAMensaje("intro_callePueblo7", "casa1", "CAMINAR IZQUIERDA", "casa1");
+       
+         // estos 3 comandos hay que revisarlo no se si estara bien.
+        this.narracion.agregarComandoAMensaje("casa1h", "seguirAdelante", "CCAMINAR ADELANTE","casa2");
+        this.narracion.agregarComandoAMensaje("casa2f", "si", "SI", "casa2g");
+        this.narracion.agregarComandoAMensaje("casa2f", "no", "no", "casa2i");
+        
+        
+        
         this.narracion.agregarComandoAMensaje("intro_callePueblo7", "doblarDerecha", "CAMINAR DERECHA", "cass2");
         this.narracion.agregarComandoAMensaje("intro_callePueblo7", "seguirAdelante", "CAMINAR ADELANTE", "callePrincipalSector1");
         this.narracion.agregarComandoAMensaje("intro_callePueblo7", "caminarAlBar", "ENTRAR AL BAR", "men1");
        
-        
+                  
         //**************
         
         
