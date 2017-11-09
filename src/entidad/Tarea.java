@@ -9,47 +9,46 @@ package entidad;
  *
  * @author fabian
  */
-public class Tarea implements java.io.Serializable{
+public class Tarea implements java.io.Serializable {
     private Integer idTarea;
-    private Boolean tareaValida;
-    
+    private Integer idMensaje;
     private Integer numeroTarea;
-    private String detalleTarea;
+    private String detalleTarea;//lengh 125
 
     public Tarea() {
     }
 
-    
-    
-    public Tarea(Integer numeroTarea, String detalleTarea) {
-        this.numeroTarea = numeroTarea;
-        this.detalleTarea = detalleTarea;
+    public Integer getIdTarea() {
+        return idTarea;
     }
 
-    public Boolean getTareaValida() {
-        return tareaValida;
+    public void setIdTarea(Integer idTarea) {
+        this.idTarea = idTarea;
+    }
+
+    public Integer getIdMensaje() {
+        return idMensaje;
+    }
+
+    public void setIdMensaje(Integer idMensaje) {
+        this.idMensaje = idMensaje;
     }
 
     public Integer getNumeroTarea() {
         return numeroTarea;
     }
 
-    public String getDetalleTarea() {
-        return detalleTarea;
-    }
-
-    public void setTareaValida(Boolean tareaValida) {
-        this.tareaValida = tareaValida;
-    }
-
     public void setNumeroTarea(Integer numeroTarea) {
         this.numeroTarea = numeroTarea;
+    }
+
+    public String getDetalleTarea() {
+        return detalleTarea;
     }
 
     public void setDetalleTarea(String detalleTarea) {
         this.detalleTarea = detalleTarea;
     }
-    
     
     
     
