@@ -330,10 +330,15 @@ public class HistoriaLogica {
         this.narracion.agregarMensaje("casa2k", "Te preguntas ¿acaso voy a encontrar a todo el pueblo muerto en sus casas? ", "casa2j");
         
         this.narracion.agregarMensaje("recuerdo1","Un escalofrío recorre todo tu cuerpo. De inmediato pensas en tus papás y en Enrique, tu hermano. La última vez que lo viste solo tenía dos años y vos 17.", "casa2k");        
-               
-                
-        this.narracion.agregarMensaje("callePrincipalSector1", "no definido...");
-        
+        this.narracion.agregarMensaje("recuerdo2", "Tus padres se venían venir la charla. \n " + "Papá, mamá- les dirías mientras ellos te mirarían espectantes pero sabiendo muy bien cuáles serían tus próximas palabras. \n" + " Quiero estudiar en la capital- harías una pausa. \n " + " Para volver como un gran policía y de esa forma ayudar al pueblo-", "recuerdo1");
+        this.narracion.agregarMensaje("recuerdo3", "Ellos llorarían y así lo hicieron. Te abrazarían como si fuese la última vez que te verían y así lo hicieron. \n "+" Una pregunta se te clava en el pecho, bien adentro.", "recuerdo2");
+        this.narracion.agregarMensaje("recuerdo4", "¿será esa, aquella, la última vez que nos  viéramos? \n" + "¿será aquel abrazo el último ? \n" + "Caes de rodillas al piso. \n" + "No - te decís casi gritando.", "recuerdo3");
+        this.narracion.agregarMensaje("recuerdo5", "Esa no será la última vez, no puede, no lo vas a permitir. Vas a hacer todo lo posible  para evitarlo. \n" + " Con mucho esfuerzo te levantas, respiras hondo y salis a la calle", "recuerdo4");
+              
+        this.narracion.agregarMensaje("callePrincipal", " Es la calle principal del pueblo, hay plantas que crecen desparramadas en la calle, la verda, hay grandes charcos, papeles y basura por todos lados.", "recuerdo5");
+        this.narracion.agregarMensaje("callePrincipal1", "A unos metros hay 1 poste de luz con un cartel pegado. Te acercas para ver lo que dice. Esta viejo con algunas letras gastadas.", "callePrincipal1");
+        this.narracion.agregarMensaje("callePrincipal2","Es un pedazo de plastico que dice: \n" + " Venda su propiedad a TIEMPO, no espere a que se desvalorice \n" + "\n" + "Mas abajo hay un logo pero esta gastado y no llegas a entenderlo"  ,"callePrincipal1");
+                       
         ////////////////////////////////////////////////////////////
         //SE AGREGAN LOS COMANDOS...
         this.narracion.agregarComandoAMensaje("intro_manejasAut11b", "doblarIzquierda", "DOBLAR IZQUIERDA", "intro_manejasAut12");
