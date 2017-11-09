@@ -41,6 +41,7 @@ public class MensajeDato {
             Query q = session.createQuery(hql);
             resultList = q.list();
             session.getTransaction().commit();
+            session.close();
         } catch (HibernateException he) {
             he.printStackTrace();
         }
@@ -54,6 +55,7 @@ public class MensajeDato {
             session.beginTransaction();
             newId = (int) session.save(serializable);
             session.getTransaction().commit();
+            session.close();
         } catch (HibernateException he) {
             he.printStackTrace();
         }

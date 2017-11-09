@@ -41,6 +41,7 @@ public class HistoriaDato {
             Query q = session.createQuery(hql);
             resultList = q.list();
             session.getTransaction().commit();
+            session.close();
         } catch (HibernateException he) {
             he.printStackTrace();
         }
