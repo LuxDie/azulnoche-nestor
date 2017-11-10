@@ -332,6 +332,7 @@ public class HistoriaLogica {
         //
         //SE CARGA EL RESTO DE LA HISTORIA JUNTO CON LA LOGICA...
         this.narracion.agregarMensaje("intro_manejasAuto", "Manejas tu viejo Renault 9 color azul noche, como siempre con la radio apagada, nada se iguala a sentir el viento pasando por la ventana. El sonido del motor, el caucho girando sobre el asfalto y manejar en camino de piedra es uufff, simplemente sublime.");
+        this.narracion.agregarObjetoXAMensaje("intro_manejasAuto", "candadoValor1", "valor candado 1", true, null, null);
         this.narracion.agregarMensaje("intro_manejasAut2", "Mañana cumples seis años de servicio. Acaricias el volante, tiene un forro de cuero, ya gastado, mirás el torpedo", "intro_manejasAuto");
         this.narracion.agregarMensaje("intro_manejasAut3", "También cumplimos seis años juntos", "intro_manejasAut2");
         this.narracion.agregarMensaje("intro_manejasAut4", "Aunque cuando se conocieron él lucía un bordo gastado y sin brillo, el motor sonaba parejo pero muy fuerte debido al mal estado del escape. Con el tiempo y los viajes, obtuvo nuevas llantas, con estilo.", "intro_manejasAut3");

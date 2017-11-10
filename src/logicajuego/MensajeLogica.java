@@ -26,6 +26,7 @@ public class MensajeLogica {
 	private int indiceTexto;
 
 	private ArrayList<ComandoLogica> comandos;
+        private ArrayList<ObjetoX> listaObjetoX;
 
     public MensajeLogica() {
         this.listaMensajeTexto = new ArrayList<>();
@@ -36,6 +37,7 @@ public class MensajeLogica {
 	this.codigoMensajeSiguiente = null;
         this.mensajePopUp = false;
         this.comandos = new ArrayList<ComandoLogica>();
+        this.listaObjetoX = new ArrayList<>();
     }
 	
         
@@ -56,6 +58,7 @@ public class MensajeLogica {
         this.mostrarMensaje = true;
 
         this.comandos = new ArrayList<ComandoLogica>();
+        this.listaObjetoX = new ArrayList<>();
     }
 
     public void setCodigoMensaje(String codigoMensaje) {
@@ -88,42 +91,47 @@ public class MensajeLogica {
         this.indiceTexto = indiceTexto;
     }
 
-    
+    public void agregarObjetoX(ObjetoX objetoX) {
+        listaObjetoX.add(objetoX);
+    }
         
         
-	public MensajeLogica(String codigoMensaje, String texto, String codigoMensajeSiguiente) {
-		listaMensajeTexto = new ArrayList<>();
-		this.codigoMensaje = codigoMensaje;
-		listaMensajeTexto.add(texto);
-		textoAleatorio = false;
-		indiceTexto = -1;
-		
-		this.obligatorio = true;
-		this.procesarRespuesta = false;
-		this.codigoMensajeSiguiente = codigoMensajeSiguiente;
+    public MensajeLogica(String codigoMensaje, String texto, String codigoMensajeSiguiente) {
+        listaMensajeTexto = new ArrayList<>();
+        this.codigoMensaje = codigoMensaje;
+        listaMensajeTexto.add(texto);
+        textoAleatorio = false;
+        indiceTexto = -1;
 
-		this.mensajePopUp = false;
+        this.obligatorio = true;
+        this.procesarRespuesta = false;
+        this.codigoMensajeSiguiente = codigoMensajeSiguiente;
+
+        this.mensajePopUp = false;
         this.mostrarMensaje = true;
                 
         this.comandos = new ArrayList<ComandoLogica>();
-	}
+        this.listaObjetoX = new ArrayList<>();
+        this.listaObjetoX = new ArrayList<>();
+    }
 
-	public MensajeLogica(String codigoMensaje, String texto) {
-		listaMensajeTexto = new ArrayList<>();
-		this.codigoMensaje = codigoMensaje;
-		listaMensajeTexto.add(texto);
-		textoAleatorio = false;
-		indiceTexto = -1;
-		
-		this.obligatorio = false;
-		this.procesarRespuesta = false;
-		this.codigoMensajeSiguiente = null;
+    public MensajeLogica(String codigoMensaje, String texto) {
+        listaMensajeTexto = new ArrayList<>();
+        this.codigoMensaje = codigoMensaje;
+        listaMensajeTexto.add(texto);
+        textoAleatorio = false;
+        indiceTexto = -1;
 
-		this.mensajePopUp = false;
+        this.obligatorio = false;
+        this.procesarRespuesta = false;
+        this.codigoMensajeSiguiente = null;
+
+        this.mensajePopUp = false;
         this.mostrarMensaje = true;
                 
         this.comandos = new ArrayList<ComandoLogica>();
-	}
+        this.listaObjetoX = new ArrayList<>();
+    }
 
 	public void agregarComando(ComandoLogica comando) {
 		this.procesarRespuesta = true;
