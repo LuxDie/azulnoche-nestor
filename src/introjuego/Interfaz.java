@@ -339,7 +339,8 @@ public class Interfaz extends javax.swing.JFrame {
                     //break;
                     mostrarProximoMensaje();
                 } else {
-                    jTextArea1.append("comando no valido" + "\n");
+                    textoAcciones.setText("Comando no válido");
+                    textoAcciones.setVisible(true);
                 }
             }
         }
