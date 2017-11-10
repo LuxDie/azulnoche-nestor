@@ -48,10 +48,13 @@ public class Interfaz extends javax.swing.JFrame {
      */
     public Interfaz() {
         initComponents();
+        jTextField1.requestFocus();
         setSize(815, 600);
         setLocationRelativeTo(null);
         jTextArea1.setOpaque(false);
-        //jTextArea1.setEditable(false);
+        jTextArea1.setEditable(false);
+        jTextField1.setText("");
+        textoAcciones.setVisible(true);
         
         ///
         
@@ -106,41 +109,34 @@ public class Interfaz extends javax.swing.JFrame {
         spn_pass3 = new javax.swing.JSpinner();
         spn_pass4 = new javax.swing.JSpinner();
         lbl_candado = new javax.swing.JLabel();
+        textoAcciones = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
         jTextField1.setText("Escriba aquí");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField1KeyPressed(evt);
             }
         });
         getContentPane().add(jTextField1);
         jTextField1.setBounds(50, 480, 220, 30);
 
         jTextArea1.setColumns(20);
+        jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
-        jTextArea1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextArea1KeyPressed(evt);
-            }
-        });
+        jTextArea1.setWrapStyleWord(true);
         jScrollPane1.setViewportView(jTextArea1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(40, 60, 330, 360);
+        jScrollPane1.setBounds(40, 60, 330, 310);
 
         jButton1.setText("Enviar");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
-            }
-        });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton1);
@@ -204,6 +200,11 @@ public class Interfaz extends javax.swing.JFrame {
         getContentPane().add(lbl_candado);
         lbl_candado.setBounds(420, 10, 370, 490);
 
+        textoAcciones.setBackground(new java.awt.Color(0, 0, 0));
+        textoAcciones.setText("texto de acciones");
+        getContentPane().add(textoAcciones);
+        textoAcciones.setBounds(40, 390, 310, 70);
+
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/introjuego/resize.jpg"))); // NOI18N
         getContentPane().add(jLabel2);
         jLabel2.setBounds(0, 0, 840, 564);
@@ -211,16 +212,13 @@ public class Interfaz extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        JOptionPane.showMessageDialog(rootPane, evt);
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        procesarComando(jTextField1.getText());
+        if(jTextField1.getText().equals(""))
+        {
+            mostrarProximoMensaje();
+        } else {
+            procesarComando(jTextField1.getText());
+        }
         //insertarHistoria();//ok
         //insertarMensaje();//ok
         //cargarHistoriasTodas();//ok
@@ -235,14 +233,6 @@ public class Interfaz extends javax.swing.JFrame {
         //insertarHIstoriaCompletaEnBaseDato();
         //cargarHistoriaPorDefectoDesdeScript();
     }//GEN-LAST:event_jButton1MouseClicked
-
-    private void jTextArea1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextArea1KeyPressed
-        // TODO add your handling code here:
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER)
-        {
-            mostrarProximoMensaje();
-        }
-    }//GEN-LAST:event_jTextArea1KeyPressed
 
     private void spn_pass1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spn_pass1StateChanged
         // TODO add your handling code here:
@@ -263,6 +253,20 @@ public class Interfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
         intentarAbrirCandado();
     }//GEN-LAST:event_spn_pass4StateChanged
+
+    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER)
+        {
+            textoAcciones.setVisible(false);
+            String texto = jTextField1.getText();
+            if (texto.equals("")) {
+                mostrarProximoMensaje();
+            } else {
+                procesarComando(jTextField1.getText());
+                jTextField1.setText("");
+            }
+        }
+    }//GEN-LAST:event_jTextField1KeyPressed
 
     /**
      * @param args the command line arguments
@@ -302,14 +306,15 @@ public class Interfaz extends javax.swing.JFrame {
     private void mostrarProximoMensaje() {
         ultimoMensajeMostrado = historia.getMensaje();
         if (ultimoMensajeMostrado != null) {
-            String textoMensaje = ManipulacionDeTextos.formatearTexto(ultimoMensajeMostrado.getMensaje(), 40);
+            //String textoMensaje = ultimoMensajeMostrado.getMensaje();
 
             if (ultimoMensajeMostrado.getMostrarMensaje()) {
-                jTextArea1.append(textoMensaje + "\n");//SE DEBE DEFINIR SI ES NECESARIO VOLVER A ACTIVAR  
+                jTextArea1.append(ultimoMensajeMostrado.getMensaje() + "\n\n");//SE DEBE DEFINIR SI ES NECESARIO VOLVER A ACTIVAR  
             }
 
             if (!ultimoMensajeMostrado.getProcesarRespuesta()) {
-                jTextArea1.append("presione ENTER para continuar" + "\n");
+                textoAcciones.setText("presione ENTER para continuar" + "\n");
+                textoAcciones.setVisible(true);
             }
         }
         
@@ -334,7 +339,8 @@ public class Interfaz extends javax.swing.JFrame {
                     //break;
                     mostrarProximoMensaje();
                 } else {
-                    jTextArea1.append("comando no valido" + "\n");
+                    textoAcciones.setText("Comando no válido");
+                    textoAcciones.setVisible(true);
                 }
             }
         }
@@ -490,6 +496,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JSpinner spn_pass2;
     private javax.swing.JSpinner spn_pass3;
     private javax.swing.JSpinner spn_pass4;
+    private javax.swing.JLabel textoAcciones;
     // End of variables declaration//GEN-END:variables
 }
 

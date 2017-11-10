@@ -73,7 +73,7 @@ public class ComandoLogica {
 		}
 		*/
 		for (String auxTextoComando : listaComandoTexto) {
-		   if (auxTextoComando.equals(textoComando)) {
+		   if (auxTextoComando.equalsIgnoreCase(textoComando)) {
 				valido = true;
 				break;
 			}
