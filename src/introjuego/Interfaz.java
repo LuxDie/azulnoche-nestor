@@ -258,7 +258,7 @@ public class Interfaz extends javax.swing.JFrame {
     private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_ENTER)
         {
-            textoAcciones.setVisible(false);
+            textoAcciones.setText("Ingrese el comando correspondiente.");
             String texto = jTextField1.getText();
             if (texto.equals("")) {
                 mostrarProximoMensaje();
@@ -316,8 +316,7 @@ public class Interfaz extends javax.swing.JFrame {
             }
 
             if (!ultimoMensajeMostrado.getProcesarRespuesta()) {
-                textoAcciones.setText("presione ENTER para continuar" + "\n");
-                textoAcciones.setVisible(true);
+                textoAcciones.setText("Presione ENTER para continuar.");
             }
         }
         
