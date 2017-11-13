@@ -303,14 +303,16 @@ public class Interfaz extends javax.swing.JFrame {
 
     private HistoriaLogica historia;
     private MensajeLogica ultimoMensajeMostrado;
+    private String codigoMensajeAnterior="";
     
     private void mostrarProximoMensaje() {
         ultimoMensajeMostrado = historia.getMensaje();
         if (ultimoMensajeMostrado != null) {
             procesarObjetoX();
 
-            if (ultimoMensajeMostrado.getMostrarMensaje()) {
+            if (ultimoMensajeMostrado.getMostrarMensaje() && !(ultimoMensajeMostrado.getCodigoMensaje().equals(codigoMensajeAnterior))) {
                 jTextArea1.append(ultimoMensajeMostrado.getMensaje() + "\n\n");//SE DEBE DEFINIR SI ES NECESARIO VOLVER A ACTIVAR  
+                codigoMensajeAnterior=ultimoMensajeMostrado.getCodigoMensaje();
             }
 
             if (!ultimoMensajeMostrado.getProcesarRespuesta()) {
