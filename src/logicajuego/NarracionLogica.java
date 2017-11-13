@@ -35,6 +35,24 @@ public class NarracionLogica {
             listaMensajes.put(codigoMensaje, mensaje);
     }
 
+    public void agregarObjetoXAMensaje(String codigoMensaje, String codigoObjetoX, String nombre, Boolean valorbooleano, Integer valorEntero, String valorString) {
+        ObjetoX objetoX = new ObjetoX();
+        objetoX.setCodigoObjetoX(codigoObjetoX);
+        objetoX.setNombre(nombre);
+        objetoX.setValorBoleano(valorbooleano);
+        objetoX.setValorEntero(valorEntero);
+        objetoX.setValorTexto(valorString);
+        
+        if (listaMensajes.containsKey(codigoMensaje)) {
+            MensajeLogica mensajeAModiicar = listaMensajes.get(codigoMensaje);
+            mensajeAModiicar.agregarObjetoX(objetoX);
+            listaMensajes.put(codigoMensaje, mensajeAModiicar);
+            
+        } else {
+                //mostrar error
+        }
+    }
+    
     public void agregarMensaje(MensajeLogica mensajeLogica) {
 
         listaMensajes.put(mensajeLogica.getCodigoMensaje(), mensajeLogica);

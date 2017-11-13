@@ -9,23 +9,25 @@ public class MensajeLogica {
     private Integer numeroTarea; 
     private String detalleTarea;
 
-	private boolean mostrarMensaje;//permite definir si el texto se debe mostrar, no se debe mostrar el texto si el mensaje anterior activo era del tipo pop up
-	private boolean mensajePopUp;
+    private boolean mostrarMensaje;//permite definir si el texto se debe mostrar, no se debe mostrar el texto si el mensaje anterior activo era del tipo pop up
+    private boolean mensajePopUp;
 
 
-	
-	private boolean procesarRespuesta;
-	//private int indiceMensajeAnterior;///talves no se utilice...
-	private String codigoMensajeSiguiente;
 
-	private String codigoMensaje;
+    private boolean procesarRespuesta;
+    //private int indiceMensajeAnterior;///talves no se utilice...
+    private String codigoMensajeSiguiente;
 
-	//String texto;
-	private ArrayList<String> listaMensajeTexto;
-	private Boolean textoAleatorio;
-	private int indiceTexto;
+    private String codigoMensaje;
 
-	private ArrayList<ComandoLogica> comandos;
+    //String texto;
+    private ArrayList<String> listaMensajeTexto;
+    private Boolean textoAleatorio;
+    private int indiceTexto;
+
+    private ArrayList<ComandoLogica> comandos;
+
+    private ArrayList<ObjetoX> listaObjetoX;
 
     public MensajeLogica() {
         this.listaMensajeTexto = new ArrayList<>();
@@ -36,6 +38,8 @@ public class MensajeLogica {
 	this.codigoMensajeSiguiente = null;
         this.mensajePopUp = false;
         this.comandos = new ArrayList<ComandoLogica>();
+        
+        this.listaObjetoX = new ArrayList<>();
     }
 	
         
@@ -56,6 +60,8 @@ public class MensajeLogica {
         this.mostrarMensaje = true;
 
         this.comandos = new ArrayList<ComandoLogica>();
+        
+        this.listaObjetoX = new ArrayList<>();
     }
 
     public void setCodigoMensaje(String codigoMensaje) {
@@ -68,6 +74,14 @@ public class MensajeLogica {
 
     public ArrayList<ComandoLogica> getComandos() {
         return comandos;
+    }
+    
+    public void agregarObjetoX(ObjetoX objetoX) {
+        listaObjetoX.add(objetoX);
+    }
+
+    public ArrayList<ObjetoX> getListaObjetoX() {
+        return listaObjetoX;
     }
     
     
@@ -106,6 +120,7 @@ public class MensajeLogica {
         this.mostrarMensaje = true;
                 
         this.comandos = new ArrayList<ComandoLogica>();
+        this.listaObjetoX = new ArrayList<>();
 	}
 
 	public MensajeLogica(String codigoMensaje, String texto) {
@@ -123,6 +138,8 @@ public class MensajeLogica {
         this.mostrarMensaje = true;
                 
         this.comandos = new ArrayList<ComandoLogica>();
+        
+        this.listaObjetoX = new ArrayList<>();
 	}
 
 	public void agregarComando(ComandoLogica comando) {

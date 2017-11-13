@@ -28,6 +28,7 @@ import javax.swing.JTextField;
 import logicajuego.EstadoScript;
 import logicajuego.HistoriaLogica;
 import logicajuego.MensajeLogica;
+import logicajuego.ObjetoX;
 import logicajuego.TareaLogica;
 //import narracion.Historia;
 //import narracion.Mensaje;
@@ -306,7 +307,7 @@ public class Interfaz extends javax.swing.JFrame {
     private void mostrarProximoMensaje() {
         ultimoMensajeMostrado = historia.getMensaje();
         if (ultimoMensajeMostrado != null) {
-            //String textoMensaje = ultimoMensajeMostrado.getMensaje();
+            procesarObjetoX();
 
             if (ultimoMensajeMostrado.getMostrarMensaje()) {
                 jTextArea1.append(ultimoMensajeMostrado.getMensaje() + "\n\n");//SE DEBE DEFINIR SI ES NECESARIO VOLVER A ACTIVAR  
@@ -319,6 +320,18 @@ public class Interfaz extends javax.swing.JFrame {
         }
         
         
+    }
+    
+    private void procesarObjetoX() {
+        ArrayList<ObjetoX> listaObjetoX = ultimoMensajeMostrado.getListaObjetoX();
+        for (ObjetoX objetoX : listaObjetoX) {
+            String codigoObjetoX = objetoX.getCodigoObjetoX();
+            switch (codigoObjetoX) {
+                case "candadoValor1":
+                    spn_pass1.setValue(1);//o ejecutar el metodo adecuado...
+                    break;
+            }
+        }
     }
     
     private void procesarComando(String textoComando) {
