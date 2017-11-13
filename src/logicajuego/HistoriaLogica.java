@@ -424,7 +424,7 @@ public class HistoriaLogica {
         this.narracion.agregarMensaje("casa3","La casa de Susana era una de las mas lindas. Su madre siempre arreglaba el jardin de la entrada con muchas flores casi siempre con gran variedad de  colores");  
         this.narracion.agregarMensaje("casa31"," Susana fue ese gran amor imposible. Hasta no hace mucho te seguias preguntando y si....? le hubiera dicho..... hubiera ido, tantos miles de y si....?","casa3");
         this.narracion.agregarMensaje("casa32","Se fue un dia al norte, a estudiar el efecto de las nineras en el medio Hambiente. Pero su casa ya no era su casa. ahora pertenecia a las malas yerbas y a las enamoradas del muro ","casa31");
-       
+
         ////////////////////////////////////////////////////////////
         //SE AGREGAN LOS COMANDOS...
        this.narracion.agregarMensaje("bosque", "Recordas muy bien este bosque, aca jugabas con tus amigos cuando eran chicos, ya de muy chiquitos se metian al bosque a esconderse y los grnades se volvian locos porque tenian miedo de que los muerda alguna vivora o pero se crucen con algun animal mas grade. No es un bosque asi inmenso ni demasiado denso pero si lo suficientemente grande como para tardar dos dias en llegar al otro lado.");
