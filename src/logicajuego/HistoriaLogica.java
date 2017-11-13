@@ -417,7 +417,15 @@ public class HistoriaLogica {
         this.narracion.agregarMensaje("callePrincipal", " Es la calle principal del pueblo, hay plantas que crecen desparramadas en la calle, la verda, hay grandes charcos, papeles y basura por todos lados.", "recuerdo5");
         this.narracion.agregarMensaje("callePrincipal1", "A unos metros hay 1 poste de luz con un cartel pegado. Te acercas para ver lo que dice. Esta viejo con algunas letras gastadas.", "callePrincipal1");
         this.narracion.agregarMensaje("callePrincipal2","Es un pedazo de plastico que dice: \n" + " Venda su propiedad a TIEMPO, no espere a que se desvalorice \n" + "\n" + "Mas abajo hay un logo pero esta gastado y no llegas a entenderlo"  ,"callePrincipal1");
-                       
+        this.narracion.agregarMensaje("callePrincipal3", "Otra vez la sensacion de que esto lleva varios años asi. Entre tanto desorden y descuido resulta un grafitti, es uno de los garabatos raros del diario de Aurora. Te acercas, tras mirarlo un rato te da la impresion de que el garabato no esta bien pintado, justo debajo del mismo hay una baldoza de la cual crece pasto a sus cuatro lados, es raro","callePrincipal2");
+        this.narracion.agregarMensaje("callePrincipal4", "Arrancas el pasto, sorprendentemente la baldosa sale con gran facilidad. Debajo hay una bolsa con hojas, son mas garabatos parece que alguien dejo pistas, pero ¿que quieren decir estas pistas? ¿que significan los garabatos?","callePrincipal3"); 
+        this.narracion.agregarMensaje("callePrincipal5", "En unas de las hojas, entre tantos garabatos sobresale uno, lo recordas bien. Es el que representa el numero 5. Mas adelante podes ver la casa, el bar, el camino que lleva al bosque y la casa de Susana","callePrincipal4");
+         
+        this.narracion.agregarMensaje("casa3","La casa de Susana era una de las mas lindas. Su madre siempre arreglaba el jardin de la entrada con muchas flores casi siempre con gran variedad de  colores");  
+        this.narracion.agregarMensaje("casa31"," Susana fue ese gran amor imposible. Hasta no hace mucho te seguias preguntando y si....? le hubiera dicho..... hubiera ido, tantos miles de y si....?","casa3");
+        this.narracion.agregarMensaje("casa32","Se fue un dia al norte, a estudiar el efecto de las nineras en el medio Hambiente. Pero su casa ya no era su casa. ahora pertenecia a las malas yerbas y a las enamoradas del muro ","casa31");
+        
+        
         ////////////////////////////////////////////////////////////
         //SE AGREGAN LOS COMANDOS...
        this.narracion.agregarMensaje("bosque", "Recordas muy bien este bosque, aca jugabas con tus amigos cuando eran chicos, ya de muy chiquitos se metian al bosque a esconderse y los grnades se volvian locos porque tenian miedo de que los muerda alguna vivora o pero se crucen con algun animal mas grade. No es un bosque asi inmenso ni demasiado denso pero si lo suficientemente grande como para tardar dos dias en llegar al otro lado.");
