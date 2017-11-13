@@ -298,60 +298,37 @@ public class HistoriaLogica {
     public void cargarHistoriaPorDefecto() {
         this.narracion = new NarracionLogica();
         this.narracion.agregarMensaje("men1", "El interior del bar estaba un poco oscuro...");
-        this.narracion.agregarMensaje("men2", "...A pesar de la oscuridad se puede observar una barra hacia el norte y una puerta con un cartel que dice Baño hacia el este. Que queres hacer? Podes caminar hacia el norte o el sur", "men1");
-        this.narracion.agregarMensaje("men3", "En la barra hay una copa y dos botellas, una de agua y otra de cerveza. Que queres hacer? Podes beber algo o regresar a la entrada...");
-        this.narracion.agregarMensaje("men4", "El baño es un verdadero asco..., nadie en su sano juicio lo utilizaria para hacer sus necesidades pero parece que tambien servia como deposito porque se ve en una esquina varias cajas con papeles. Que queres hacer? Podes caminar hacia el norte para revisar los papeles o regresar a la entrada...");
-        this.narracion.agregarMensaje("men5", "El agua no esta fria pero te calma un poco la sed pero tambien te dan ganas de ir al baño...Te vas al Baño.");//falta setear cual es el mensaje siguiente...
-        this.narracion.agregarMensaje("men6", "Bebes un poco de cerbeza pero como esta caliente te da asco y te dan ganas de vomitar...Te vas al Baño para vomitar.");//falta setear cual es el mensaje siguiente...
-        this.narracion.agregarMensaje("acercarseNorteParaLeerPapeles", "Caminas hacia el norte...tu intuicion te dice que vas a encontrar alguna prueba. Que queres hacer? Podes leer los papeles o regresar a la entrada del Baño");
-        this.narracion.agregarMensaje("lecturaPapeles", "Empiezas a leer los papeles...Despues de 15min encuentras una nota que dice: vecinoxxx queres robarte mis propiedades...");
-        this.narracion.agregarTarea("lecturaPapeles", 1, "Encontrar nota con claves para traducir el lenguaje xxxx");
-        this.narracion.agregarMensaje("conclusionLecturaPapeles", "Despues de leer esa nota llegas a la conclusion de que el asesino es xxxx. Solo te falta buscar las pruebas...", "lecturaPapeles");
-        this.narracion.agregarMensaje("salirBarConSospechozo", "Encontraste un sospechoso, ahora a buscar las pruebas....", "conclusionLecturaPapeles");
+        this.narracion.agregarMensaje("men2", "...A pesar de la oscuridad se puede observar una barra y una puerta con un cartel que dice Baño. El piso esta muy pegajoso, hay varios vasos y botellas tiradas en el suelo", "men1");
+        this.narracion.agregarMensaje("men3", "En la barra hay una copa y dos botellas, una de agua y otra de cerveza. Misticamente la cerveza esta sin abrir. Te vendria muy bien una, pero aquella esta caliente y seguramente vencida ", "men2");
+        this.narracion.agregarMensaje("men4", "El baño es un verdadero asco..., nadie en su sano juicio lo utilizaria para hacer sus necesidades pero parece que tambien servia como deposito porque se ve en una esquina varias cajas con papeles.", "men3");
+        this.narracion.agregarMensaje("men5", "Vas hasta la pila de cajas, estan llenas de vevidas espirituosas, todas calientes. Revisas los papeles, En su mayoria son facturas de proveedores, alunas cartas de bancos. Muchas planillas contables y alugunas notas, escritas a mano.", "men4");//falta setear cual es el mensaje siguiente...
+        this.narracion.agregarMensaje("men6","“Vendé, sabes que te conviene” dice una. Otra presagia : “ Si te quedas vas a terminar igual que la de las plantas”. \n" +
+                                        "“ Vende o andate” dice otra. La que más llamativa es una que dice: “ Vendes o moris”.", "men5");
+        this.narracion.agregarMensaje("men7", "También hay una carta escrita a máquina en una hoja con el membrete de una empresa, Aceites del Sud SA, la carta es un propuesta para comprar la propiedad donde está ubicado el Bar. Es mejor guardar todas estas notas, podrían servir como evidencia.\n" +
+                                        "Revisas un poco más el lugar pero es en vano literalmente está todo dado vuelta.\n" +
+                                         "Salis del Bar, al mirar la calle pensas ¿a qué otro lugar debería ir?", "men6");
+             
         
         
-        this.narracion.agregarMensajePopUp("descripcionBarra", "La barra esta muy gastada....");
-        this.narracion.agregarMensajePopUp("descripcionCopa", "La copa esta llena de polvo...");
-
+        
+       
 
         //se agregan comandos a los mensajes para que el jugador pueda decidir que es lo que quiere hacer...
-        this.narracion.agregarComandoAMensaje("men2", "caminarNorte", "caminar norte", "men3");
-        this.narracion.agregarComandoAMensaje("men2", "caminarEste", "caminar este", "men4");
-
-        this.narracion.agregarComandoAMensaje("men3", "beberAgua", "beber agua", "men5");
-        this.narracion.agregarComandoAMensaje("men3", "beberCerbeza", "beber cerbeza", "men6");  
-        this.narracion.agregarComandoAMensaje("men3", "CmdDescripcionBarra", "describir barra", "descripcionBarra");
-        this.narracion.agregarComandoAMensaje("men3", "CmdDescripcionCopa", "describir copa", "descripcionCopa");
-        
+       
         this.narracion.setProximoMensajeDeMensajeEnLista("men5", "men4");
         this.narracion.setProximoMensajeDeMensajeEnLista("men6", "men4");      
 
-        this.narracion.agregarComandoAMensaje("men4", "CmdAcercarseNorteParaLeerPapeles", "caminar norte", "acercarseNorteParaLeerPapeles");
-        
-        this.narracion.agregarComandoAMensaje("acercarseNorteParaLeerPapeles", "CmdLecturaPapeles", "leer papeles", "lecturaPapeles");
         //
         //SE CARGA EL RESTO DE LA HISTORIA JUNTO CON LA LOGICA...
         this.narracion.agregarMensaje("intro_manejasAuto", "Manejas tu viejo Renault 9 color azul noche, como siempre con la radio apagada, nada se iguala a sentir el viento pasando por la ventana. El sonido del motor, el caucho girando sobre el asfalto y manejar en camino de piedra es uufff, simplemente sublime.");
-        
-        this.narracion.agregarObjetoXAMensaje("intro_manejasAuto", "candadoValor1", "valor candado 1", true, null, null);
-        this.narracion.agregarMensaje("intro_manejasAut2", "Mañana cumples seis años de servicio. Acaricias el volante, tiene un forro de cuero, ya gastado, mirás el torpedo", "intro_manejasAuto");
-        this.narracion.agregarMensaje("intro_manejasAut3", "También cumplimos seis años juntos", "intro_manejasAut2");
-        this.narracion.agregarMensaje("intro_manejasAut4", "Aunque cuando se conocieron él lucía un bordo gastado y sin brillo, el motor sonaba parejo pero muy fuerte debido al mal estado del escape. Con el tiempo y los viajes, obtuvo nuevas llantas, con estilo.", "intro_manejasAut3");
-        this.narracion.agregarMensaje("intro_manejasAut5", "Pasaron por varios colores hasta encontrar el hermoso azul noche. A los dos les queda muy bien el azul.", "intro_manejasAut4");
-        this.narracion.agregarMensaje("intro_manejasAut6", "Hace un buen tiempo que manejas por una ruta algo olvidada, con más pozos que carteles.", "intro_manejasAut5");
-        this.narracion.agregarMensaje("intro_manejasAut7", "Pasaron muchos años desde que no visitaste estos parajes.", "intro_manejasAut6");
-        this.narracion.agregarMensaje("intro_manejasAut8", "Ya no recordas bien el camino y se aproxima un cruce, el tema es...", "intro_manejasAut7");
-        this.narracion.agregarMensaje("intro_manejasAut9", "¿había con salirse de la ruta en este cruce o en el próximo?", "intro_manejasAut8");
-        this.narracion.agregarMensaje("intro_manejasAut10", "¿había que ir a la izquierda o a la derecha?", "intro_manejasAut9");
-        this.narracion.agregarMensaje("intro_manejasAut11", "¿Qué hacemos amigo, para donde agarramos?- Le preguntas al viejo Renault 9 azul noche. Es una vieja costumbre que practicas desde que se conocieron.", "intro_manejasAut10");
-        this.narracion.agregarMensaje("intro_manejasAut11b", "Podes DOBLAR IZQUIERDA, DOBLAR DERECHA o SEGUIR ADELANTE", "intro_manejasAut11");
-        
-        this.narracion.agregarMensaje("intro_manejasAut12", "Es un camino de tierra, sorprende el contraste entre su buen estado y lo crecidos que están los matorrales.");
-        this.narracion.agregarMensaje("intro_manejasAut13", "El camino da una inmensa vuelta y te deja en el un lago....", "intro_manejasAut12");
-        this.narracion.agregarMensaje("intro_manejasAut14", "...Te acuerdas de tus tiempos de adolescencia, todos los buenos momentos que pasaste en ese lago...Medidas un poco y finalmente vuelves por donde viniste llegando de nuevo al croce.", "intro_manejasAut13");
-        this.narracion.agregarMensaje("intro_manejasAut15", "Que hacemos esta vez? Le vuelves a preguntar a tu viejo auto", "intro_manejasAut14");
-        this.narracion.agregarMensaje("intro_manejasAut16", "Podes SEGUIR ADELANTE o DOBLAR IZQUIERDA", "intro_manejasAut15");
-        
+        this.narracion.agregarMensaje("intro_manejasAut2", "Mañana cumples seis años de servicio. Acaricias el volante, tiene un forro de cuero, ya gastado, mirás el torpedo. También cumplimos seis años juntos", "intro_manejasAuto");
+        this.narracion.agregarMensaje("intro_manejasAut3", "Aunque cuando se conocieron él lucía un bordo gastado y sin brillo, el motor sonaba parejo pero muy fuerte debido al mal estado del escape. Con el tiempo y los viajes, obtuvo nuevas llantas, con estilo. Pasaron por varios colores hasta encontrar el hermoso azul noche. A los dos les queda muy bien el azul ", "intro_manejasAut2");
+        this.narracion.agregarMensaje("intro_manejasAut4", "Hace un buen tiempo que manejas por una ruta algo olvidada, con más pozos que carteles.", "intro_manejasAut3");
+        this.narracion.agregarMensaje("intro_manejasAut5", "Pasaron muchos años desde que no visitaste estos parajes. Ya no recordas bien el camino y se aproxima un cruce, el tema es...", "intro_manejasAut4");
+        this.narracion.agregarMensaje("intro_manejasAut6", "¿había con salirse de la ruta en este cruce o en el próximo? ¿había que ir a la izquierda o a la derecha?", "intro_manejasAut5");
+        this.narracion.agregarMensaje("intro_manejasAut11", "¿Qué hacemos amigo, para donde agarramos?- Le preguntas al viejo Renault 9 azul noche. Es una vieja costumbre que practicas desde que se conocieron. \n" + "Podes, DOBLAR DERECHA o SEGUIR ADELANTE", "intro_manejasAut6");
+
+
         this.narracion.agregarMensaje("intro_manejasAut17", "Después de más de una hora de viaje llegas a un pueblo, es evidente que te pasaste el cruce donde debías salir de la ruta. Igualmente paras en un café al costado de la ruta.");
         this.narracion.agregarMensaje("intro_manejasAut18", "Que queres hacer? Podes VOLVER AL CRUCE, o podes ENTRAR AL CAFE, te vendria bien estirar un poco las piernas y tal vez consigas una buena indicación.", "intro_manejasAut17");
         
@@ -443,12 +420,21 @@ public class HistoriaLogica {
                        
         ////////////////////////////////////////////////////////////
         //SE AGREGAN LOS COMANDOS...
-        this.narracion.agregarComandoAMensaje("intro_manejasAut11b", "doblarIzquierda", "DOBLAR IZQUIERDA", "intro_manejasAut12");
-        this.narracion.agregarComandoAMensaje("intro_manejasAut11b", "doblarDerecha", "DOBLAR DERECHA", "intro_manejasCaminoPueblo");
-        this.narracion.agregarComandoAMensaje("intro_manejasAut11b", "seguirAdelante", "SEGUIR ADELANTE", "intro_manejasAut17");
+       this.narracion.agregarMensaje("bosque", "Recordas muy bien este bosque, aca jugabas con tus amigos cuando eran chicos, ya de muy chiquitos se metian al bosque a esconderse y los grnades se volvian locos porque tenian miedo de que los muerda alguna vivora o pero se crucen con algun animal mas grade. No es un bosque asi inmenso ni demasiado denso pero si lo suficientemente grande como para tardar dos dias en llegar al otro lado.");
+       this.narracion.agregarMensaje("bosque1", "Ahora esta totalmente cambiado, tiene mucha mas vegetacion, las plantas se comieron los caminos. Algo te dice que tenes que ir hasta el otro lado del bosque. Alla hay un lago al final del bosque. Doña ahora solia pasar algunos dias alla.", "bosque");
+       this.narracion.agregarMensaje("bosque2", "Es un viaje largo pero tal vez sea menos ya que cuando uno es chico las distancias parecen mayores. Mientras caminas pensas en todo lo que viste y encontraste, en todas las personas que vivian en el pueblo. No logras entender commo paso todo esto. Pensas, ¿por qué? ¿para qué? ¿ quié fue? ","bosque1");
+       
+       
         
-        this.narracion.agregarComandoAMensaje("intro_manejasAut16", "doblarIzquierda", "DOBLAR IZQUIERDA", "intro_manejasAut17");
-        this.narracion.agregarComandoAMensaje("intro_manejasAut16", "seguirAdelante", "SEGUIR ADELANTE", "intro_manejasCaminoPueblo");
+        
+        
+        
+        
+        
+        
+        this.narracion.agregarComandoAMensaje("intro_manejasAut11", "doblarDerecha", "DOBLAR DERECHA", "intro_manejasCaminoPueblo");
+        this.narracion.agregarComandoAMensaje("intro_manejasAut11", "seguirAdelante", "SEGUIR ADELANTE", "intro_manejasAut17");
+        
         
         this.narracion.agregarComandoAMensaje("intro_manejasAut18", "volverCruce", "VOLVER AL CRUCE", "intro_manejasAut19");
         this.narracion.agregarComandoAMensaje("intro_manejasAut18", "entrarCafe", "ENTRAR AL CAFE", "intro_entrarCafe");
