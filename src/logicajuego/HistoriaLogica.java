@@ -298,10 +298,13 @@ public class HistoriaLogica {
     public void cargarHistoriaPorDefecto() {
         this.narracion = new NarracionLogica();
         this.narracion.agregarMensaje("men1", "El interior del bar estaba un poco oscuro...");
-        this.narracion.agregarMensaje("men2", "...A pesar de la oscuridad se puede observar una barra hacia el norte y una puerta con un cartel que dice Baño hacia el este. Que queres hacer? Podes caminar hacia el norte o el sur", "men1");
-        this.narracion.agregarMensaje("men3", "En la barra hay una copa y dos botellas, una de agua y otra de cerveza. Que queres hacer? Podes beber algo o regresar a la entrada...");
-        this.narracion.agregarMensaje("men4", "El baño es un verdadero asco..., nadie en su sano juicio lo utilizaria para hacer sus necesidades pero parece que tambien servia como deposito porque se ve en una esquina varias cajas con papeles. Que queres hacer? Podes caminar hacia el norte para revisar los papeles o regresar a la entrada...");
-        this.narracion.agregarMensaje("men5", "El agua no esta fria pero te calma un poco la sed pero tambien te dan ganas de ir al baño...Te vas al Baño.");//falta setear cual es el mensaje siguiente...
+        this.narracion.agregarMensaje("men2", "...A pesar de la oscuridad se puede observar una barra y una puerta con un cartel que dice Baño. El piso esta muy pegajoso, hay varios vasos y botellas tiradas en el suelo", "men1");
+        this.narracion.agregarMensaje("men3", "En la barra hay una copa y dos botellas, una de agua y otra de cerveza. Misticamente la cerveza esta sin abrir. Te vendria muy bien una, pero aquella esta caliente y seguramente vencida ", "men2");
+        this.narracion.agregarMensaje("men4", "El baño es un verdadero asco..., nadie en su sano juicio lo utilizaria para hacer sus necesidades pero parece que tambien servia como deposito porque se ve en una esquina varias cajas con papeles.", "men3");
+        this.narracion.agregarMensaje("men5", "Vas hasta la pila de cajas, estan llenas de vevidas espirituosas, todas calientes. Revisas los papeles, En su mayoria son facturas de proveedores, alunas cartas de bancos. Muchas planillas contables y alugunas notas.", "men4");//falta setear cual es el mensaje siguiente...
+      
+        // seguir aca con la historia. Ver WORD en el Drive
+        
         this.narracion.agregarMensaje("men6", "Bebes un poco de cerbeza pero como esta caliente te da asco y te dan ganas de vomitar...Te vas al Baño para vomitar.");//falta setear cual es el mensaje siguiente...
         this.narracion.agregarMensaje("acercarseNorteParaLeerPapeles", "Caminas hacia el norte...tu intuicion te dice que vas a encontrar alguna prueba. Que queres hacer? Podes leer los papeles o regresar a la entrada del Baño");
         this.narracion.agregarMensaje("lecturaPapeles", "Empiezas a leer los papeles...Despues de 15min encuentras una nota que dice: vecinoxxx queres robarte mis propiedades...");
