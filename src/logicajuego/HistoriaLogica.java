@@ -328,7 +328,7 @@ public class HistoriaLogica {
         this.narracion.agregarMensaje("intro_manejasAut6", "¿había con salirse de la ruta en este cruce o en el próximo? ¿había que ir a la izquierda o a la derecha?", "intro_manejasAut5");
         this.narracion.agregarMensaje("intro_manejasAut11", "¿Qué hacemos amigo, para donde agarramos?- Le preguntas al viejo Renault 9 azul noche. Es una vieja costumbre que practicas desde que se conocieron. \n" + "Podes, DOBLAR DERECHA o SEGUIR ADELANTE", "intro_manejasAut6");
 
-               
+
         this.narracion.agregarMensaje("intro_manejasAut17", "Después de más de una hora de viaje llegas a un pueblo, es evidente que te pasaste el cruce donde debías salir de la ruta. Igualmente paras en un café al costado de la ruta.");
         this.narracion.agregarMensaje("intro_manejasAut18", "Que queres hacer? Podes VOLVER AL CRUCE, o podes ENTRAR AL CAFE, te vendria bien estirar un poco las piernas y tal vez consigas una buena indicación.", "intro_manejasAut17");
         
