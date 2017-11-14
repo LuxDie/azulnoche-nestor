@@ -457,7 +457,7 @@ public class HistoriaLogica {
        this.narracion.agregarMensaje("cabana3", "Estas son pruebas sufiientes como para meter a la carcel a todos los culpables de esta masacre. \n" + " Pensas: No se va a salvar ninguno. \n" + " Agarras todo y volves corriendo para presentar todo ante la justicia ", "cabana4" );
 
 
-       
+        this.narracion.agregarComandoAMensaje("intro_manejasAut18", "entrarAlCafe", "ENTRAR AL CAFE","intro_entrarCafe" );
         this.narracion.agregarComandoAMensaje("intro_entrarCafe3", "pedirIndicacion", "PEDIR INDICACION", "intro_pedirInformacion");
         this.narracion.agregarComandoAMensaje("intro_entrarCafe3", "pagar", "PAGAR", "intro_pedirInformacionAgradecer3");
         
