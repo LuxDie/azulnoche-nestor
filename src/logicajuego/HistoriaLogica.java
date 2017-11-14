@@ -326,12 +326,12 @@ public class HistoriaLogica {
         this.narracion.agregarMensaje("intro_manejasAut5", "Pasaron muchos años desde que no visitaste estos parajes. Ya no recordas bien el camino y se aproxima un cruce, el tema es...", "intro_manejasAut4");
         this.narracion.agregarMensaje("intro_manejasAut6", "¿había con salirse de la ruta en este cruce o en el próximo? ¿había que ir a la izquierda o a la derecha?", "intro_manejasAut5");
         this.narracion.agregarMensaje("intro_manejasAut11", "¿Qué hacemos amigo, para donde agarramos?- Le preguntas al viejo Renault 9 azul noche. Es una vieja costumbre que practicas desde que se conocieron. \n" + "Podes, DOBLAR DERECHA o SEGUIR ADELANTE", "intro_manejasAut6");
-
+         this.narracion.agregarMensaje("intro_manejasAut12", "Ahora que estas aca recordas que este camino no lleva a ningun lado, mejor DOBLAR IZQUIERDA");
 
         this.narracion.agregarMensaje("intro_manejasAut17", "Después de más de una hora de viaje llegas a un pueblo, es evidente que te pasaste el cruce donde debías salir de la ruta. Igualmente paras en un café al costado de la ruta.");
         this.narracion.agregarMensaje("intro_manejasAut18", "Que queres hacer? Podes VOLVER AL CRUCE, o podes ENTRAR AL CAFE, te vendria bien estirar un poco las piernas y tal vez consigas una buena indicación.", "intro_manejasAut17");
         
-        this.narracion.agregarMensaje("intro_entrarCafe", "Entras, es un lugar con decoración algo vieja pero agradable, te sientas en la barra. La camarera te saluda con amabilidad, su sonrisa es pura energía.");
+        this.narracion.agregarMensaje("intro_entrarCafe", "Entras, es un lugar con decoración algo vieja pero agradable, te sentas en la barra. La camarera te saluda con amabilidad, su sonrisa es pura energía.");
         this.narracion.agregarMensaje("intro_entrarCafe2", "Le pides a la camarera un café bien cargado, te sonríe otra vez y enseguida te sirve de la jarra. Le ponés dos de azúcar, tras un par de sorbos te preguntas, la camarera ¿podrá darme alguna indicación sobre el cruce que busco?", "intro_entrarCafe");
         this.narracion.agregarMensaje("intro_entrarCafe3", "Piensas un poco, podes PEDIR INDICACION sobre el cruce o solo PAGAR e irte", "intro_entrarCafe2");
         
@@ -381,7 +381,7 @@ public class HistoriaLogica {
         this.narracion.agregarMensaje("intro_callePueblo4", "Pero eso fue hace mucho tiempo.", "intro_callePueblo3");
         this.narracion.agregarMensaje("intro_callePueblo5", "A primera vista parece no haber nadie. No escuchas ruido alguno. No sale música del bar como sucedió siempre. Ni los pájaros cantan.", "intro_callePueblo4");
         this.narracion.agregarMensaje("intro_callePueblo6", "A tu izquierda hay una casa, a la derecha hay otra casa y frente a vos la calle principal.", "intro_callePueblo5");
-        this.narracion.agregarMensaje("intro_callePueblo7", "qué deseas hacer? Podes CAMINAR IZQUIERDA, CAMINAR DERECHA, CAMINAR ADELANTE o ENTRAR AL BAR", "intro_callePueblo6");
+        this.narracion.agregarMensaje("intro_callePueblo7", "qué deseas hacer? Podes CAMINAR IZQUIERDA, CAMINAR DERECHA o CAMINAR ADELANTE", "intro_callePueblo6");
        
                 
             
@@ -390,10 +390,10 @@ public class HistoriaLogica {
         this.narracion.agregarMensaje("casa1c", " Ya no te acordas que idioma hablaba aquel hombre, que claro está usabas para pedir higos gratis todos los días. Doña Aurora te escuchaba y gustosa te regalaba dos o tres porque lo hablabas muy bien.", "casa1b");
         this.narracion.agregarMensaje("casa1d", "El diario íntimo tiene las hojas del medio arrancadas. Las primeras páginas hablan de cosas sin importancia. Y las ultimas estan llenas de garabatos. Da la impresión que Doña Aurora se terminó de volver loca. O no? Acaso podría ser una pista escondida?.","casa1c" );
         this.narracion.agregarMensaje("casa1e", "La vieja se hizo pasar por loca y escribió todo en ese idioma casi muerto?\n" + "Miras de nuevo el diario, y siguen pareciendo garabatos. Aunque algunos dibujos podrían ser letras o Numeros.", "casa1d");        
-        this.narracion.agregarMensaje("casa1f","Mirando el diario con mayor atencion vez, debajo de todos los garabatos, un garabato mucho mas grande. Lo reconoces es el equivalente al numero 3. Es otra cosa para averiguar." , "casa1e" );        
+        this.narracion.agregarMensaje("casa1f","Mirando el diario con mayor atencion ves, debajo de todos los garabatos, un garabato mucho mas grande. Lo reconoces es el equivalente al numero 3. Es otra cosa para averiguar." , "casa1e" );        
         this.narracion.agregarObjetoXAMensaje("casa1f", "candadoValor1", "candado valor 1", true, null, null);
         this.narracion.agregarMensaje("casa1g", "salis de la casa de Aurora. La verdad todo se ve igual, avandonado, absolutamente todo esta humedo, icluso con moho.", "casa1f");
-        this.narracion.agregarMensaje("casa1h", "Donde ir ahora? una buena pregunta. Podes CAMINAR ADELANTE y entrar a la otra casa, DOBLAR IZQUIERDA e ir a la calle princial", "casa1g");
+        this.narracion.agregarMensaje("casa1h", "Donde ir ahora? una buena pregunta. Podes CAMINAR ADELANTE y entrar a la otra casa, o IR A CALLE PRINCIPAL", "casa1g");
 
         this.narracion.agregarMensaje("casa2", "Entras a la casa. Esta todo desordenado, cubierto de polvo. Hay un olor muy fuerte, es una pésima señal, una vez que se huele ese hedor nunca más se olvida.", "casa1h");
         this.narracion.agregarMensaje("casa2a", "\n En el living hay un sillón de tres cuerpos que parece no estar en el sitio que le corresponde. Detras del sillon parece haber un vulto.", "casa2");
@@ -413,17 +413,19 @@ public class HistoriaLogica {
         this.narracion.agregarMensaje("recuerdo3", "Ellos llorarían y así lo hicieron. Te abrazarían como si fuese la última vez que te verían y así lo hicieron. \n "+" Una pregunta se te clava en el pecho, bien adentro.", "recuerdo2");
         this.narracion.agregarMensaje("recuerdo4", "¿será esa, aquella, la última vez que nos  viéramos? \n" + "¿será aquel abrazo el último ? \n" + "Caes de rodillas al piso. \n" + "No - te decís casi gritando.", "recuerdo3");
         this.narracion.agregarMensaje("recuerdo5", "Esa no será la última vez, no puede, no lo vas a permitir. Vas a hacer todo lo posible  para evitarlo. \n" + " Con mucho esfuerzo te levantas, respiras hondo y salis a la calle", "recuerdo4");
-              
-        this.narracion.agregarMensaje("callePrincipal", " Es la calle principal del pueblo, hay plantas que crecen desparramadas en la calle, la verda, hay grandes charcos, papeles y basura por todos lados.", "recuerdo5");
-        this.narracion.agregarMensaje("callePrincipal1", "A unos metros hay 1 poste de luz con un cartel pegado. Te acercas para ver lo que dice. Esta viejo con algunas letras gastadas.", "callePrincipal1");
+      //  this.narracion.setProximoMensajeDeMensajeEnLista("recuerdo5", "callePrincipal");
+        
+        
+        this.narracion.agregarMensaje("callePrincipal", " Es la calle principal del pueblo, hay plantas que crecen desparramadas en la calle, la vereda, hay grandes charcos, papeles y basura por todos lados.", "recuerdo5");
+        this.narracion.agregarMensaje("callePrincipal1", "A unos metros hay 1 poste de luz con un cartel pegado. Te acercas para ver lo que dice. Esta viejo con algunas letras gastadas.", "callePrincipal");
         this.narracion.agregarMensaje("callePrincipal2","Es un pedazo de plastico que dice: \n" + " Venda su propiedad a TIEMPO, no espere a que se desvalorice \n" + "\n" + "Mas abajo hay un logo pero esta gastado y no llegas a entenderlo"  ,"callePrincipal1");
         this.narracion.agregarMensaje("callePrincipal3", "Otra vez la sensacion de que esto lleva varios años asi. Entre tanto desorden y descuido resulta un grafitti, es uno de los garabatos raros del diario de Aurora. Te acercas, tras mirarlo un rato te da la impresion de que el garabato no esta bien pintado, justo debajo del mismo hay una baldoza de la cual crece pasto a sus cuatro lados, es raro","callePrincipal2");
         this.narracion.agregarMensaje("callePrincipal4", "Arrancas el pasto, sorprendentemente la baldosa sale con gran facilidad. Debajo hay una bolsa con hojas, son mas garabatos parece que alguien dejo pistas, pero ¿que quieren decir estas pistas? ¿que significan los garabatos?","callePrincipal3"); 
-        this.narracion.agregarMensaje("callePrincipal5", "En unas de las hojas, entre tantos garabatos sobresale uno, lo recordas bien. Es el que representa el numero 5. Mas adelante podes ver la casa, el bar, el camino que lleva al bosque y la casa de Susana","callePrincipal4");
+        this.narracion.agregarMensaje("callePrincipal5", "En unas de las hojas, entre tantos garabatos sobresale uno, lo recordas bien. Es el que representa el numero 5. Esto tiene que ser una pista. Desde aca podes INGRESAR a 3 casas. A cual deseas INGRESAR? ","callePrincipal4");
         this.narracion.agregarObjetoXAMensaje("callePrincipal5","candadoValor2","candadoValor2",true,null,null);
         this.narracion.agregarMensaje("casa3","La casa de Susana era una de las mas lindas. Su madre siempre arreglaba el jardin de la entrada con muchas flores casi siempre con gran variedad de  colores");  
         this.narracion.agregarMensaje("casa31"," Susana fue ese gran amor imposible. Hasta no hace mucho te seguias preguntando y si....? le hubiera dicho..... hubiera ido, tantos miles de y si....?","casa3");
-        this.narracion.agregarMensaje("casa32","Se fue un dia al norte, a estudiar el efecto de las nineras en el medio Hambiente. Pero su casa ya no era su casa. ahora pertenecia a las malas yerbas y a las enamoradas del muro ","casa31");
+        this.narracion.agregarMensaje("casa32","Se fue un dia al norte, a estudiar el efecto de las nineras en el medio ambiente. Pero su casa ya no era su casa. ahora pertenecia a las malas yerbas y a las enamoradas del muro ","casa31");
 
         ////////////////////////////////////////////////////////////
         //SE AGREGAN LOS COMANDOS...
@@ -441,7 +443,7 @@ public class HistoriaLogica {
         
         
         this.narracion.agregarMensaje("casa33", "Entras en la casa de Susana, el interior de la casa parece mas un jardin que una casa. También parece abandonada.  Revisas muy por arriba, la verdad no tenes ganas de encontrar más sorpresas. Revisas los dormitorios, cajoneras pero no encontras nada. Al salir de uno de los dormitorios te chocas un espejo de pared, este cae al piso, se rompe en varios pedazos. Por suerte no te lastimas, una buena", "casa32");
-        this.narracion.agregarMensaje("casa34", "Mientras corres a un lado el desastre que hiciste ves en el marco del espejo unas letras.\n" + "Dice: “ Todo está allí, aún hay tiempo 1 ”.\n" + " Quien escribió eso o cuando lo hizo? son detalles que tal vez nunca lograras saber.", "casa33");
+        this.narracion.agregarMensaje("casa34", "Mientras corres a un lado el desastre que hiciste ves en el marco del espejo unas letras.\n" + "Dice: “ Todo está allí, aún hay tiempo 1 ”.\n" + " Quien escribió eso o cuando lo hizo? son detalles que tal vez nunca lograras saber. \n" + "Buscas con la mirada pero no ves nada que llame tu atencion. \n" + "Salis a la calle. Desde aca podes IR AL BOSQUE, INGRESAR AL BAR  o  INGRESAR A CASA 2. ", "casa33");
         
         this.narracion.agregarObjetoXAMensaje("casa34", "candadoValor4", "  ", Boolean.TRUE, null, null);
        
@@ -461,29 +463,30 @@ public class HistoriaLogica {
         this.narracion.agregarComandoAMensaje("intro_manejasAut18", "entrarAlCafe", "ENTRAR AL CAFE","intro_entrarCafe" );
         this.narracion.agregarComandoAMensaje("intro_entrarCafe3", "pedirIndicacion", "PEDIR INDICACION", "intro_pedirInformacion");
         this.narracion.agregarComandoAMensaje("intro_entrarCafe3", "pagar", "PAGAR", "intro_pedirInformacionAgradecer3");
-        
+        this.narracion.agregarComandoAMensaje("intro_manejasAut18", "volverAlCruce", "VOLVER AL CRUCE", "intro_manejasAut12");
         this.narracion.agregarComandoAMensaje("intro_pedirInformacion6", "responder", "RESPONDER", "intro_pedirInformacionResponder");
         this.narracion.agregarComandoAMensaje("intro_pedirInformacion6", "agradecer", "AGRADECER", "intro_pedirInformacionAgradecer");
         
         this.narracion.agregarComandoAMensaje("intro_manejasAut20", "doblarIzquierda", "DOBLAR IZQUIERDA", "intro_manejasCaminoPueblo");
         this.narracion.agregarComandoAMensaje("intro_manejasAut20", "doblarDerecha", "DOBLAR DERECHA", "intro_manejasAut12");
-        
+         this.narracion.agregarComandoAMensaje("intro_manejasAut12", "doblarIzquierda", "DOBLAR IZQUIERDA", "intro_manejasCaminoPueblo");
         this.narracion.agregarComandoAMensaje("intro_manejasCaminoPueblo7", "si", "SI", "intro_manejasCaminoPueblo8");
         this.narracion.agregarComandoAMensaje("intro_manejasCaminoPueblo7", "no", "NO", "intro_manejasCaminoPueblo9");
         
         this.narracion.setProximoMensajeDeMensajeEnLista("intro_manejasCaminoPueblo8", "intro_manejasCaminoPueblo9");
         
-        
-        this.narracion.agregarComandoAMensaje("intro_callePueblo7", "casa1", "CAMINAR IZQUIERDA", "casa1");
+       
        
          // estos 3 comandos hay que revisarlo no se si estara bien.
-        this.narracion.agregarComandoAMensaje("casa1h", "seguirAdelante", "CCAMINAR ADELANTE","casa2");
+        this.narracion.agregarComandoAMensaje("casa1h", "seguirAdelante", "CAMINAR ADELANTE","casa2");
+        this.narracion.agregarComandoAMensaje("casa1h", "irCallePrincipal", "IR A CALLE PRINCIPAL","callePrincipal");
+        
         this.narracion.agregarComandoAMensaje("casa2f", "si", "SI", "casa2g");
         this.narracion.agregarComandoAMensaje("casa2f", "no", "no", "casa2i");
         
-        this.narracion.agregarComandoAMensaje("intro_callePueblo7", "doblarDerecha", "CAMINAR DERECHA", "cass2");
-        this.narracion.agregarComandoAMensaje("intro_callePueblo7", "seguirAdelante", "CAMINAR ADELANTE", "callePrincipalSector1");
-        this.narracion.agregarComandoAMensaje("intro_callePueblo7", "caminarAlBar", "ENTRAR AL BAR", "men1");
+        this.narracion.agregarComandoAMensaje("intro_callePueblo7", "doblarDerecha", "CAMINAR DERECHA", "casa2");
+        this.narracion.agregarComandoAMensaje("intro_callePueblo7", "seguirAdelante", "CAMINAR ADELANTE", "callePrincipal");
+        this.narracion.agregarComandoAMensaje("intro_callePueblo7", "caminarIzquierda", "caminar izquierda", "casa1a");
         
        this.narracion.agregarComandoAMensaje("callePrincipal5","ingresarcasa1", "INGRESAR CASA 1", "casa1a");
        this.narracion.agregarComandoAMensaje("callePrincipal5","ingresarcasa2", "INGRESAR CASA 2", "casa2");
@@ -492,7 +495,10 @@ public class HistoriaLogica {
        this.narracion.agregarComandoAMensaje("casa34","iralbosuqe", "IR AL BOSQUE", "bosque");
        this.narracion.agregarComandoAMensaje("casa34","ingresaralbar", "INGRESAR AL BAR", "men1");
        this.narracion.agregarComandoAMensaje("casa34","ingresarcasa2", "INGRESAR CASA 2", "casa2");
-      
+       
+       this.narracion.agregarComandoAMensaje("men7", "iralbosuqe", "IR AL BOSQUE", "bosque");
+       this.narracion.agregarComandoAMensaje("men7","ingresaralbar", "INGRESAR AL BAR", "men1");
+       this.narracion.agregarComandoAMensaje("men7","ingresarcasa2", "INGRESAR CASA 3", "casa3");
        
        this.narracion.agregarComandoAMensaje("bosqueIncompleto","ingresarcasa2", "INGRESAR CASA 2", "casa2");
        this.narracion.agregarComandoAMensaje("bosqueIncompleto","ircalleprincipal", "IR A CALLE PRINCIPAL", "callePrincipal");
@@ -500,13 +506,13 @@ public class HistoriaLogica {
        
         //**************
        
-        
+       
         
         
         
         //...
         //se establece cual es el principio de la historia...HAY QUE ANALIZAR ESTA LOGICA
-        this.narracion.setProximoMensajeDeNarracion("casa1e");//menu1 //intro_manejasAuto
+        this.narracion.setProximoMensajeDeNarracion("intro_manejasAuto");//menu1 //intro_manejasAuto
         
         this.codigoMensajeInicio = "intro_manejasAuto";
         this.idIdioma = 1;
