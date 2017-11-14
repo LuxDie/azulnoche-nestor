@@ -42,7 +42,7 @@ import org.xml.sax.Attributes;
  */
 public class Interfaz extends javax.swing.JFrame {
 
-    private final static String KEY_CANDADO = "8764";
+    private final static String KEY_CANDADO = "9531";
     private boolean isCandadoAbierto = false;
     /**
      * Creates new form Interfaz
