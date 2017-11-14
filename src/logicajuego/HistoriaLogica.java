@@ -301,7 +301,7 @@ public class HistoriaLogica {
         this.narracion.agregarMensaje("men2", "...A pesar de la oscuridad se puede observar una barra y una puerta con un cartel que dice Baño. El piso esta muy pegajoso, hay varios vasos y botellas tiradas en el suelo", "men1");
         this.narracion.agregarMensaje("men3", "En la barra hay una copa y dos botellas, una de agua y otra de cerveza. Misticamente la cerveza esta sin abrir. Te vendria muy bien una, pero aquella esta caliente y seguramente vencida ", "men2");
         this.narracion.agregarMensaje("men4", "El baño es un verdadero asco..., nadie en su sano juicio lo utilizaria para hacer sus necesidades pero parece que tambien servia como deposito porque se ve en una esquina varias cajas con papeles.", "men3");
-        this.narracion.agregarMensaje("men5", "Vas hasta la pila de cajas, estan llenas de vevidas espirituosas, todas calientes. Revisas los papeles, En su mayoria son facturas de proveedores, alunas cartas de bancos. Muchas planillas contables y alugunas notas, escritas a mano.", "men4");//falta setear cual es el mensaje siguiente...
+        this.narracion.agregarMensaje("men5", "Vas hasta la pila de cajas, estan llenas de vevidas espirituosas, todas calientes. Revisas los papeles, En su mayoria son facturas de proveedores, alunas cartas de bancos. Una hoja que solo tiene el numero 9 bien grande. Hay Muchas planillas contables y alugunas notas, escritas a mano.", "men4");
         this.narracion.agregarMensaje("men6","“Vendé, sabes que te conviene” dice una. Otra presagia : “ Si te quedas vas a terminar igual que la de las plantas”. \n" +
                                         "“ Vende o andate” dice otra. La que más llamativa es una que dice: “ Vendes o moris”.", "men5");
         this.narracion.agregarMensaje("men7", "También hay una carta escrita a máquina en una hoja con el membrete de una empresa, Aceites del Sud SA, la carta es un propuesta para comprar la propiedad donde está ubicado el Bar. Es mejor guardar todas estas notas, podrían servir como evidencia.\n" +
@@ -309,14 +309,13 @@ public class HistoriaLogica {
                                          "Salis del Bar, al mirar la calle pensas ¿a qué otro lugar debería ir?", "men6");
              
         
-        
+        this.narracion.agregarObjetoXAMensaje("men6", "candadoValor1", "  ", Boolean.TRUE, null, null);
         
        
 
         //se agregan comandos a los mensajes para que el jugador pueda decidir que es lo que quiere hacer...
        
-        this.narracion.setProximoMensajeDeMensajeEnLista("men5", "men4");
-        this.narracion.setProximoMensajeDeMensajeEnLista("men6", "men4");      
+            
 
         //
         //SE CARGA EL RESTO DE LA HISTORIA JUNTO CON LA LOGICA...
@@ -384,7 +383,7 @@ public class HistoriaLogica {
         this.narracion.agregarMensaje("intro_callePueblo6", "A tu izquierda hay una casa, a la derecha hay otra casa y frente a vos la calle principal.", "intro_callePueblo5");
         this.narracion.agregarMensaje("intro_callePueblo7", "qué deseas hacer? Podes CAMINAR IZQUIERDA, CAMINAR DERECHA, CAMINAR ADELANTE o ENTRAR AL BAR", "intro_callePueblo6");
        
-                // mensajes de casa1 y 2 y recuerdo1 es lo nuevo
+                
             
         this.narracion.agregarMensaje("casa1a", "Entreas a la casa a tu izquierda. Se ve vieja, humeda y descuidada. Buscas por todos lados pero  lo único que llama tu atención es un viejo cuaderno. Es un diario íntimo. Pertenece a Doña Aurora." );
         this.narracion.agregarMensaje("casa1b", "Cuando dejaste el pueblo ya era una señora grande, algo desequilibrada. Tenía por costumbre regalar higos pero para que fueran gratis debias pedirlo en la lengua que hablaba su abuelo.", "casa1a");
@@ -417,28 +416,33 @@ public class HistoriaLogica {
         this.narracion.agregarMensaje("callePrincipal", " Es la calle principal del pueblo, hay plantas que crecen desparramadas en la calle, la verda, hay grandes charcos, papeles y basura por todos lados.", "recuerdo5");
         this.narracion.agregarMensaje("callePrincipal1", "A unos metros hay 1 poste de luz con un cartel pegado. Te acercas para ver lo que dice. Esta viejo con algunas letras gastadas.", "callePrincipal1");
         this.narracion.agregarMensaje("callePrincipal2","Es un pedazo de plastico que dice: \n" + " Venda su propiedad a TIEMPO, no espere a que se desvalorice \n" + "\n" + "Mas abajo hay un logo pero esta gastado y no llegas a entenderlo"  ,"callePrincipal1");
-                       
-        ////////////////////////////////////////////////////////////
-        //SE AGREGAN LOS COMANDOS...
+        
+        
+        
+        
+        
+        
+        
+        
+        this.narracion.agregarMensaje("casa33", "Entras en la casa de Susana, el interior de la casa parece mas un jardin que una casa. También parece abandonada.  Revisas muy por arriba, la verdad no tenes ganas de encontrar más sorpresas. Revisas los dormitorios, cajoneras pero no encontras nada. Al salir de uno de los dormitorios te chocas un espejo de pared, este cae al piso, se rompe en varios pedazos. Por suerte no te lastimas, una buena", "casa32");
+        this.narracion.agregarMensaje("casa34", "Mientras corres a un lado el desastre que hiciste ves en el marco del espejo unas letras.\n" + "Dice: “ Todo está allí, aún hay tiempo 1 ”.\n" + " Quien escribió eso o cuando lo hizo? son detalles que tal vez nunca lograras saber.", "casa33");
+        
+        this.narracion.agregarObjetoXAMensaje("casa34", "candadoValor4", "  ", Boolean.TRUE, null, null);
+       
        this.narracion.agregarMensaje("bosque", "Recordas muy bien este bosque, aca jugabas con tus amigos cuando eran chicos, ya de muy chiquitos se metian al bosque a esconderse y los grnades se volvian locos porque tenian miedo de que los muerda alguna vivora o pero se crucen con algun animal mas grade. No es un bosque asi inmenso ni demasiado denso pero si lo suficientemente grande como para tardar dos dias en llegar al otro lado.");
        this.narracion.agregarMensaje("bosque1", "Ahora esta totalmente cambiado, tiene mucha mas vegetacion, las plantas se comieron los caminos. Algo te dice que tenes que ir hasta el otro lado del bosque. Alla hay un lago al final del bosque. Doña ahora solia pasar algunos dias alla.", "bosque");
        this.narracion.agregarMensaje("bosque2", "Es un viaje largo pero tal vez sea menos ya que cuando uno es chico las distancias parecen mayores. Mientras caminas pensas en todo lo que viste y encontraste, en todas las personas que vivian en el pueblo. No logras entender commo paso todo esto. Pensas, ¿por qué? ¿para qué? ¿ quié fue? ","bosque1");
+       this.narracion.agregarMensaje("bosque3","En principio pareciera que esta empresa, Aceites del Sud  SA, desea compar los terrenos del pueblo, incluso el pueblo. Es seguro que las personas se negaron a vender. Teniendo en cuenta las notas que encontre el bar, los amenazaron y algunos sefueron otros terminaron como Don Mateo. Pero como demuestro que estos tipos acosaron, persiguieron, mataron y mucho mas. Las notas con garabatos raros me recuerdan a Doña Aurora", "bosque2");
+       this.narracion.agregarMensaje("bosque4", "Tal vez, si busco en el lago pueda encontrar algo. Despues de caminar durante algunas horas, se asoma a lo lejos el lago, el cual tapa varios arboles. Se ve mucho mas grande de lo que recordas. \n"+" Rodeas el lago. \n2" + " Caminar un muy buen rato por la orilla y ves algo a lo lejos. Parece una cabaña. \n" + "Te entusiasmas, seguro que ahí encuentro algo ", "bosque3" );
+       this.narracion.agregarMensaje("bosque5", " Llegas a la cabaña. Las ventanas estan tapiadas. Intetas abrirlas pero es impsible hacerlo solo con las manos. La puerta esta cerrada y asegurada con un gran candado de clave numerica. Hacen falta cuatro numeros para poder abrirlo.", "bosque4");
        
+       this.narracion.agregarMensaje("cabana", "Muy bien pudiste abrir el candado");
+       this.narracion.agregarMensaje("cabana1"," Resulta que la cabaña pertenece a Doña Aurora. Hay varias fotos de ella, todo parece estar en su lugar, con mucho polvo pero ordenado. Reviasas todo pero no hay nada llamativo. \n" + " Corres algunos muebles pero nada. Te sentas en la cama para descansar un momento. \n"+ " Faltó mover la cama pensas. Debajo de la cama hay unas maderas algo flojas. Tironeas de una de ellas, haces palanca, fuerza, mas fuerza y se rompe la madera. \n" + "Encontras una caja, adentro tiene una bolsa llena de papeles.", "cabana" );
+       this.narracion.agregarMensaje("cabana2", "Entre los papeles hay notas amenazando a distintas personas, cartas de la empresa Aceites del Sud SA intimando a vender. Fotos de personas que no son del peblo agrediendo a algunas personas del pueblo. Incluso hay una foto de una persona de traje hablando con los agresores, al dorso dice \"Aqui se puede ver a Jose Acuña, director de Aceites del Sud SA hablando con sus matones \" \n" + " Y como si eso fuera poco en el fondo de la caja y dentro de una bolsa hay un cuchillo con sangre. Seguramente es el arma que mato a Don Mateo", "cabana1");
+       this.narracion.agregarMensaje("cabana3", "Estas son pruebas sufiientes como para meter a la carcel a todos los culpables de esta masacre. \n" + " Pensas: No se va a salvar ninguno. \n" + " Agarras todo y volves corriendo para presentar todo ante la justicia ", "cabana4" );
+
+
        
-        
-        
-        
-        
-        
-        
-        
-        this.narracion.agregarComandoAMensaje("intro_manejasAut11", "doblarDerecha", "DOBLAR DERECHA", "intro_manejasCaminoPueblo");
-        this.narracion.agregarComandoAMensaje("intro_manejasAut11", "seguirAdelante", "SEGUIR ADELANTE", "intro_manejasAut17");
-        
-        
-        this.narracion.agregarComandoAMensaje("intro_manejasAut18", "volverCruce", "VOLVER AL CRUCE", "intro_manejasAut19");
-        this.narracion.agregarComandoAMensaje("intro_manejasAut18", "entrarCafe", "ENTRAR AL CAFE", "intro_entrarCafe");
-        
         this.narracion.agregarComandoAMensaje("intro_entrarCafe3", "pedirIndicacion", "PEDIR INDICACION", "intro_pedirInformacion");
         this.narracion.agregarComandoAMensaje("intro_entrarCafe3", "pagar", "PAGAR", "intro_pedirInformacionAgradecer3");
         
