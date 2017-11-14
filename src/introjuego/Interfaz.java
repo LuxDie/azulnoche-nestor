@@ -42,7 +42,7 @@ import org.xml.sax.Attributes;
  */
 public class Interfaz extends javax.swing.JFrame {
 
-    private final static String KEY_CANDADO = "8764";
+    private final static String KEY_CANDADO = "9531";
     private boolean isCandadoAbierto = false;
     /**
      * Creates new form Interfaz
@@ -258,7 +258,7 @@ public class Interfaz extends javax.swing.JFrame {
     private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_ENTER)
         {
-            textoAcciones.setVisible(false);
+            textoAcciones.setText("Ingrese el comando correspondiente.");
             String texto = jTextField1.getText();
             if (texto.equals("")) {
                 mostrarProximoMensaje();
@@ -303,19 +303,20 @@ public class Interfaz extends javax.swing.JFrame {
 
     private HistoriaLogica historia;
     private MensajeLogica ultimoMensajeMostrado;
+    private String codigoMensajeAnterior="";
     
     private void mostrarProximoMensaje() {
         ultimoMensajeMostrado = historia.getMensaje();
         if (ultimoMensajeMostrado != null) {
             procesarObjetoX();
 
-            if (ultimoMensajeMostrado.getMostrarMensaje()) {
+            if (ultimoMensajeMostrado.getMostrarMensaje() && !(ultimoMensajeMostrado.getCodigoMensaje().equals(codigoMensajeAnterior))) {
                 jTextArea1.append(ultimoMensajeMostrado.getMensaje() + "\n\n");//SE DEBE DEFINIR SI ES NECESARIO VOLVER A ACTIVAR  
+                codigoMensajeAnterior=ultimoMensajeMostrado.getCodigoMensaje();
             }
 
             if (!ultimoMensajeMostrado.getProcesarRespuesta()) {
-                textoAcciones.setText("presione ENTER para continuar" + "\n");
-                textoAcciones.setVisible(true);
+                textoAcciones.setText("Presione ENTER para continuar.");
             }
         }
         

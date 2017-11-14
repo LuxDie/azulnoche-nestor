@@ -416,12 +416,27 @@ public class HistoriaLogica {
         this.narracion.agregarMensaje("callePrincipal", " Es la calle principal del pueblo, hay plantas que crecen desparramadas en la calle, la verda, hay grandes charcos, papeles y basura por todos lados.", "recuerdo5");
         this.narracion.agregarMensaje("callePrincipal1", "A unos metros hay 1 poste de luz con un cartel pegado. Te acercas para ver lo que dice. Esta viejo con algunas letras gastadas.", "callePrincipal1");
         this.narracion.agregarMensaje("callePrincipal2","Es un pedazo de plastico que dice: \n" + " Venda su propiedad a TIEMPO, no espere a que se desvalorice \n" + "\n" + "Mas abajo hay un logo pero esta gastado y no llegas a entenderlo"  ,"callePrincipal1");
-        
-        
-        
-        
-        
-        
+        this.narracion.agregarMensaje("callePrincipal3", "Otra vez la sensacion de que esto lleva varios años asi. Entre tanto desorden y descuido resulta un grafitti, es uno de los garabatos raros del diario de Aurora. Te acercas, tras mirarlo un rato te da la impresion de que el garabato no esta bien pintado, justo debajo del mismo hay una baldoza de la cual crece pasto a sus cuatro lados, es raro","callePrincipal2");
+        this.narracion.agregarMensaje("callePrincipal4", "Arrancas el pasto, sorprendentemente la baldosa sale con gran facilidad. Debajo hay una bolsa con hojas, son mas garabatos parece que alguien dejo pistas, pero ¿que quieren decir estas pistas? ¿que significan los garabatos?","callePrincipal3"); 
+        this.narracion.agregarMensaje("callePrincipal5", "En unas de las hojas, entre tantos garabatos sobresale uno, lo recordas bien. Es el que representa el numero 5. Mas adelante podes ver la casa, el bar, el camino que lleva al bosque y la casa de Susana","callePrincipal4");
+        this.narracion.agregarObjetoXAMensaje("callePrincipal5","candadoValor2","candadoValor2",true,null,null);
+        this.narracion.agregarMensaje("casa3","La casa de Susana era una de las mas lindas. Su madre siempre arreglaba el jardin de la entrada con muchas flores casi siempre con gran variedad de  colores");  
+        this.narracion.agregarMensaje("casa31"," Susana fue ese gran amor imposible. Hasta no hace mucho te seguias preguntando y si....? le hubiera dicho..... hubiera ido, tantos miles de y si....?","casa3");
+        this.narracion.agregarMensaje("casa32","Se fue un dia al norte, a estudiar el efecto de las nineras en el medio Hambiente. Pero su casa ya no era su casa. ahora pertenecia a las malas yerbas y a las enamoradas del muro ","casa31");
+
+        ////////////////////////////////////////////////////////////
+        //SE AGREGAN LOS COMANDOS...
+       this.narracion.agregarMensaje("bosque", "Recordas muy bien este bosque, aca jugabas con tus amigos cuando eran chicos, ya de muy chiquitos se metian al bosque a esconderse y los grnades se volvian locos porque tenian miedo de que los muerda alguna vivora o pero se crucen con algun animal mas grade. No es un bosque asi inmenso ni demasiado denso pero si lo suficientemente grande como para tardar dos dias en llegar al otro lado.");
+       this.narracion.agregarMensaje("bosque1", "Ahora esta totalmente cambiado, tiene mucha mas vegetacion, las plantas se comieron los caminos. Algo te dice que tenes que ir hasta el otro lado del bosque. Alla hay un lago al final del bosque. Doña ahora solia pasar algunos dias alla.", "bosque");
+       this.narracion.agregarMensaje("bosque2", "Es un viaje largo pero tal vez sea menos ya que cuando uno es chico las distancias parecen mayores. Mientras caminas pensas en todo lo que viste y encontraste, en todas las personas que vivian en el pueblo. No logras entender commo paso todo esto. Pensas, ¿por qué? ¿para qué? ¿ quié fue? ","bosque1");
+     
+       this.narracion.agregarMensaje("bosqueIncompleto","te faltan numeros para abrir el candado podes volver al bar para boscar los datos que abren el candado");
+        this.narracion.agregarMensaje("bosqueCompleto","encontraste todos los numeros, entras a la cabaña");
+       
+       
+       
+        this.narracion.agregarComandoAMensaje("intro_manejasAut11", "doblarDerecha", "DOBLAR DERECHA", "intro_manejasCaminoPueblo");
+        this.narracion.agregarComandoAMensaje("intro_manejasAut11", "seguirAdelante", "SEGUIR ADELANTE", "intro_manejasAut17");
         
         
         this.narracion.agregarMensaje("casa33", "Entras en la casa de Susana, el interior de la casa parece mas un jardin que una casa. También parece abandonada.  Revisas muy por arriba, la verdad no tenes ganas de encontrar más sorpresas. Revisas los dormitorios, cajoneras pero no encontras nada. Al salir de uno de los dormitorios te chocas un espejo de pared, este cae al piso, se rompe en varios pedazos. Por suerte no te lastimas, una buena", "casa32");
@@ -465,15 +480,25 @@ public class HistoriaLogica {
         this.narracion.agregarComandoAMensaje("casa2f", "si", "SI", "casa2g");
         this.narracion.agregarComandoAMensaje("casa2f", "no", "no", "casa2i");
         
-        
-        
         this.narracion.agregarComandoAMensaje("intro_callePueblo7", "doblarDerecha", "CAMINAR DERECHA", "cass2");
         this.narracion.agregarComandoAMensaje("intro_callePueblo7", "seguirAdelante", "CAMINAR ADELANTE", "callePrincipalSector1");
         this.narracion.agregarComandoAMensaje("intro_callePueblo7", "caminarAlBar", "ENTRAR AL BAR", "men1");
-       
-                  
-        //**************
         
+       this.narracion.agregarComandoAMensaje("callePrincipal5","ingresarcasa1", "INGRESAR CASA 1", "casa1a");
+       this.narracion.agregarComandoAMensaje("callePrincipal5","ingresarcasa2", "INGRESAR CASA 2", "casa2");
+       this.narracion.agregarComandoAMensaje("callePrincipal5","ingresarcasa3", "INGRESAR CASA 3", "casa3");
+       
+       this.narracion.agregarComandoAMensaje("casa34","iralbosuqe", "IR AL BOSQUE", "bosque");
+       this.narracion.agregarComandoAMensaje("casa34","ingresaralbar", "INGRESAR AL BAR", "men1");
+       this.narracion.agregarComandoAMensaje("casa34","ingresarcasa2", "INGRESAR CASA 2", "casa2");
+      
+       
+       this.narracion.agregarComandoAMensaje("bosqueIncompleto","ingresarcasa2", "INGRESAR CASA 2", "casa2");
+       this.narracion.agregarComandoAMensaje("bosqueIncompleto","ircalleprincipal", "IR A CALLE PRINCIPAL", "callePrincipal");
+       this.narracion.agregarComandoAMensaje("bosqueIncompleto","ingresarcabana", "INGRESAR A CABAÑA", "cabana");
+       
+        //**************
+       
         
         
         
