@@ -329,8 +329,26 @@ public class Interfaz extends javax.swing.JFrame {
             String codigoObjetoX = objetoX.getCodigoObjetoX();
             switch (codigoObjetoX) {
                 case "candadoValor1":
-                    spn_pass1.setValue(1);//o ejecutar el metodo adecuado...
+                    spn_pass1.setValue(9);//o ejecutar el metodo adecuado...
                     break;
+                case "candadoValor2":
+                    spn_pass2.setValue(5);//o ejecutar el metodo adecuado...
+                    break;
+                case "candadoValor3":
+                    spn_pass3.setValue(3);//o ejecutar el metodo adecuado...
+                    break;    
+                case "candadoValor4":
+                    spn_pass4.setValue(1);//o ejecutar el metodo adecuado...
+                    break;
+                case "llegadabosque":
+                    if (isCandadoAbierto) {
+                        historia.setProximoMensajeDeNarracion("bosqueCompleto");
+                        historia.setProximoMensajeDeMensajeEnLista("bosqueCompleto", "cabana");
+                    } else {
+                        historia.setProximoMensajeDeNarracion("bosqueIncompleto");
+                    }
+                    mostrarProximoMensaje();
+                    break; 
             }
         }
     }

@@ -391,6 +391,7 @@ public class HistoriaLogica {
         this.narracion.agregarMensaje("casa1d", "El diario íntimo tiene las hojas del medio arrancadas. Las primeras páginas hablan de cosas sin importancia. Y las ultimas estan llenas de garabatos. Da la impresión que Doña Aurora se terminó de volver loca. O no? Acaso podría ser una pista escondida?.","casa1c" );
         this.narracion.agregarMensaje("casa1e", "La vieja se hizo pasar por loca y escribió todo en ese idioma casi muerto?\n" + "Miras de nuevo el diario, y siguen pareciendo garabatos. Aunque algunos dibujos podrían ser letras o Numeros.", "casa1d");        
         this.narracion.agregarMensaje("casa1f","Mirando el diario con mayor atencion vez, debajo de todos los garabatos, un garabato mucho mas grande. Lo reconoces es el equivalente al numero 3. Es otra cosa para averiguar." , "casa1e" );        
+        this.narracion.agregarObjetoXAMensaje("casa1f", "candadoValor1", "candado valor 1", true, null, null);
         this.narracion.agregarMensaje("casa1g", "salis de la casa de Aurora. La verdad todo se ve igual, avandonado, absolutamente todo esta humedo, icluso con moho.", "casa1f");
         this.narracion.agregarMensaje("casa1h", "Donde ir ahora? una buena pregunta. Podes CAMINAR ADELANTE y entrar a la otra casa, DOBLAR IZQUIERDA e ir a la calle princial", "casa1g");
 
@@ -505,7 +506,7 @@ public class HistoriaLogica {
         
         //...
         //se establece cual es el principio de la historia...HAY QUE ANALIZAR ESTA LOGICA
-        this.narracion.setProximoMensajeDeNarracion("intro_manejasAuto");//menu1 //intro_manejasAuto
+        this.narracion.setProximoMensajeDeNarracion("casa1e");//menu1 //intro_manejasAuto
         
         this.codigoMensajeInicio = "intro_manejasAuto";
         this.idIdioma = 1;
@@ -514,5 +515,11 @@ public class HistoriaLogica {
         //
     }
     
+    public void setProximoMensajeDeNarracion(String codigoMenaje) {
+        this.narracion.setProximoMensajeDeNarracion(codigoMenaje);
+    }
     
+    public void setProximoMensajeDeMensajeEnLista(String codigoMensaje, String codigoMensajeSiguiente) {
+        this.narracion.setProximoMensajeDeMensajeEnLista(codigoMensaje, codigoMensajeSiguiente);
+    }
 }
