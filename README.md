@@ -5,7 +5,7 @@
 Un juego de aventura de texto creado por los alumnos de la comisión 174 del programa Codo a Codo de la Ciudad Autónoma de Buenos Aires.
 
 ## Instrucciones
-Correr el `.jar` ejecutable `azulnoche.jar` ubicado en la carpeta `dist`
+Correr el ejecutable `azulnoche.jar` ubicado en el zip descargable en la sección "Releases".
 
 ## Equipo
 ### Autores
