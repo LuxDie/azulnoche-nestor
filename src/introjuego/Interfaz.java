@@ -72,6 +72,7 @@ public class Interfaz extends javax.swing.JFrame {
         //cargarHistoriaPorDefectoDesdeScript();
         
         //---------------------------------
+        numerosEncontrados = 0;//0
         mostrarProximoMensaje();
         
         ///////////////////////
@@ -310,7 +311,20 @@ public class Interfaz extends javax.swing.JFrame {
     private MensajeLogica ultimoMensajeMostrado;
     private String codigoMensajeAnterior="";
     
+    private Integer numerosEncontrados;
+    
     private void mostrarProximoMensaje() {
+        MensajeLogica mensajeLogica = historia.getMensaje();
+        if (mensajeLogica != null) {
+            ArrayList<ObjetoX> listaObjetoX = mensajeLogica.getListaObjetoX();
+            if (listaObjetoX.size() > 0) {
+                procesarObjetoX(mensajeLogica, listaObjetoX);
+            } else {
+                mostrarProximoMensaje2(mensajeLogica);
+            }
+        }
+        
+        /*
         ultimoMensajeMostrado = historia.getMensaje();
         if (ultimoMensajeMostrado != null) {
             procesarObjetoX();
@@ -324,38 +338,71 @@ public class Interfaz extends javax.swing.JFrame {
                 textoAcciones.setText("Presione ENTER para continuar.");
             }
         }
-        
+        */
         
     }
     
-    private void procesarObjetoX() {
-        ArrayList<ObjetoX> listaObjetoX = ultimoMensajeMostrado.getListaObjetoX();
+    private void mostrarProximoMensaje2(MensajeLogica mensajeLogica) {
+        ultimoMensajeMostrado = mensajeLogica;
+        if (ultimoMensajeMostrado.getMostrarMensaje() && !(ultimoMensajeMostrado.getCodigoMensaje().equals(codigoMensajeAnterior))) {
+                jTextArea1.append(ultimoMensajeMostrado.getMensaje() + "\n\n");//SE DEBE DEFINIR SI ES NECESARIO VOLVER A ACTIVAR  
+                codigoMensajeAnterior=ultimoMensajeMostrado.getCodigoMensaje();
+            }
+
+            if (!ultimoMensajeMostrado.getProcesarRespuesta()) {
+                textoAcciones.setText("Presione ENTER para continuar.");
+            }
+    }
+    
+    private void procesarObjetoX(MensajeLogica mensajeLogica, ArrayList<ObjetoX> listaObjetoX) {
+        //ArrayList<ObjetoX> listaObjetoX = ultimoMensajeMostrado.getListaObjetoX();
         for (ObjetoX objetoX : listaObjetoX) {
             String codigoObjetoX = objetoX.getCodigoObjetoX();
             switch (codigoObjetoX) {
                 case "candadoValor1":
-                    spn_pass1.setValue(9);//o ejecutar el metodo adecuado...
+                    numerosEncontrados = numerosEncontrados + 1;
+                    //spn_pass1.setValue(objetoX.getValorEntero());//o ejecutar el metodo adecuado...9
                     break;
                 case "candadoValor2":
-                    spn_pass2.setValue(5);//o ejecutar el metodo adecuado...
+                    numerosEncontrados = numerosEncontrados + 1;
+                    mostrarProximoMensaje2(mensajeLogica);
+                    //spn_pass2.setValue(objetoX.getValorEntero());//o ejecutar el metodo adecuado...5
                     break;
                 case "candadoValor3":
-                    spn_pass3.setValue(3);//o ejecutar el metodo adecuado...
+                    numerosEncontrados = numerosEncontrados + 1;
+                    mostrarProximoMensaje2(mensajeLogica);
+                    //spn_pass3.setValue(objetoX.getValorEntero());//o ejecutar el metodo adecuado...3
                     break;    
                 case "candadoValor4":
-                    spn_pass4.setValue(1);//o ejecutar el metodo adecuado...
+                    numerosEncontrados = numerosEncontrados + 1;
+                    mostrarProximoMensaje2(mensajeLogica);
+                    //spn_pass4.setValue(objetoX.getValorEntero());//o ejecutar el metodo adecuado...1
                     break;
-                case "llegadabosque":
+                case "controlCandado":
+                    historia.setProximoMensajeDeNarracion("bosquecontrolCandado");
+                    if (numerosEncontrados == 4) {
+                        historia.setProximoMensajeDeMensajeEnLista("bosquecontrolCandado", "bosqueConDatosCandadoCompleto");
+                    } else {
+                        historia.setProximoMensajeDeMensajeEnLista("bosquecontrolCandado", "bosqueConDatosCandadoInCompleto");
+                    }
+                    
+                    /*
                     if (isCandadoAbierto) {
                         historia.setProximoMensajeDeNarracion("bosqueCompleto");
                         historia.setProximoMensajeDeMensajeEnLista("bosqueCompleto", "cabana");
                     } else {
                         historia.setProximoMensajeDeNarracion("bosqueIncompleto");
                     }
+                    */
                     mostrarProximoMensaje();
                     break; 
             }
         }
+    }
+    
+    private void entrarACabana() {
+        historia.setProximoMensajeDeNarracion("cabana");
+        mostrarProximoMensaje();
     }
     
     private void procesarComando(String textoComando) {
@@ -517,6 +564,8 @@ public class Interfaz extends javax.swing.JFrame {
             spn_pass2.removeAll();
             spn_pass3.removeAll();
             spn_pass4.removeAll();
+            
+            entrarACabana();
         }
     }
     
