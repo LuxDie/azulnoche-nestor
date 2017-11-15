@@ -129,6 +129,7 @@ public class Interfaz extends javax.swing.JFrame {
         jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
         jTextArea1.setWrapStyleWord(true);
+        jTextArea1.setFocusable(false);
         jScrollPane1.setViewportView(jTextArea1);
 
         getContentPane().add(jScrollPane1);
@@ -156,6 +157,7 @@ public class Interfaz extends javax.swing.JFrame {
         spn_pass1.setFont(new java.awt.Font("Year supply of fairy cakes", 1, 24)); // NOI18N
         spn_pass1.setModel(new javax.swing.SpinnerNumberModel(0, 0, 9, 1));
         spn_pass1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        spn_pass1.setFocusable(false);
         spn_pass1.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 spn_pass1StateChanged(evt);
@@ -167,6 +169,7 @@ public class Interfaz extends javax.swing.JFrame {
         spn_pass2.setFont(new java.awt.Font("Year supply of fairy cakes", 1, 24)); // NOI18N
         spn_pass2.setModel(new javax.swing.SpinnerNumberModel(0, 0, 9, 1));
         spn_pass2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        spn_pass2.setFocusable(false);
         spn_pass2.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 spn_pass2StateChanged(evt);
@@ -178,6 +181,7 @@ public class Interfaz extends javax.swing.JFrame {
         spn_pass3.setFont(new java.awt.Font("Year supply of fairy cakes", 1, 24)); // NOI18N
         spn_pass3.setModel(new javax.swing.SpinnerNumberModel(0, 0, 9, 1));
         spn_pass3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        spn_pass3.setFocusable(false);
         spn_pass3.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 spn_pass3StateChanged(evt);
@@ -189,6 +193,7 @@ public class Interfaz extends javax.swing.JFrame {
         spn_pass4.setFont(new java.awt.Font("Year supply of fairy cakes", 1, 24)); // NOI18N
         spn_pass4.setModel(new javax.swing.SpinnerNumberModel(0, 0, 9, 1));
         spn_pass4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        spn_pass4.setFocusable(false);
         spn_pass4.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 spn_pass4StateChanged(evt);
