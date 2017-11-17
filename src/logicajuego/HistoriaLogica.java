@@ -306,7 +306,7 @@ public class HistoriaLogica {
                                         "“ Vende o andate” dice otra. La que más llamativa es una que dice: “ Vendes o moris”.", "men5");
         this.narracion.agregarMensaje("men7", "También hay una carta escrita a máquina en una hoja con el membrete de una empresa, Aceites del Sud SA, la carta es un propuesta para comprar la propiedad donde está ubicado el Bar. Es mejor guardar todas estas notas, podrían servir como evidencia.\n" +
                                         "Revisas un poco más el lugar pero es en vano literalmente está todo dado vuelta.\n" +
-                                         "Salis del Bar, al mirar la calle pensas ¿a qué otro lugar debería ir?", "men6");
+                                         "Salis del Bar, al mirar la calle pensas ¿a qué otro lugar debería ir? Podes IR AL BOSQUE o INGRESAR CASA 3", "men6");
              
         
         this.narracion.agregarObjetoXAMensaje("men5", "candadoValor1", "candadoValor1", Boolean.TRUE, 9, null);
@@ -360,9 +360,11 @@ public class HistoriaLogica {
         
         
         this.narracion.agregarMensaje("intro_manejasCaminoPueblo8", "Buscas un poco pero no hay muchos lugares donde mirar y terminas sin encontrar nada. subis al auto.");
-        this.narracion.setProximoMensajeDeMensajeEnLista("intro_manejasCaminoPueblo8", "intro_manejasCaminoPueblo9");
+        
         
         this.narracion.agregarMensaje("intro_manejasCaminoPueblo9", "Seguis camino, del lado izquierdo hay una casa, al menos eso parece ya que está bastante lejos.");
+        this.narracion.setProximoMensajeDeMensajeEnLista("intro_manejasCaminoPueblo8", "intro_manejasCaminoPueblo9");
+        
         this.narracion.agregarMensaje("intro_manejasCaminoPueblo10", "Desde el viejo Renault 9 azul noche, se puede ver que la casa está casi tapada por el agua.", "intro_manejasCaminoPueblo9");
         this.narracion.agregarMensaje("intro_manejasCaminoPueblo11", "Más adelante se ven varias edificaciones, podría ser todo un pueblo.", "intro_manejasCaminoPueblo10");
         this.narracion.agregarMensaje("intro_manejasCaminoPueblo12", "Mejor dicho... Podría ser el pueblo que abandonaste hace tantos años?", "intro_manejasCaminoPueblo11");
@@ -419,7 +421,7 @@ public class HistoriaLogica {
         this.narracion.agregarMensaje("casa31"," Susana fue ese gran amor imposible. Hasta no hace mucho te seguias preguntando y si....? le hubiera dicho..... hubiera ido, tantos miles de y si....?","casa3");
         this.narracion.agregarMensaje("casa32","Se fue un dia al norte, a estudiar el efecto de las nineras en el medio ambiente. Pero su casa ya no era su casa. ahora pertenecia a las malas yerbas y a las enamoradas del muro ","casa31");
         this.narracion.agregarMensaje("casa33", "Entras en la casa de Susana, el interior de la casa parece mas un jardin que una casa. También parece abandonada.  Revisas muy por arriba, la verdad no tenes ganas de encontrar más sorpresas. Revisas los dormitorios, cajoneras pero no encontras nada. Al salir de uno de los dormitorios te chocas un espejo de pared, este cae al piso, se rompe en varios pedazos. Por suerte no te lastimas, una buena", "casa32");
-        this.narracion.agregarMensaje("casa34", "Mientras corres a un lado el desastre que hiciste ves en el marco del espejo unas letras.\n" + "Dice: “ Todo está allí, aún hay tiempo 1 ”.\n" + " Quien escribió eso o cuando lo hizo? son detalles que tal vez nunca lograras saber. \n" + "Buscas con la mirada pero no ves nada que llame tu atencion. \n" + "Salis a la calle. Desde aca podes IR AL BOSQUE, INGRESAR AL BAR  o  INGRESAR A CASA 2. ", "casa33");
+        this.narracion.agregarMensaje("casa34", "Mientras corres a un lado el desastre que hiciste ves en el marco del espejo unas letras.\n" + "Dice: “ Todo está allí, aún hay tiempo 1 ”.\n" + " Quien escribió eso o cuando lo hizo? son detalles que tal vez nunca lograras saber. \n" + "Buscas con la mirada pero no ves nada que llame tu atencion. \n" + "Salis a la calle. Desde aca podes IR AL BOSQUE, INGRESAR AL BAR  o  INGRESAR CASA 2. ", "casa33");
         this.narracion.agregarObjetoXAMensaje("casa34", "candadoValor4", "candado valor 4", Boolean.TRUE, 1, null);
 
     }
@@ -431,10 +433,11 @@ public class HistoriaLogica {
         this.narracion.agregarMensaje("bosque3","En principio pareciera que esta empresa, Aceites del Sud  SA, desea compar los terrenos del pueblo, incluso el pueblo. Es seguro que las personas se negaron a vender. Teniendo en cuenta las notas que encontre el bar, los amenazaron y algunos sefueron otros terminaron como Don Mateo. Pero como demuestro que estos tipos acosaron, persiguieron, mataron y mucho mas. Las notas con garabatos raros me recuerdan a Doña Aurora", "bosque2");
         this.narracion.agregarMensaje("bosque4", "Tal vez, si busco en el lago pueda encontrar algo. Despues de caminar durante algunas horas, se asoma a lo lejos el lago, el cual tapa varios arboles. Se ve mucho mas grande de lo que recordas. \n"+" Rodeas el lago. \n2" + " Caminar un muy buen rato por la orilla y ves algo a lo lejos. Parece una cabaña. \n" + "Te entusiasmas, seguro que ahí encuentro algo ", "bosque3" );
         this.narracion.agregarMensaje("bosque5", " Llegas a la cabaña. Las ventanas estan tapiadas. Intetas abrirlas pero es impsible hacerlo solo con las manos. La puerta esta cerrada y asegurada con un gran candado de clave numerica. Hacen falta cuatro numeros para poder abrirlo.", "bosque4");
-        this.narracion.agregarObjetoXAMensaje("bosque5","controlCandado","controlCandado",true,5,null);
+        this.narracion.agregarObjetoXAMensaje("bosque5","controlCandado","controlCandado",true,null,null);
         
         this.narracion.agregarMensaje("bosquecontrolCandado", " Llegas a la cabaña. Las ventanas estan tapiadas. Intetas abrirlas pero es impsible hacerlo solo con las manos. La puerta esta cerrada y asegurada con un gran candado de clave numerica. Hacen falta cuatro numeros para poder abrirlo.");
         this.narracion.agregarMensaje("bosqueConDatosCandadoCompleto","Piensas en todo lo que viste desde que llegaste al pueblo y deduces que todos esos nuemros que encontraste en los distintos lugares son los que abriran el candado, solo te alta colocarlos en el orden correcto, son 4 numeros... es cuestion de probar todas las combinaciones");
+        this.narracion.agregarObjetoXAMensaje("bosqueConDatosCandadoCompleto","bosqueConDatosCandadoCompleto","bosqueConDatosCandadoCompleto",true,null,null);
         this.narracion.agregarMensaje("bosqueConDatosCandadoInCompleto","Piensas en todo lo que viste desde que llegaste al pueblo y deduces que en el pueblo hay pistas de los numeros para abrir el candado. Solo te queda decidir donde buscar. Podes: IR A CALLE PRINCIPAL, IR AL BAR");
         //this.narracion.agregarMensaje("bosqueSINDatosCandado","encontraste todos los numeros, entras a la cabaña");
        
@@ -443,9 +446,11 @@ public class HistoriaLogica {
     
     private void cargarMensjesObjetos_Cabana() {
         this.narracion.agregarMensaje("cabana", "Muy bien pudiste abrir el candado");
+        this.narracion.agregarObjetoXAMensaje("cabana","cabana","cabana",true,null,null);
         this.narracion.agregarMensaje("cabana1"," Resulta que la cabaña pertenece a Doña Aurora. Hay varias fotos de ella, todo parece estar en su lugar, con mucho polvo pero ordenado. Reviasas todo pero no hay nada llamativo. \n" + " Corres algunos muebles pero nada. Te sentas en la cama para descansar un momento. \n"+ " Faltó mover la cama pensas. Debajo de la cama hay unas maderas algo flojas. Tironeas de una de ellas, haces palanca, fuerza, mas fuerza y se rompe la madera. \n" + "Encontras una caja, adentro tiene una bolsa llena de papeles.", "cabana" );
         this.narracion.agregarMensaje("cabana2", "Entre los papeles hay notas amenazando a distintas personas, cartas de la empresa Aceites del Sud SA intimando a vender. Fotos de personas que no son del peblo agrediendo a algunas personas del pueblo. Incluso hay una foto de una persona de traje hablando con los agresores, al dorso dice \"Aqui se puede ver a Jose Acuña, director de Aceites del Sud SA hablando con sus matones \" \n" + " Y como si eso fuera poco en el fondo de la caja y dentro de una bolsa hay un cuchillo con sangre. Seguramente es el arma que mato a Don Mateo", "cabana1");
-        this.narracion.agregarMensaje("cabana3", "Estas son pruebas sufiientes como para meter a la carcel a todos los culpables de esta masacre. \n" + " Pensas: No se va a salvar ninguno. \n" + " Agarras todo y volves corriendo para presentar todo ante la justicia ", "cabana4" );
+        this.narracion.agregarMensaje("cabana3", "Estas son pruebas sufiientes como para meter a la carcel a todos los culpables de esta masacre. \n" + " Pensas: No se va a salvar ninguno. \n" + " Agarras todo y volves corriendo para presentar todo ante la justicia.\n\n F I N", "cabana2" );
+        this.narracion.agregarObjetoXAMensaje("cabana3","finhistoria","finhistoria",true,null,null);
 
     }
     
@@ -498,7 +503,7 @@ public class HistoriaLogica {
         this.narracion.agregarComandoAMensaje("casa34","ingresarcasa2", "INGRESAR CASA 2", "casa2");
 
         this.narracion.agregarComandoAMensaje("men7", "iralbosuqe", "IR AL BOSQUE", "bosque");
-        this.narracion.agregarComandoAMensaje("men7","ingresaralbar", "INGRESAR AL BAR", "men1");
+        //this.narracion.agregarComandoAMensaje("men7","ingresaralbar", "INGRESAR AL BAR", "men1");
         this.narracion.agregarComandoAMensaje("men7","ingresarcasa2", "INGRESAR CASA 3", "casa3");
 
         this.narracion.agregarComandoAMensaje("bosqueConDatosCandadoInCompleto","irBar", "IR AL BAR", "men1");
@@ -522,7 +527,7 @@ public class HistoriaLogica {
 
         
         //se establece cual es el principio de la historia... e informacion basica para la base de dato
-        this.narracion.setProximoMensajeDeNarracion("intro_manejasAuto");//menu1 //intro_manejasAuto
+        this.narracion.setProximoMensajeDeNarracion("intro_manejasAuto");//menu1 //intro_manejasAuto//intro_callePueblo6
         
         this.codigoMensajeInicio = "intro_manejasAuto";
         this.idIdioma = 1;
