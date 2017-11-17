@@ -518,6 +518,8 @@ public class Interfaz extends javax.swing.JFrame {
             procesarComando(jTextField1.getText());
             jTextField1.setText("");
         }
+        
+        jTextArea1.setCaretPosition(jTextArea1.getText().length());
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
