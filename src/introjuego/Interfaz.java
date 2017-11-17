@@ -136,9 +136,10 @@ public class Interfaz extends javax.swing.JFrame {
         jScrollPane1.setBounds(40, 60, 330, 310);
 
         jButton1.setText("Enviar");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+        jButton1.setFocusable(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton1);
@@ -218,28 +219,6 @@ public class Interfaz extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        if(jTextField1.getText().equals(""))
-        {
-            mostrarProximoMensaje();
-        } else {
-            procesarComando(jTextField1.getText());
-        }
-        //insertarHistoria();//ok
-        //insertarMensaje();//ok
-        //cargarHistoriasTodas();//ok
-        //cargarMensajesDeIdHistoriaIdIdioma();//ok
-        //insertarTextoMensaje();// ok
-        //cargarTextoMensajePorIdMensajeIdIdioma();
-        //cargarComandosDeIdMensaje();//ok
-        //insertarTextoComando();
-        //cargarTextoComadoPorIdComandoIdIdioma();
-        //insertarTarea();
-        //cargarTareaPorIdMensaje();
-        //insertarHIstoriaCompletaEnBaseDato();
-        //cargarHistoriaPorDefectoDesdeScript();
-    }//GEN-LAST:event_jButton1MouseClicked
-
     private void spn_pass1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spn_pass1StateChanged
         // TODO add your handling code here:
         intentarAbrirCandado();
@@ -263,16 +242,26 @@ public class Interfaz extends javax.swing.JFrame {
     private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_ENTER)
         {
-            textoAcciones.setText("Ingrese el comando correspondiente.");
-            String texto = jTextField1.getText();
-            if (texto.equals("")) {
-                mostrarProximoMensaje();
-            } else {
-                procesarComando(jTextField1.getText());
-                jTextField1.setText("");
-            }
+            pedirProximoComando();
         }
     }//GEN-LAST:event_jTextField1KeyPressed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        pedirProximoComando();
+        //insertarHistoria();//ok
+        //insertarMensaje();//ok
+        //cargarHistoriasTodas();//ok
+        //cargarMensajesDeIdHistoriaIdIdioma();//ok
+        //insertarTextoMensaje();// ok
+        //cargarTextoMensajePorIdMensajeIdIdioma();
+        //cargarComandosDeIdMensaje();//ok
+        //insertarTextoComando();
+        //cargarTextoComadoPorIdComandoIdIdioma();
+        //insertarTarea();
+        //cargarTareaPorIdMensaje();
+        //insertarHIstoriaCompletaEnBaseDato();
+        //cargarHistoriaPorDefectoDesdeScript();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -517,6 +506,17 @@ public class Interfaz extends javax.swing.JFrame {
             spn_pass2.removeAll();
             spn_pass3.removeAll();
             spn_pass4.removeAll();
+        }
+    }
+    
+    private void pedirProximoComando () {
+        textoAcciones.setText("Ingrese el comando correspondiente.");
+        String texto = jTextField1.getText();
+        if (texto.equals("")) {
+            mostrarProximoMensaje();
+        } else {
+            procesarComando(jTextField1.getText());
+            jTextField1.setText("");
         }
     }
     
