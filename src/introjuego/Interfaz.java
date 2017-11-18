@@ -221,23 +221,19 @@ public class Interfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void spn_pass1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spn_pass1StateChanged
-        // TODO add your handling code here:
-        intentarAbrirCandado();
+        //intentarAbrirCandado();
     }//GEN-LAST:event_spn_pass1StateChanged
 
     private void spn_pass2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spn_pass2StateChanged
-        // TODO add your handling code here:
-        intentarAbrirCandado();
+        //intentarAbrirCandado();
     }//GEN-LAST:event_spn_pass2StateChanged
 
     private void spn_pass3StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spn_pass3StateChanged
-        // TODO add your handling code here:
-        intentarAbrirCandado();
+        //intentarAbrirCandado();
     }//GEN-LAST:event_spn_pass3StateChanged
 
     private void spn_pass4StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spn_pass4StateChanged
-        // TODO add your handling code here:
-        intentarAbrirCandado();
+        //intentarAbrirCandado();
     }//GEN-LAST:event_spn_pass4StateChanged
 
     private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
@@ -336,11 +332,12 @@ public class Interfaz extends javax.swing.JFrame {
         if (ultimoMensajeMostrado.getMostrarMensaje() && !(ultimoMensajeMostrado.getCodigoMensaje().equals(codigoMensajeAnterior))) {
                 jTextArea1.append(ultimoMensajeMostrado.getMensaje() + "\n\n");//SE DEBE DEFINIR SI ES NECESARIO VOLVER A ACTIVAR  
                 codigoMensajeAnterior=ultimoMensajeMostrado.getCodigoMensaje();
-            }
+        }
 
-            if (!ultimoMensajeMostrado.getProcesarRespuesta()) {
-                textoAcciones.setText("Presione ENTER para continuar.");
-            }
+        if (!ultimoMensajeMostrado.getProcesarRespuesta()) {
+            textoAcciones.setText("Presione ENTER para continuar.");
+        }
+        
     }
     
     private void procesarObjetoX(MensajeLogica mensajeLogica, ArrayList<ObjetoX> listaObjetoX) {
@@ -349,27 +346,30 @@ public class Interfaz extends javax.swing.JFrame {
             String codigoObjetoX = objetoX.getCodigoObjetoX();
             switch (codigoObjetoX) {
                 case "candadoValor1":
-                    numerosEncontrados = numerosEncontrados + 1;
-                    //spn_pass1.setValue(objetoX.getValorEntero());//o ejecutar el metodo adecuado...9
+                    //numerosEncontrados = numerosEncontrados + 1;
+                    mostrarProximoMensaje2(mensajeLogica);
+                    spn_pass1.setValue(objetoX.getValorEntero());//o ejecutar el metodo adecuado...9
                     break;
                 case "candadoValor2":
-                    numerosEncontrados = numerosEncontrados + 1;
+                    //numerosEncontrados = numerosEncontrados + 1;
                     mostrarProximoMensaje2(mensajeLogica);
-                    //spn_pass2.setValue(objetoX.getValorEntero());//o ejecutar el metodo adecuado...5
+                    spn_pass2.setValue(objetoX.getValorEntero());//o ejecutar el metodo adecuado...5
                     break;
                 case "candadoValor3":
-                    numerosEncontrados = numerosEncontrados + 1;
+                    //numerosEncontrados = numerosEncontrados + 1;
                     mostrarProximoMensaje2(mensajeLogica);
-                    //spn_pass3.setValue(objetoX.getValorEntero());//o ejecutar el metodo adecuado...3
+                    spn_pass3.setValue(objetoX.getValorEntero());//o ejecutar el metodo adecuado...3
                     break;    
                 case "candadoValor4":
-                    numerosEncontrados = numerosEncontrados + 1;
+                    //numerosEncontrados = numerosEncontrados + 1;
                     mostrarProximoMensaje2(mensajeLogica);
-                    //spn_pass4.setValue(objetoX.getValorEntero());//o ejecutar el metodo adecuado...1
+                    spn_pass4.setValue(objetoX.getValorEntero());//o ejecutar el metodo adecuado...1
                     break;
                 case "controlCandado":
                     historia.setProximoMensajeDeNarracion("bosquecontrolCandado");
-                    if (numerosEncontrados == 4) {
+                    mostrarProximoMensaje2(mensajeLogica);
+                    intentarAbrirCandado();
+                    if (isCandadoAbierto) {
                         historia.setProximoMensajeDeMensajeEnLista("bosquecontrolCandado", "bosqueConDatosCandadoCompleto");
                     } else {
                         historia.setProximoMensajeDeMensajeEnLista("bosquecontrolCandado", "bosqueConDatosCandadoInCompleto");
@@ -383,7 +383,7 @@ public class Interfaz extends javax.swing.JFrame {
                         historia.setProximoMensajeDeNarracion("bosqueIncompleto");
                     }
                     */
-                    mostrarProximoMensaje();
+                    //mostrarProximoMensaje();
                     break; 
             }
         }
@@ -391,7 +391,7 @@ public class Interfaz extends javax.swing.JFrame {
     
     private void entrarACabana() {
         historia.setProximoMensajeDeNarracion("cabana");
-        mostrarProximoMensaje();
+        //mostrarProximoMensaje();
     }
     
     private void procesarComando(String textoComando) {
