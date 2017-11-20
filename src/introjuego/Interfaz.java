@@ -73,6 +73,8 @@ public class Interfaz extends javax.swing.JFrame {
         
         //---------------------------------
         numerosEncontrados = 0;//0
+        indicarIngresoNumeros = false;
+        candadoValor1 = candadoValor2 = candadoValor3 = candadoValor4 = false;
         mostrarProximoMensaje();
         
         ///////////////////////
@@ -300,7 +302,9 @@ public class Interfaz extends javax.swing.JFrame {
     private MensajeLogica ultimoMensajeMostrado;
     private String codigoMensajeAnterior="";
     
+    private Boolean candadoValor1, candadoValor2, candadoValor3, candadoValor4;
     private Integer numerosEncontrados;
+    private Boolean indicarIngresoNumeros;
     
     private void mostrarProximoMensaje() {
         MensajeLogica mensajeLogica = historia.getMensaje();
@@ -339,7 +343,13 @@ public class Interfaz extends javax.swing.JFrame {
             }
 
             if (!ultimoMensajeMostrado.getProcesarRespuesta()) {
-                textoAcciones.setText("Presione ENTER para continuar.");
+                if (!indicarIngresoNumeros) {
+                    textoAcciones.setText("Presione ENTER para continuar.");
+                } else {
+                    //indicarIngresoNumeros = false;
+                    textoAcciones.setText("Ingrese combinacion en el candado");
+                }
+                
             }
     }
     
@@ -349,28 +359,54 @@ public class Interfaz extends javax.swing.JFrame {
             String codigoObjetoX = objetoX.getCodigoObjetoX();
             switch (codigoObjetoX) {
                 case "candadoValor1":
-                    numerosEncontrados = numerosEncontrados + 1;
+                    if (!candadoValor1) {
+                        candadoValor1 = true;
+                        numerosEncontrados = numerosEncontrados + 1;
+                    }
+                    mostrarProximoMensaje2(mensajeLogica);
                     //spn_pass1.setValue(objetoX.getValorEntero());//o ejecutar el metodo adecuado...9
                     break;
                 case "candadoValor2":
-                    numerosEncontrados = numerosEncontrados + 1;
+                    if (!candadoValor2) {
+                        candadoValor2 = true;
+                        numerosEncontrados = numerosEncontrados + 1;
+                    }
                     mostrarProximoMensaje2(mensajeLogica);
                     //spn_pass2.setValue(objetoX.getValorEntero());//o ejecutar el metodo adecuado...5
                     break;
                 case "candadoValor3":
-                    numerosEncontrados = numerosEncontrados + 1;
+                    if (!candadoValor3) {
+                        candadoValor3 = true;
+                        numerosEncontrados = numerosEncontrados + 1;
+                    }
                     mostrarProximoMensaje2(mensajeLogica);
                     //spn_pass3.setValue(objetoX.getValorEntero());//o ejecutar el metodo adecuado...3
                     break;    
                 case "candadoValor4":
-                    numerosEncontrados = numerosEncontrados + 1;
+                    if (!candadoValor4) {
+                        candadoValor4 = true;
+                        numerosEncontrados = numerosEncontrados + 1;
+                    }
                     mostrarProximoMensaje2(mensajeLogica);
                     //spn_pass4.setValue(objetoX.getValorEntero());//o ejecutar el metodo adecuado...1
+                    break;
+                case "bosqueConDatosCandadoCompleto":
+                    indicarIngresoNumeros = true;
+                    mostrarProximoMensaje2(mensajeLogica);
+                    break;
+                case "cabana":
+                    indicarIngresoNumeros = false;
+                    mostrarProximoMensaje2(mensajeLogica);
+                    break;
+                case "finhistoria":
+                    mostrarProximoMensaje2(mensajeLogica);
+                    finhistoria();
                     break;
                 case "controlCandado":
                     historia.setProximoMensajeDeNarracion("bosquecontrolCandado");
                     if (numerosEncontrados == 4) {
                         historia.setProximoMensajeDeMensajeEnLista("bosquecontrolCandado", "bosqueConDatosCandadoCompleto");
+                        
                     } else {
                         historia.setProximoMensajeDeMensajeEnLista("bosquecontrolCandado", "bosqueConDatosCandadoInCompleto");
                     }
@@ -559,16 +595,24 @@ public class Interfaz extends javax.swing.JFrame {
     }
     
     private void pedirProximoComando () {
-        textoAcciones.setText("Ingrese el comando correspondiente.");
-        String texto = jTextField1.getText();
-        if (texto.equals("")) {
-            mostrarProximoMensaje();
-        } else {
-            procesarComando(jTextField1.getText());
-            jTextField1.setText("");
+        if (!indicarIngresoNumeros) {
+            textoAcciones.setText("Ingrese el comando correspondiente.");
+            String texto = jTextField1.getText();
+            if (texto.equals("")) {
+                mostrarProximoMensaje();
+            } else {
+                procesarComando(jTextField1.getText());
+                jTextField1.setText("");
+            }
+
+            jTextArea1.setCaretPosition(jTextArea1.getText().length());
         }
         
-        jTextArea1.setCaretPosition(jTextArea1.getText().length());
+    }
+    
+    private void finhistoria() {
+        textoAcciones.setText("");
+        indicarIngresoNumeros = true;//para no usar otra bandera
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
