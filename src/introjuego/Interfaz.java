@@ -441,6 +441,8 @@ public class Interfaz extends javax.swing.JFrame {
             } else {
                 jTextArea1.append("No hay tarea pendiente" + "\n");
             }
+        } else if (textoComando.equals("ayuda")) {
+            textoAcciones.setText(comandosAyuda());
         } else {
             if (ultimoMensajeMostrado.getProcesarRespuesta()) {
                 if (historia.procesarTextoComando(textoComando)) {
@@ -453,6 +455,21 @@ public class Interfaz extends javax.swing.JFrame {
                 }
             }
         }
+    }
+    
+    private String comandosAyuda() {
+        String texto = "<html>Los comandos disponibles son: [";
+        for (int i = 0;i<ultimoMensajeMostrado.getComandos().size();i++) {
+            for (int j=0;j<ultimoMensajeMostrado.getComandos().get(i).getListaComandoTexto().size();j++) {
+                texto+=ultimoMensajeMostrado.getComandos().get(i).getListaComandoTexto().get(j).toUpperCase();
+            }
+            if (i+1<ultimoMensajeMostrado.getComandos().size()) {
+                texto+="], [";
+            }
+        }
+        texto+="]</html>";
+        
+        return texto;
     }
     
     private void insertarHistoria() {
