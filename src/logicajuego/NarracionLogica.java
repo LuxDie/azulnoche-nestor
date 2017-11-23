@@ -27,6 +27,34 @@ public class NarracionLogica {
             //listaMensajes = new HashMap<Integer, MensajeLogica>();
     }
 
+    public void agregarMensajeTexto(String codigoMensaje, String texto) {
+        if (listaMensajes.containsKey(codigoMensaje)) {
+            MensajeLogica mensaje = listaMensajes.get(codigoMensaje);
+            mensaje.agregarMensajeTexto(texto);
+            listaMensajes.put(codigoMensaje, mensaje);
+        } else {
+                //mostrar error
+        }
+    }
+    
+    public void setProximoMensajeDeComandoDeMensajeEnLista(String codigoMensaje, String codigoComando, String codigoMensajeProximo) {
+        if (listaMensajes.containsKey(codigoMensaje)) {
+                if (listaMensajes.containsKey(codigoMensajeProximo)) {
+                        MensajeLogica mensaje = listaMensajes.get(codigoMensaje);
+                        mensaje.setCodigoMensajeSiguienteDeComando(codigoComando, codigoMensajeProximo);
+                        listaMensajes.put(codigoMensaje, mensaje);
+                } else {
+                        //mostrar error
+                }
+        } else {
+                //mostrar error
+        }
+
+            
+    }
+    
+    
+    
     //se utiliza generalmente para mostrar un mensaje y que el indice no se mueva, de tal forma que despues de mostrar el mensaje el mensaje mostrado previamente siga activo
     public void agregarMensajePopUp(String codigoMensaje, String texto) {
 
