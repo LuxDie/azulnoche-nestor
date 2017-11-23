@@ -49,7 +49,7 @@ public class Interfaz extends javax.swing.JFrame {
      */
     public Interfaz() {
         initComponents();
-        jTextField1.requestFocus();
+        jLabel2.requestFocus();
         setSize(815, 600);
         setLocationRelativeTo(null);
         jTextArea1.setOpaque(false);
@@ -120,6 +120,7 @@ public class Interfaz extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jTextField1.setText("Escriba aquí");
+        jTextField1.setFocusable(false);
         jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextField1KeyPressed(evt);
@@ -162,11 +163,6 @@ public class Interfaz extends javax.swing.JFrame {
         spn_pass1.setModel(new javax.swing.SpinnerNumberModel(0, 0, 9, 1));
         spn_pass1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         spn_pass1.setFocusable(false);
-        spn_pass1.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                spn_pass1StateChanged(evt);
-            }
-        });
         getContentPane().add(spn_pass1);
         spn_pass1.setBounds(460, 300, 55, 70);
 
@@ -174,11 +170,6 @@ public class Interfaz extends javax.swing.JFrame {
         spn_pass2.setModel(new javax.swing.SpinnerNumberModel(0, 0, 9, 1));
         spn_pass2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         spn_pass2.setFocusable(false);
-        spn_pass2.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                spn_pass2StateChanged(evt);
-            }
-        });
         getContentPane().add(spn_pass2);
         spn_pass2.setBounds(520, 300, 55, 70);
 
@@ -186,11 +177,6 @@ public class Interfaz extends javax.swing.JFrame {
         spn_pass3.setModel(new javax.swing.SpinnerNumberModel(0, 0, 9, 1));
         spn_pass3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         spn_pass3.setFocusable(false);
-        spn_pass3.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                spn_pass3StateChanged(evt);
-            }
-        });
         getContentPane().add(spn_pass3);
         spn_pass3.setBounds(580, 300, 55, 70);
 
@@ -198,11 +184,6 @@ public class Interfaz extends javax.swing.JFrame {
         spn_pass4.setModel(new javax.swing.SpinnerNumberModel(0, 0, 9, 1));
         spn_pass4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         spn_pass4.setFocusable(false);
-        spn_pass4.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                spn_pass4StateChanged(evt);
-            }
-        });
         getContentPane().add(spn_pass4);
         spn_pass4.setBounds(640, 300, 55, 70);
 
@@ -216,38 +197,16 @@ public class Interfaz extends javax.swing.JFrame {
         textoAcciones.setBounds(40, 390, 310, 70);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/introjuego/resize.jpg"))); // NOI18N
+        jLabel2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jLabel2KeyPressed(evt);
+            }
+        });
         getContentPane().add(jLabel2);
         jLabel2.setBounds(0, 0, 840, 564);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void spn_pass1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spn_pass1StateChanged
-        // TODO add your handling code here:
-        intentarAbrirCandado();
-    }//GEN-LAST:event_spn_pass1StateChanged
-
-    private void spn_pass2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spn_pass2StateChanged
-        // TODO add your handling code here:
-        intentarAbrirCandado();
-    }//GEN-LAST:event_spn_pass2StateChanged
-
-    private void spn_pass3StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spn_pass3StateChanged
-        // TODO add your handling code here:
-        intentarAbrirCandado();
-    }//GEN-LAST:event_spn_pass3StateChanged
-
-    private void spn_pass4StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spn_pass4StateChanged
-        // TODO add your handling code here:
-        intentarAbrirCandado();
-    }//GEN-LAST:event_spn_pass4StateChanged
-
-    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER)
-        {
-            pedirProximoComando();
-        }
-    }//GEN-LAST:event_jTextField1KeyPressed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         pedirProximoComando();
@@ -265,6 +224,20 @@ public class Interfaz extends javax.swing.JFrame {
         //insertarHIstoriaCompletaEnBaseDato();
         //cargarHistoriaPorDefectoDesdeScript();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jLabel2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel2KeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER)
+        {
+            pedirProximoComando();
+        }
+    }//GEN-LAST:event_jLabel2KeyPressed
+
+    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER)
+        {
+            pedirProximoComando();
+        }
+    }//GEN-LAST:event_jTextField1KeyPressed
 
     /**
      * @param args the command line arguments
@@ -345,6 +318,8 @@ public class Interfaz extends javax.swing.JFrame {
             if (!ultimoMensajeMostrado.getProcesarRespuesta()) {
                 if (!indicarIngresoNumeros) {
                     textoAcciones.setText("Presione ENTER para continuar.");
+                    jTextField1.setFocusable(false);
+                    jLabel2.requestFocus();
                 } else {
                     //indicarIngresoNumeros = false;
                     textoAcciones.setText("Ingrese combinacion en el candado");
@@ -449,6 +424,7 @@ public class Interfaz extends javax.swing.JFrame {
                     //System.out.println("comando no valido...");
                     //break;
                     mostrarProximoMensaje();
+                    jTextField1.setText("");
                 } else {
                     textoAcciones.setText("Comando no válido");
                     textoAcciones.setVisible(true);
@@ -614,12 +590,14 @@ public class Interfaz extends javax.swing.JFrame {
     private void pedirProximoComando () {
         if (!indicarIngresoNumeros) {
             textoAcciones.setText("Ingrese el comando correspondiente.");
+            jTextField1.setFocusable(true);
+            jTextField1.requestFocus();
             String texto = jTextField1.getText();
             if (texto.equals("")) {
                 mostrarProximoMensaje();
             } else {
                 procesarComando(jTextField1.getText());
-                jTextField1.setText("");
+                jTextField1.selectAll();
             }
 
             jTextArea1.setCaretPosition(jTextArea1.getText().length());
