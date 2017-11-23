@@ -385,7 +385,7 @@ public class Interfaz extends javax.swing.JFrame {
                     historia.setProximoMensajeDeNarracion("bosquecontrolCandado");
                     if (numerosEncontrados == 4) {
                         historia.setProximoMensajeDeMensajeEnLista("bosquecontrolCandado", "bosqueConDatosCandadoCompleto");
-                        
+                        intentarAbrirCandado(); // Se llama a este método de forma provisoria para poder abrir el candado y continuar con la historia.
                     } else {
                         historia.setProximoMensajeDeMensajeEnLista("bosquecontrolCandado", "bosqueConDatosCandadoInCompleto");
                     }
@@ -447,7 +447,7 @@ public class Interfaz extends javax.swing.JFrame {
                 texto+="], [";
             }
         }
-        texto+="]</html>";
+        texto+="].<br>Ingrese el comando correspondiente, y presione ENTER para continuar.</html>";
         
         return texto;
     }
@@ -593,7 +593,7 @@ public class Interfaz extends javax.swing.JFrame {
     
     private void pedirProximoComando () {
         if (!indicarIngresoNumeros) {
-            textoAcciones.setText("Ingrese el comando correspondiente.");
+            textoAcciones.setText("<html>Ingrese el comando correspondiente, y presione ENTER para continuar.</html>");
             jTextField1.setFocusable(true);
             jTextField1.requestFocus();
             String texto = jTextField1.getText();
