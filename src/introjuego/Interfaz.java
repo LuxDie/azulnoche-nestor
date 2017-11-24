@@ -353,6 +353,108 @@ public class Interfaz extends javax.swing.JFrame {
             }
     }
     
+    
+    private void cambiarEstadoBosque() {
+        /*
+        estado2_bosque
+        this.narracion.agregarComandoAMensaje("casa34","iralbosuqe", "IR AL BOSQUE", "bosque");
+        this.narracion.agregarComandoAMensaje("men7", "iralbosuqe", "IR AL BOSQUE", "bosque");
+        this.narracion.agregarComandoAMensaje("estado2_callePrincipal","iralbosuqe", "IR AL BOSQUE", "bosque");
+        */
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("casa34", "iralbosuqe", "estado2_bosque");
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("men7", "iralbosuqe", "estado2_bosque");
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("estado2_callePrincipal", "iralbosuqe", "estado2_bosque");
+    }
+    
+    private void cambiarEstadoBar() {
+        /*
+        estado2_men1
+        this.narracion.agregarComandoAMensaje("casa34","ingresaralbar", "INGRESAR AL BAR", "men1");
+        this.narracion.agregarComandoAMensaje("bosqueConDatosCandadoInCompleto","irBar", "IR AL BAR", "men1");
+        this.narracion.agregarComandoAMensaje("estado2_callePrincipal","ingresaralbar", "INGRESAR AL BAR", "men1");
+        this.narracion.agregarComandoAMensaje("estado2_bosqueConDatosCandadoInCompleto","irBar", "IR AL BAR", "men1");
+        */
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("casa34", "ingresaralbar", "estado2_men1");
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("bosqueConDatosCandadoInCompleto", "irBar", "estado2_men1");
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("estado2_callePrincipal", "ingresaralbar", "estado2_men1");
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("estado2_bosqueConDatosCandadoInCompleto", "irBar", "estado2_men1");
+        
+    }
+    
+    private void cambiarEstadoCallePrincipal() {
+        /*
+        this.narracion.agregarComandoAMensaje("bosqueConDatosCandadoInCompleto","ircalleprincipal", "IR A CALLE PRINCIPAL", "callePrincipal");
+        this.narracion.agregarComandoAMensaje("estado2_bosqueConDatosCandadoInCompleto","ircalleprincipal", "IR A CALLE PRINCIPAL", "callePrincipal");
+        this.narracion.agregarComandoAMensaje("recuerdo6", "irCallePrincipal", "IR A CALLE PRINCIPAL","callePrincipal");
+        
+        this.narracion.agregarComandoAMensaje("casa1h", "irCallePrincipal", "IR A CALLE PRINCIPAL","callePrincipal");
+        
+        this.narracion.agregarMensaje("estado2_men1", "Ingresas al bar, miras un poco y sales rapidamente, tu instinto te dice que no encontraras nuevas pistas", "callePrincipal");
+        this.narracion.agregarMensaje("estado2_casa1a", "Entras a la casa revisas en algunos lugares que no revisaste antes, como no encuentras nada vuelves a salir", "callePrincipal");
+        this.narracion.agregarMensaje("estado2_casa2", "Entras a la casa revisas en algunos lugares que no revisaste antes, como no encuentras nada vuelves a salir", "callePrincipal");
+        this.narracion.agregarMensaje("estado2_casa3", "Entras a la casa revisas en algunos lugares que no revisaste antes, como no encuentras nada vuelves a salir", "callePrincipal");
+        this.narracion.agregarMensaje("estado2_bosque", "Caminas por el bosque y te diriges rapidamente a la cabana, necesitas abrir ese candado", "callePrincipal");
+        */
+        
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("bosqueConDatosCandadoInCompleto", "ircalleprincipal", "estado2_callePrincipal");
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("estado2_bosqueConDatosCandadoInCompleto", "ircalleprincipal", "estado2_callePrincipal");
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("recuerdo6", "irCallePrincipal", "estado2_callePrincipal");
+        
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("casa1h", "irCallePrincipal", "estado2_callePrincipal");
+        
+        historia.setProximoMensajeDeMensajeEnLista("estado2_men1", "estado2_callePrincipal");
+        historia.setProximoMensajeDeMensajeEnLista("estado2_casa1a", "estado2_callePrincipal");
+        historia.setProximoMensajeDeMensajeEnLista("estado2_casa2", "estado2_callePrincipal");
+        historia.setProximoMensajeDeMensajeEnLista("estado2_casa3", "estado2_callePrincipal");
+        historia.setProximoMensajeDeMensajeEnLista("estado2_bosque", "estado2_callePrincipal");
+        
+    }
+    
+    private void cambiarEstadoCasa1() {
+        /*
+        estado2_casa1a
+        
+        this.narracion.agregarComandoAMensaje("callePrincipal5","ingresarcasa1", "INGRESAR CASA 1", "casa1a");
+        this.narracion.agregarComandoAMensaje("estado2_callePrincipal","ingresarcasa1", "INGRESAR CASA 1", "casa1a");
+        this.narracion.agregarComandoAMensaje("recuerdo6", "seguirAdelante", "CAMINAR ADELANTE","casa1a");
+        */
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("callePrincipal5", "ingresarcasa1", "estado2_casa1a");
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("estado2_callePrincipal", "ingresarcasa1", "estado2_casa1a");
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("recuerdo6", "seguirAdelante", "estado2_casa1a");
+    }
+    
+    private void cambiarEstadoCasa3() {
+        /*
+        estado2_casa3
+        this.narracion.agregarComandoAMensaje("men7","ingresarcasa3", "INGRESAR CASA 3", "casa3");
+        this.narracion.agregarComandoAMensaje("estado2_callePrincipal","ingresarcasa3", "INGRESAR CASA 3", "casa3");
+        this.narracion.agregarComandoAMensaje("callePrincipal5","ingresarcasa3", "INGRESAR CASA 3", "casa3");
+        */
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("men7", "ingresarcasa3", "estado2_casa3");
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("estado2_callePrincipal", "ingresarcasa3", "estado2_casa3");
+        
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("callePrincipal5", "ingresarcasa3", "estado2_casa3");
+    }
+    
+    private void cambiarEstadoCasa2() {
+        /*
+        estado2_casa2
+        this.narracion.agregarComandoAMensaje("callePrincipal5","ingresarcasa2", "INGRESAR CASA 2", "casa2");
+        this.narracion.agregarComandoAMensaje("casa34","ingresarcasa2", "INGRESAR CASA 2", "casa2");
+        this.narracion.agregarComandoAMensaje("casa1h", "seguirAdelante", "CAMINAR ADELANTE","casa2");
+        this.narracion.agregarComandoAMensaje("estado2_callePrincipal","ingresarcasa2", "INGRESAR CASA 2", "casa2");
+        
+        this.narracion.agregarComandoAMensaje("casa1h", "seguirAdelante", "CAMINAR ADELANTE","casa2");
+        */
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("callePrincipal5", "ingresarcasa2", "estado2_casa2");
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("casa34", "ingresarcasa2", "estado2_casa2");
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("casa1h", "seguirAdelante", "estado2_casa2");
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("estado2_callePrincipal", "ingresarcasa2", "estado2_casa2");
+        
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("casa1h", "seguirAdelante", "estado2_casa2");
+        
+    }
+    
     private void procesarObjetoX(MensajeLogica mensajeLogica, ArrayList<ObjetoX> listaObjetoX) {
         //ArrayList<ObjetoX> listaObjetoX = ultimoMensajeMostrado.getListaObjetoX();
         for (ObjetoX objetoX : listaObjetoX) {
@@ -363,6 +465,7 @@ public class Interfaz extends javax.swing.JFrame {
                         candadoValor1 = true;
                         numerosEncontrados = numerosEncontrados + 1;
                     }
+                    cambiarEstadoBar();
                     mostrarProximoMensaje2(mensajeLogica);
                     //spn_pass1.setValue(objetoX.getValorEntero());//o ejecutar el metodo adecuado...9
                     break;
@@ -371,6 +474,7 @@ public class Interfaz extends javax.swing.JFrame {
                         candadoValor2 = true;
                         numerosEncontrados = numerosEncontrados + 1;
                     }
+                    cambiarEstadoCallePrincipal();
                     mostrarProximoMensaje2(mensajeLogica);
                     //spn_pass2.setValue(objetoX.getValorEntero());//o ejecutar el metodo adecuado...5
                     break;
@@ -379,6 +483,7 @@ public class Interfaz extends javax.swing.JFrame {
                         candadoValor3 = true;
                         numerosEncontrados = numerosEncontrados + 1;
                     }
+                    cambiarEstadoCasa1();
                     mostrarProximoMensaje2(mensajeLogica);
                     //spn_pass3.setValue(objetoX.getValorEntero());//o ejecutar el metodo adecuado...3
                     break;    
@@ -387,6 +492,13 @@ public class Interfaz extends javax.swing.JFrame {
                         candadoValor4 = true;
                         numerosEncontrados = numerosEncontrados + 1;
                     }
+                    cambiarEstadoCasa3();
+                    mostrarProximoMensaje2(mensajeLogica);
+                    //spn_pass4.setValue(objetoX.getValorEntero());//o ejecutar el metodo adecuado...1
+                    break;
+                case "casa2":
+                    
+                    cambiarEstadoCasa2();
                     mostrarProximoMensaje2(mensajeLogica);
                     //spn_pass4.setValue(objetoX.getValorEntero());//o ejecutar el metodo adecuado...1
                     break;
@@ -411,16 +523,21 @@ public class Interfaz extends javax.swing.JFrame {
                         historia.setProximoMensajeDeMensajeEnLista("bosquecontrolCandado", "bosqueConDatosCandadoInCompleto");
                     }
                     
-                    /*
-                    if (isCandadoAbierto) {
-                        historia.setProximoMensajeDeNarracion("bosqueCompleto");
-                        historia.setProximoMensajeDeMensajeEnLista("bosqueCompleto", "cabana");
-                    } else {
-                        historia.setProximoMensajeDeNarracion("bosqueIncompleto");
-                    }
-                    */
+                    cambiarEstadoBosque();
                     mostrarProximoMensaje();
                     break; 
+                case "estado2_controlCandado":
+                    historia.setProximoMensajeDeNarracion("estado2_bosquecontrolCandado");
+                    if (numerosEncontrados == 4) {
+                        historia.setProximoMensajeDeMensajeEnLista("estado2_bosquecontrolCandado", "estado2_bosqueConDatosCandadoCompleto");
+                        
+                    } else {
+                        historia.setProximoMensajeDeMensajeEnLista("estado2_bosquecontrolCandado", "estado2_bosqueConDatosCandadoInCompleto");
+                    }
+                    
+                    
+                    mostrarProximoMensaje();
+                    break;
             }
         }
     }
