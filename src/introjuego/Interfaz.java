@@ -370,6 +370,7 @@ public class Interfaz extends javax.swing.JFrame {
         this.narracion.agregarComandoAMensaje("recuerdo6", "irCallePrincipal", "IR A CALLE PRINCIPAL","callePrincipal");
         
         this.narracion.agregarComandoAMensaje("casa1h", "irCallePrincipal", "IR A CALLE PRINCIPAL","callePrincipal");
+        this.narracion.agregarComandoAMensaje("men7","irCallePrincipal", "IR CALLE PRINCIPAL", "callePrincipal");
         
         this.narracion.agregarMensaje("estado2_men1", "Ingresas al bar, miras un poco y sales rapidamente, tu instinto te dice que no encontraras nuevas pistas", "callePrincipal");
         this.narracion.agregarMensaje("estado2_casa1a", "Entras a la casa revisas en algunos lugares que no revisaste antes, como no encuentras nada vuelves a salir", "callePrincipal");
@@ -383,6 +384,7 @@ public class Interfaz extends javax.swing.JFrame {
         historia.setProximoMensajeDeComandoDeMensajeEnLista("recuerdo6", "irCallePrincipal", "estado2_callePrincipal");
         
         historia.setProximoMensajeDeComandoDeMensajeEnLista("casa1h", "irCallePrincipal", "estado2_callePrincipal");
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("men7", "irCallePrincipal", "estado2_callePrincipal");
         
         historia.setProximoMensajeDeMensajeEnLista("estado2_men1", "estado2_callePrincipal");
         historia.setProximoMensajeDeMensajeEnLista("estado2_casa1a", "estado2_callePrincipal");
@@ -412,7 +414,7 @@ public class Interfaz extends javax.swing.JFrame {
         this.narracion.agregarComandoAMensaje("estado2_callePrincipal","ingresarcasa3", "INGRESAR CASA 3", "casa3");
         this.narracion.agregarComandoAMensaje("callePrincipal5","ingresarcasa3", "INGRESAR CASA 3", "casa3");
         */
-        historia.setProximoMensajeDeComandoDeMensajeEnLista("men7", "ingresarcasa3", "estado2_casa3");
+        //historia.setProximoMensajeDeComandoDeMensajeEnLista("men7", "ingresarcasa3", "estado2_casa3");
         historia.setProximoMensajeDeComandoDeMensajeEnLista("estado2_callePrincipal", "ingresarcasa3", "estado2_casa3");
         
         historia.setProximoMensajeDeComandoDeMensajeEnLista("callePrincipal5", "ingresarcasa3", "estado2_casa3");
@@ -476,19 +478,20 @@ public class Interfaz extends javax.swing.JFrame {
                     }
                     cambiarEstadoCasa3();
                     mostrarProximoMensaje2(mensajeLogica);
-                    //spn_pass4.setValue(objetoX.getValorEntero());//o ejecutar el metodo adecuado...1
+                    spn_pass4.setText(Integer.toString(objetoX.getValorEntero()));
                     break;
                 case "casa2":
                     
                     cambiarEstadoCasa2();
                     mostrarProximoMensaje2(mensajeLogica);
-                    spn_pass4.setText(Integer.toString(objetoX.getValorEntero()));
+                    //spn_pass4.setText(Integer.toString(objetoX.getValorEntero()));
                     break;
                 case "bosqueConDatosCandadoCompleto":
-                    indicarIngresoNumeros = true;
+                    //indicarIngresoNumeros = true;
                     mostrarProximoMensaje2(mensajeLogica);
                     break;
                 case "cabana":
+                    intentarAbrirCandado();
                     indicarIngresoNumeros = false;
                     mostrarProximoMensaje2(mensajeLogica);
                     break;
@@ -500,7 +503,7 @@ public class Interfaz extends javax.swing.JFrame {
                     historia.setProximoMensajeDeNarracion("bosquecontrolCandado");
                     if (numerosEncontrados == 4) {
                         historia.setProximoMensajeDeMensajeEnLista("bosquecontrolCandado", "bosqueConDatosCandadoCompleto");
-                        intentarAbrirCandado(); // Se llama a este método de forma provisoria para poder abrir el candado y continuar con la historia.
+                        //intentarAbrirCandado(); // Se llama a este método de forma provisoria para poder abrir el candado y continuar con la historia.
                     } else {
                         historia.setProximoMensajeDeMensajeEnLista("bosquecontrolCandado", "bosqueConDatosCandadoInCompleto");
                     }
@@ -707,7 +710,7 @@ public class Interfaz extends javax.swing.JFrame {
             spn_pass3.removeAll();
             spn_pass4.removeAll();
             
-            entrarACabana();
+            //entrarACabana();
         }
     }
     
