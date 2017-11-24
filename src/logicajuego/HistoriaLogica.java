@@ -592,7 +592,7 @@ public class HistoriaLogica {
 
         
         //se establece cual es el principio de la historia... e informacion basica para la base de dato
-        this.narracion.setProximoMensajeDeNarracion("intro_callePueblo6");//menu1 //intro_manejasAuto//intro_callePueblo6
+        this.narracion.setProximoMensajeDeNarracion("intro_manejasAuto");//menu1 //intro_manejasAuto//intro_callePueblo6
         
         this.codigoMensajeInicio = "intro_manejasAuto";
         this.idIdioma = 1;
