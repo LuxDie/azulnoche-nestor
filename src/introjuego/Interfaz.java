@@ -17,6 +17,7 @@ import entidad.Mensaje;
 import entidad.Tarea;
 import entidad.TextoComando;
 import entidad.TextoMensaje;
+import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.PrintStream;
@@ -54,6 +55,7 @@ public class Interfaz extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         jTextArea1.setOpaque(false);
         jTextArea1.setEditable(false);
+        jTextField1.setEnabled(false);
         jTextField1.setText("");
         spn_pass1.setText("");
         spn_pass2.setText("");
@@ -322,6 +324,7 @@ public class Interfaz extends javax.swing.JFrame {
             if (!ultimoMensajeMostrado.getProcesarRespuesta()) {
                 if (!indicarIngresoNumeros) {
                     textoAcciones.setText("Presione ENTER para continuar.");
+                    jTextField1.setEnabled(false);
                     jTextField1.setFocusable(false);
                     jLabel2.requestFocus();
                 } else {
@@ -594,6 +597,7 @@ public class Interfaz extends javax.swing.JFrame {
     private void pedirProximoComando () {
         if (!indicarIngresoNumeros) {
             textoAcciones.setText("<html>Ingrese el comando correspondiente, y presione ENTER para continuar.</html>");
+            jTextField1.setEnabled(true);
             jTextField1.setFocusable(true);
             jTextField1.requestFocus();
             String texto = jTextField1.getText();
