@@ -388,7 +388,7 @@ public class HistoriaLogica {
         this.narracion.agregarMensaje("intro_callePueblo4", "Pero eso fue hace mucho tiempo.", "intro_callePueblo3");
         this.narracion.agregarMensaje("intro_callePueblo5", "A primera vista parece no haber nadie. No escuchás ruido alguno. No sale música del bar como sucedió siempre. Ni los pájaros cantan.", "intro_callePueblo4");
         this.narracion.agregarMensaje("intro_callePueblo6", "A tu izquierda hay una casa, a la derecha hay otra casa y frente a vos la calle principal.", "intro_callePueblo5");
-        this.narracion.agregarMensaje("intro_callePueblo7", "¿Qué deseas hacer? Podés CAMINAR IZQUIERDA, CAMINAR DERECHA o CAMINAR ADELANTE.", "intro_callePueblo6");
+        this.narracion.agregarMensaje("intro_callePueblo7", "¿Qué deseas hacer? Podés INGRESAR CASA FANTASMAL, INGRESAR CASA VIEJA o IR A CALLE PRINCIPAL.", "intro_callePueblo6");
        
     }
     
@@ -401,7 +401,7 @@ public class HistoriaLogica {
         this.narracion.agregarMensaje("casa1f","Mirando el diario con mayor atencion ves, debajo de todos los garabatos, un garabato mucho más grande. Lo reconocés. Es el equivalente al número 3. Es otra cosa para averiguar." , "casa1e" );        
         this.narracion.agregarObjetoXAMensaje("casa1f", "candadoValor3", "candado valor 3", true, 3, null);
         this.narracion.agregarMensaje("casa1g", "Salís de la casa de Aurora. La verdad que todo se ve igual, abandonado, absolutamente todo esta húmedo, incluso con moho.", "casa1f");
-        this.narracion.agregarMensaje("casa1h", "¿Donde ir ahora? Una buena pregunta. Podés CAMINAR ADELANTE y entrar a la otra casa, o IR A CALLE PRINCIPAL", "casa1g");
+        this.narracion.agregarMensaje("casa1h", "¿Donde ir ahora? Una buena pregunta. Podés INGRESAR CASA VIEJA o IR A CALLE PRINCIPAL", "casa1g");
 
      
         this.narracion.agregarMensaje("estado2_casa1a", "Entras a la casa revisas en algunos lugares que no revisaste antes, como no encuentras nada vuelves a salir");
