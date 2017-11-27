@@ -14,6 +14,13 @@ public class ManipulacionDeTextos {
         
     }
     
+    /**
+     * Toma un texto para darle el salto de linea segun el largo que se requiera
+     * 
+     * @param cadena String // Cadena de caracteres para cortar linea de texto
+     * @param cantCharts int // pasar la cantidad de caracteres por linea
+     * @return String Devuelve a cadena ingresada con los saltos de linea
+     */
     public String formatearTexto(String cadena, int cantCharts){
         String cadenaModif="";
         
