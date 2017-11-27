@@ -561,6 +561,9 @@ public class Interfaz extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * @return  Un texto de ayuda que indica, de existir, los comandos disponibles en ese momento de la historia
+     */
     private String comandosAyuda() {
         String texto = "<html>Los comandos disponibles son: [";
         for (int i = 0;i<ultimoMensajeMostrado.getComandos().size();i++) {
