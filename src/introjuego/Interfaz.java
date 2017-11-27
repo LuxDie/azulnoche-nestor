@@ -17,6 +17,7 @@ import entidad.Mensaje;
 import entidad.Tarea;
 import entidad.TextoComando;
 import entidad.TextoMensaje;
+import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.PrintStream;
@@ -49,12 +50,17 @@ public class Interfaz extends javax.swing.JFrame {
      */
     public Interfaz() {
         initComponents();
-        jTextField1.requestFocus();
+        jLabel2.requestFocus();
         setSize(815, 600);
         setLocationRelativeTo(null);
         jTextArea1.setOpaque(false);
         jTextArea1.setEditable(false);
+        jTextField1.setEnabled(false);
         jTextField1.setText("");
+        spn_pass1.setText("");
+        spn_pass2.setText("");
+        spn_pass3.setText("");
+        spn_pass4.setText("");
         textoAcciones.setVisible(true);
         
         ///
@@ -106,12 +112,12 @@ public class Interfaz extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
+        spn_pass1 = new javax.swing.JTextField();
+        spn_pass2 = new javax.swing.JTextField();
+        spn_pass3 = new javax.swing.JTextField();
+        spn_pass4 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        spn_pass1 = new javax.swing.JSpinner();
-        spn_pass2 = new javax.swing.JSpinner();
-        spn_pass3 = new javax.swing.JSpinner();
-        spn_pass4 = new javax.swing.JSpinner();
         lbl_candado = new javax.swing.JLabel();
         textoAcciones = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -121,6 +127,7 @@ public class Interfaz extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jTextField1.setText("Escriba aquí");
+        jTextField1.setFocusable(false);
         jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextField1KeyPressed(evt);
@@ -149,6 +156,34 @@ public class Interfaz extends javax.swing.JFrame {
         getContentPane().add(jButton1);
         jButton1.setBounds(280, 480, 80, 30);
 
+        spn_pass1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        spn_pass1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        spn_pass1.setText("num1");
+        spn_pass1.setFocusable(false);
+        getContentPane().add(spn_pass1);
+        spn_pass1.setBounds(460, 310, 50, 50);
+
+        spn_pass2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        spn_pass2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        spn_pass2.setText("num2");
+        spn_pass2.setFocusable(false);
+        getContentPane().add(spn_pass2);
+        spn_pass2.setBounds(520, 310, 50, 50);
+
+        spn_pass3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        spn_pass3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        spn_pass3.setText("num3");
+        spn_pass3.setFocusable(false);
+        getContentPane().add(spn_pass3);
+        spn_pass3.setBounds(580, 310, 50, 50);
+
+        spn_pass4.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        spn_pass4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        spn_pass4.setText("num4");
+        spn_pass4.setFocusable(false);
+        getContentPane().add(spn_pass4);
+        spn_pass4.setBounds(640, 310, 50, 50);
+
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/introjuego/correccion2.png"))); // NOI18N
         jLabel8.setText("Inventario");
         getContentPane().add(jLabel8);
@@ -158,54 +193,6 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel7.setText("Inventario");
         getContentPane().add(jLabel7);
         jLabel7.setBounds(200, 470, 180, 60);
-
-        spn_pass1.setFont(new java.awt.Font("Year supply of fairy cakes", 1, 24)); // NOI18N
-        spn_pass1.setModel(new javax.swing.SpinnerNumberModel(0, 0, 9, 1));
-        spn_pass1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        spn_pass1.setFocusable(false);
-        spn_pass1.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                spn_pass1StateChanged(evt);
-            }
-        });
-        getContentPane().add(spn_pass1);
-        spn_pass1.setBounds(460, 300, 55, 70);
-
-        spn_pass2.setFont(new java.awt.Font("Year supply of fairy cakes", 1, 24)); // NOI18N
-        spn_pass2.setModel(new javax.swing.SpinnerNumberModel(0, 0, 9, 1));
-        spn_pass2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        spn_pass2.setFocusable(false);
-        spn_pass2.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                spn_pass2StateChanged(evt);
-            }
-        });
-        getContentPane().add(spn_pass2);
-        spn_pass2.setBounds(520, 300, 55, 70);
-
-        spn_pass3.setFont(new java.awt.Font("Year supply of fairy cakes", 1, 24)); // NOI18N
-        spn_pass3.setModel(new javax.swing.SpinnerNumberModel(0, 0, 9, 1));
-        spn_pass3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        spn_pass3.setFocusable(false);
-        spn_pass3.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                spn_pass3StateChanged(evt);
-            }
-        });
-        getContentPane().add(spn_pass3);
-        spn_pass3.setBounds(580, 300, 55, 70);
-
-        spn_pass4.setFont(new java.awt.Font("Year supply of fairy cakes", 1, 24)); // NOI18N
-        spn_pass4.setModel(new javax.swing.SpinnerNumberModel(0, 0, 9, 1));
-        spn_pass4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        spn_pass4.setFocusable(false);
-        spn_pass4.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                spn_pass4StateChanged(evt);
-            }
-        });
-        getContentPane().add(spn_pass4);
-        spn_pass4.setBounds(640, 300, 55, 70);
 
         lbl_candado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/introjuego/candadoCerradoPNG.png"))); // NOI18N
         getContentPane().add(lbl_candado);
@@ -217,38 +204,16 @@ public class Interfaz extends javax.swing.JFrame {
         textoAcciones.setBounds(40, 390, 310, 70);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/introjuego/resize.jpg"))); // NOI18N
+        jLabel2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jLabel2KeyPressed(evt);
+            }
+        });
         getContentPane().add(jLabel2);
         jLabel2.setBounds(0, 0, 840, 564);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void spn_pass1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spn_pass1StateChanged
-        // TODO add your handling code here:
-        intentarAbrirCandado();
-    }//GEN-LAST:event_spn_pass1StateChanged
-
-    private void spn_pass2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spn_pass2StateChanged
-        // TODO add your handling code here:
-        intentarAbrirCandado();
-    }//GEN-LAST:event_spn_pass2StateChanged
-
-    private void spn_pass3StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spn_pass3StateChanged
-        // TODO add your handling code here:
-        intentarAbrirCandado();
-    }//GEN-LAST:event_spn_pass3StateChanged
-
-    private void spn_pass4StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spn_pass4StateChanged
-        // TODO add your handling code here:
-        intentarAbrirCandado();
-    }//GEN-LAST:event_spn_pass4StateChanged
-
-    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER)
-        {
-            pedirProximoComando();
-        }
-    }//GEN-LAST:event_jTextField1KeyPressed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         pedirProximoComando();
@@ -266,6 +231,20 @@ public class Interfaz extends javax.swing.JFrame {
         //insertarHIstoriaCompletaEnBaseDato();
         //cargarHistoriaPorDefectoDesdeScript();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jLabel2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel2KeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER)
+        {
+            pedirProximoComando();
+        }
+    }//GEN-LAST:event_jLabel2KeyPressed
+
+    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER)
+        {
+            pedirProximoComando();
+        }
+    }//GEN-LAST:event_jTextField1KeyPressed
 
     /**
      * @param args the command line arguments
@@ -346,12 +325,119 @@ public class Interfaz extends javax.swing.JFrame {
             if (!ultimoMensajeMostrado.getProcesarRespuesta()) {
                 if (!indicarIngresoNumeros) {
                     textoAcciones.setText("Presione ENTER para continuar.");
+                    jTextField1.setEnabled(false);
+                    jTextField1.setFocusable(false);
+                    jLabel2.requestFocus();
                 } else {
                     //indicarIngresoNumeros = false;
                     textoAcciones.setText("Ingrese combinacion en el candado");
                 }
                 
             }
+    }
+    
+    
+    private void cambiarEstadoBosque() {
+        /*
+        estado2_bosque
+        this.narracion.agregarComandoAMensaje("casa34","iralbosuqe", "IR AL BOSQUE", "bosque");
+        this.narracion.agregarComandoAMensaje("men7", "iralbosuqe", "IR AL BOSQUE", "bosque");
+        this.narracion.agregarComandoAMensaje("estado2_callePrincipal","iralbosuqe", "IR AL BOSQUE", "bosque");
+        */
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("casa34", "iralbosuqe", "estado2_bosque");
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("men7", "iralbosuqe", "estado2_bosque");
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("estado2_callePrincipal", "iralbosuqe", "estado2_bosque");
+    }
+    
+    private void cambiarEstadoBar() {
+        /*
+        estado2_men1
+        this.narracion.agregarComandoAMensaje("casa34","ingresaralbar", "INGRESAR AL BAR", "men1");
+        this.narracion.agregarComandoAMensaje("bosqueConDatosCandadoInCompleto","irBar", "IR AL BAR", "men1");
+        this.narracion.agregarComandoAMensaje("estado2_callePrincipal","ingresaralbar", "INGRESAR AL BAR", "men1");
+        this.narracion.agregarComandoAMensaje("estado2_bosqueConDatosCandadoInCompleto","irBar", "IR AL BAR", "men1");
+        */
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("casa34", "ingresaralbar", "estado2_men1");
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("bosqueConDatosCandadoInCompleto", "irBar", "estado2_men1");
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("estado2_callePrincipal", "ingresaralbar", "estado2_men1");
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("estado2_bosqueConDatosCandadoInCompleto", "irBar", "estado2_men1");
+        
+    }
+    
+    private void cambiarEstadoCallePrincipal() {
+        /*
+        this.narracion.agregarComandoAMensaje("bosqueConDatosCandadoInCompleto","ircalleprincipal", "IR A CALLE PRINCIPAL", "callePrincipal");
+        this.narracion.agregarComandoAMensaje("estado2_bosqueConDatosCandadoInCompleto","ircalleprincipal", "IR A CALLE PRINCIPAL", "callePrincipal");
+        this.narracion.agregarComandoAMensaje("recuerdo6", "irCallePrincipal", "IR A CALLE PRINCIPAL","callePrincipal");
+        
+        this.narracion.agregarComandoAMensaje("casa1h", "irCallePrincipal", "IR A CALLE PRINCIPAL","callePrincipal");
+        this.narracion.agregarComandoAMensaje("men7","irCallePrincipal", "IR CALLE PRINCIPAL", "callePrincipal");
+        
+        this.narracion.agregarMensaje("estado2_men1", "Ingresas al bar, miras un poco y sales rapidamente, tu instinto te dice que no encontraras nuevas pistas", "callePrincipal");
+        this.narracion.agregarMensaje("estado2_casa1a", "Entras a la casa revisas en algunos lugares que no revisaste antes, como no encuentras nada vuelves a salir", "callePrincipal");
+        this.narracion.agregarMensaje("estado2_casa2", "Entras a la casa revisas en algunos lugares que no revisaste antes, como no encuentras nada vuelves a salir", "callePrincipal");
+        this.narracion.agregarMensaje("estado2_casa3", "Entras a la casa revisas en algunos lugares que no revisaste antes, como no encuentras nada vuelves a salir", "callePrincipal");
+        this.narracion.agregarMensaje("estado2_bosque", "Caminas por el bosque y te diriges rapidamente a la cabana, necesitas abrir ese candado", "callePrincipal");
+        */
+        
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("bosqueConDatosCandadoInCompleto", "ircalleprincipal", "estado2_callePrincipal");
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("estado2_bosqueConDatosCandadoInCompleto", "ircalleprincipal", "estado2_callePrincipal");
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("recuerdo6", "irCallePrincipal", "estado2_callePrincipal");
+        
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("casa1h", "irCallePrincipal", "estado2_callePrincipal");
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("men7", "irCallePrincipal", "estado2_callePrincipal");
+        
+        historia.setProximoMensajeDeMensajeEnLista("estado2_men1", "estado2_callePrincipal");
+        historia.setProximoMensajeDeMensajeEnLista("estado2_casa1a", "estado2_callePrincipal");
+        historia.setProximoMensajeDeMensajeEnLista("estado2_casa2", "estado2_callePrincipal");
+        historia.setProximoMensajeDeMensajeEnLista("estado2_casa3", "estado2_callePrincipal");
+        historia.setProximoMensajeDeMensajeEnLista("estado2_bosque", "estado2_callePrincipal");
+        
+    }
+    
+    private void cambiarEstadoCasa1() {
+        /*
+        estado2_casa1a
+        
+        this.narracion.agregarComandoAMensaje("callePrincipal5","ingresarcasa1", "INGRESAR CASA 1", "casa1a");
+        this.narracion.agregarComandoAMensaje("estado2_callePrincipal","ingresarcasa1", "INGRESAR CASA 1", "casa1a");
+        this.narracion.agregarComandoAMensaje("recuerdo6", "seguirAdelante", "CAMINAR ADELANTE","casa1a");
+        */
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("callePrincipal5", "ingresarcasa1", "estado2_casa1a");
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("estado2_callePrincipal", "ingresarcasa1", "estado2_casa1a");
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("recuerdo6", "seguirAdelante", "estado2_casa1a");
+    }
+    
+    private void cambiarEstadoCasa3() {
+        /*
+        estado2_casa3
+        this.narracion.agregarComandoAMensaje("men7","ingresarcasa3", "INGRESAR CASA 3", "casa3");
+        this.narracion.agregarComandoAMensaje("estado2_callePrincipal","ingresarcasa3", "INGRESAR CASA 3", "casa3");
+        this.narracion.agregarComandoAMensaje("callePrincipal5","ingresarcasa3", "INGRESAR CASA 3", "casa3");
+        */
+        //historia.setProximoMensajeDeComandoDeMensajeEnLista("men7", "ingresarcasa3", "estado2_casa3");
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("estado2_callePrincipal", "ingresarcasa3", "estado2_casa3");
+        
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("callePrincipal5", "ingresarcasa3", "estado2_casa3");
+    }
+    
+    private void cambiarEstadoCasa2() {
+        /*
+        estado2_casa2
+        this.narracion.agregarComandoAMensaje("callePrincipal5","ingresarcasa2", "INGRESAR CASA 2", "casa2");
+        this.narracion.agregarComandoAMensaje("casa34","ingresarcasa2", "INGRESAR CASA 2", "casa2");
+        this.narracion.agregarComandoAMensaje("casa1h", "seguirAdelante", "CAMINAR ADELANTE","casa2");
+        this.narracion.agregarComandoAMensaje("estado2_callePrincipal","ingresarcasa2", "INGRESAR CASA 2", "casa2");
+        
+        this.narracion.agregarComandoAMensaje("casa1h", "seguirAdelante", "CAMINAR ADELANTE","casa2");
+        */
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("callePrincipal5", "ingresarcasa2", "estado2_casa2");
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("casa34", "ingresarcasa2", "estado2_casa2");
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("casa1h", "seguirAdelante", "estado2_casa2");
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("estado2_callePrincipal", "ingresarcasa2", "estado2_casa2");
+        
+        historia.setProximoMensajeDeComandoDeMensajeEnLista("casa1h", "seguirAdelante", "estado2_casa2");
+        
     }
     
     private void procesarObjetoX(MensajeLogica mensajeLogica, ArrayList<ObjetoX> listaObjetoX) {
@@ -364,38 +450,49 @@ public class Interfaz extends javax.swing.JFrame {
                         candadoValor1 = true;
                         numerosEncontrados = numerosEncontrados + 1;
                     }
+                    cambiarEstadoBar();
                     mostrarProximoMensaje2(mensajeLogica);
-                    //spn_pass1.setValue(objetoX.getValorEntero());//o ejecutar el metodo adecuado...9
+                    spn_pass1.setText(Integer.toString(objetoX.getValorEntero()));
                     break;
                 case "candadoValor2":
                     if (!candadoValor2) {
                         candadoValor2 = true;
                         numerosEncontrados = numerosEncontrados + 1;
                     }
+                    cambiarEstadoCallePrincipal();
                     mostrarProximoMensaje2(mensajeLogica);
-                    //spn_pass2.setValue(objetoX.getValorEntero());//o ejecutar el metodo adecuado...5
+                    spn_pass2.setText(Integer.toString(objetoX.getValorEntero()));
                     break;
                 case "candadoValor3":
                     if (!candadoValor3) {
                         candadoValor3 = true;
                         numerosEncontrados = numerosEncontrados + 1;
                     }
+                    cambiarEstadoCasa1();
                     mostrarProximoMensaje2(mensajeLogica);
-                    //spn_pass3.setValue(objetoX.getValorEntero());//o ejecutar el metodo adecuado...3
+                    spn_pass3.setText(Integer.toString(objetoX.getValorEntero()));
                     break;    
                 case "candadoValor4":
                     if (!candadoValor4) {
                         candadoValor4 = true;
                         numerosEncontrados = numerosEncontrados + 1;
                     }
+                    cambiarEstadoCasa3();
                     mostrarProximoMensaje2(mensajeLogica);
-                    //spn_pass4.setValue(objetoX.getValorEntero());//o ejecutar el metodo adecuado...1
+                    spn_pass4.setText(Integer.toString(objetoX.getValorEntero()));
+                    break;
+                case "casa2":
+                    
+                    cambiarEstadoCasa2();
+                    mostrarProximoMensaje2(mensajeLogica);
+                    //spn_pass4.setText(Integer.toString(objetoX.getValorEntero()));
                     break;
                 case "bosqueConDatosCandadoCompleto":
-                    indicarIngresoNumeros = true;
+                    //indicarIngresoNumeros = true;
                     mostrarProximoMensaje2(mensajeLogica);
                     break;
                 case "cabana":
+                    intentarAbrirCandado();
                     indicarIngresoNumeros = false;
                     mostrarProximoMensaje2(mensajeLogica);
                     break;
@@ -407,21 +504,26 @@ public class Interfaz extends javax.swing.JFrame {
                     historia.setProximoMensajeDeNarracion("bosquecontrolCandado");
                     if (numerosEncontrados == 4) {
                         historia.setProximoMensajeDeMensajeEnLista("bosquecontrolCandado", "bosqueConDatosCandadoCompleto");
-                        
+                        //intentarAbrirCandado(); // Se llama a este método de forma provisoria para poder abrir el candado y continuar con la historia.
                     } else {
                         historia.setProximoMensajeDeMensajeEnLista("bosquecontrolCandado", "bosqueConDatosCandadoInCompleto");
                     }
                     
-                    /*
-                    if (isCandadoAbierto) {
-                        historia.setProximoMensajeDeNarracion("bosqueCompleto");
-                        historia.setProximoMensajeDeMensajeEnLista("bosqueCompleto", "cabana");
-                    } else {
-                        historia.setProximoMensajeDeNarracion("bosqueIncompleto");
-                    }
-                    */
+                    cambiarEstadoBosque();
                     mostrarProximoMensaje();
                     break; 
+                case "estado2_controlCandado":
+                    historia.setProximoMensajeDeNarracion("estado2_bosquecontrolCandado");
+                    if (numerosEncontrados == 4) {
+                        historia.setProximoMensajeDeMensajeEnLista("estado2_bosquecontrolCandado", "estado2_bosqueConDatosCandadoCompleto");
+                        
+                    } else {
+                        historia.setProximoMensajeDeMensajeEnLista("estado2_bosquecontrolCandado", "estado2_bosqueConDatosCandadoInCompleto");
+                    }
+                    
+                    
+                    mostrarProximoMensaje();
+                    break;
             }
         }
     }
@@ -442,18 +544,36 @@ public class Interfaz extends javax.swing.JFrame {
             } else {
                 jTextArea1.append("No hay tarea pendiente" + "\n");
             }
+        } else if (textoComando.equals("ayuda")) {
+            textoAcciones.setText(comandosAyuda());
         } else {
             if (ultimoMensajeMostrado.getProcesarRespuesta()) {
                 if (historia.procesarTextoComando(textoComando)) {
                     //System.out.println("comando no valido...");
                     //break;
                     mostrarProximoMensaje();
+                    jTextField1.setText("");
                 } else {
                     textoAcciones.setText("Comando no válido");
                     textoAcciones.setVisible(true);
                 }
             }
         }
+    }
+    
+    private String comandosAyuda() {
+        String texto = "<html>Los comandos disponibles son: [";
+        for (int i = 0;i<ultimoMensajeMostrado.getComandos().size();i++) {
+            for (int j=0;j<ultimoMensajeMostrado.getComandos().get(i).getListaComandoTexto().size();j++) {
+                texto+=ultimoMensajeMostrado.getComandos().get(i).getListaComandoTexto().get(j).toUpperCase();
+            }
+            if (i+1<ultimoMensajeMostrado.getComandos().size()) {
+                texto+="], [";
+            }
+        }
+        texto+="].<br>Ingrese el comando correspondiente, y presione ENTER para continuar.</html>";
+        
+        return texto;
     }
     
     private void insertarHistoria() {
@@ -574,10 +694,10 @@ public class Interfaz extends javax.swing.JFrame {
 
     private boolean isKeyCandado(){
         String auxiliar="";
-        auxiliar += String.valueOf(spn_pass1.getValue());
-        auxiliar += String.valueOf(spn_pass2.getValue());
-        auxiliar += String.valueOf(spn_pass3.getValue());
-        auxiliar += String.valueOf(spn_pass4.getValue());
+        auxiliar += String.valueOf(spn_pass1.getText());
+        auxiliar += String.valueOf(spn_pass2.getText());
+        auxiliar += String.valueOf(spn_pass3.getText());
+        auxiliar += String.valueOf(spn_pass4.getText());
         if(KEY_CANDADO.equalsIgnoreCase(auxiliar))System.out.println("Contraseña Correcta");
         return KEY_CANDADO.equalsIgnoreCase(auxiliar);
     }
@@ -591,19 +711,22 @@ public class Interfaz extends javax.swing.JFrame {
             spn_pass3.removeAll();
             spn_pass4.removeAll();
             
-            entrarACabana();
+            //entrarACabana();
         }
     }
     
     private void pedirProximoComando () {
         if (!indicarIngresoNumeros) {
-            textoAcciones.setText("Ingrese el comando correspondiente.");
+            textoAcciones.setText("<html>Ingrese el comando correspondiente, y presione ENTER para continuar.</html>");
+            jTextField1.setEnabled(true);
+            jTextField1.setFocusable(true);
+            jTextField1.requestFocus();
             String texto = jTextField1.getText();
             if (texto.equals("")) {
                 mostrarProximoMensaje();
             } else {
                 procesarComando(jTextField1.getText());
-                jTextField1.setText("");
+                jTextField1.selectAll();
             }
 
             jTextArea1.setCaretPosition(jTextArea1.getText().length());
@@ -625,10 +748,10 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lbl_candado;
-    private javax.swing.JSpinner spn_pass1;
-    private javax.swing.JSpinner spn_pass2;
-    private javax.swing.JSpinner spn_pass3;
-    private javax.swing.JSpinner spn_pass4;
+    private javax.swing.JTextField spn_pass1;
+    private javax.swing.JTextField spn_pass2;
+    private javax.swing.JTextField spn_pass3;
+    private javax.swing.JTextField spn_pass4;
     private javax.swing.JLabel textoAcciones;
     // End of variables declaration//GEN-END:variables
 }

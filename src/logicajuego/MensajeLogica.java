@@ -64,6 +64,24 @@ public class MensajeLogica {
         this.listaObjetoX = new ArrayList<>();
     }
 
+    public Boolean setCodigoMensajeSiguienteDeComando(String codigoComando, String codigoMensajeSiguiente) {
+        Boolean resultado = false;
+        int cantidadComandos = comandos.size();
+        for(int i = 0; i < cantidadComandos; i++) {
+            ComandoLogica comando = comandos.get(i);
+            String codigoComandoaux = comando.getCodigoComando();
+            if (codigoComandoaux.equalsIgnoreCase(codigoComando)) {
+                comando.setCodigoMensaje(codigoMensajeSiguiente);
+                comandos.set(i, comando);
+                resultado = true;
+                break;
+            }
+            
+
+        }
+        return resultado;
+    }
+    
     public void setCodigoMensaje(String codigoMensaje) {
         this.codigoMensaje = codigoMensaje;
     }
