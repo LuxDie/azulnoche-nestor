@@ -123,6 +123,7 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Azul Noche");
         getContentPane().setLayout(null);
 
         jTextField1.setText("Escriba aquí");
@@ -143,7 +144,7 @@ public class Interfaz extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextArea1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(40, 60, 330, 310);
+        jScrollPane1.setBounds(40, 50, 330, 320);
 
         jButton1.setText("Enviar");
         jButton1.setFocusable(false);
@@ -200,7 +201,7 @@ public class Interfaz extends javax.swing.JFrame {
         textoAcciones.setBackground(new java.awt.Color(0, 0, 0));
         textoAcciones.setText("texto de acciones");
         getContentPane().add(textoAcciones);
-        textoAcciones.setBounds(40, 390, 310, 70);
+        textoAcciones.setBounds(40, 380, 330, 80);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/introjuego/resize.jpg"))); // NOI18N
         jLabel2.addKeyListener(new java.awt.event.KeyAdapter() {
