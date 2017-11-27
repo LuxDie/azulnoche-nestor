@@ -241,6 +241,10 @@ public class MensajeLogica {
 		return this.mensajePopUp;
 	}
 
+        /**
+         * Se utiliza para saber si un mensaje tiene comandos que puede procesar
+         * @return Boolean Devuelve verdadero si el mensaje procesa comandos o falso si no procesa comandos
+         */
 	public boolean getProcesarRespuesta() {
 		return this.procesarRespuesta;
 	}
@@ -249,6 +253,11 @@ public class MensajeLogica {
 		return this.mostrarMensaje;
 	}
 
+        /**
+         * Devuelve el codigo del mensaje que se tiene que mostrar cuando se ingresar un comando o null si el textocomando no es valido
+         * @param textoComando Es el texto del comando que se deber verificar si es valido
+         * @return String Devuelve el codigoMensaje que corresponde al parametro que se ingreso o null si no se encontro el textoComando
+         */
 	public String getCodigoMensajeDeComandoTXT(String textoComando) {
 		String codigoMensaje = null;
 		int cantidadComandos = comandos.size();
