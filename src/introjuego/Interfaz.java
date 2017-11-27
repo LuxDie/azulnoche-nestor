@@ -561,6 +561,11 @@ public class Interfaz extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * Método que consulta los comandos disponibles en el lugar y devuelve la lista de comandos
+     * 
+     * @return  Un string que indica los comandos disponibles, separados por comas
+     */
     private String comandosAyuda() {
         String texto = "<html>Los comandos disponibles son: [";
         for (int i = 0;i<ultimoMensajeMostrado.getComandos().size();i++) {
