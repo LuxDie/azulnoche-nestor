@@ -254,9 +254,9 @@ public class MensajeLogica {
 	}
 
         /**
-         * Devuelve el codigo del mensaje que se tiene que mostrar cuando se ingresar un comando
-         * @param textoComando Es el texxto el comando que se deber verificar
-         * @return String Devuelve el codigoMensaje que corresponde al parametro que se ingreso
+         * Devuelve el codigo del mensaje que se tiene que mostrar cuando se ingresar un comando o null si el textocomando no es valido
+         * @param textoComando Es el texto del comando que se deber verificar si es valido
+         * @return String Devuelve el codigoMensaje que corresponde al parametro que se ingreso o null si no se encontro el textoComando
          */
 	public String getCodigoMensajeDeComandoTXT(String textoComando) {
 		String codigoMensaje = null;
