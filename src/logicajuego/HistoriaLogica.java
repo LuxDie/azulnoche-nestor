@@ -293,7 +293,13 @@ public class HistoriaLogica {
         }
         return estadoScript;
     }
-    ////////////
+    /**
+     * Se utiliza para agregar un texto en el momento que sea requerido
+     * 
+     * @param codigoMensaje Es un String, un nombre corto que de a entender de que trata el mensaje
+     * @param texto Es un String un texto que debe terner relacion con su Codigo de Mensaje
+     * 
+     */
     public void agregarMensajeTexto(String codigoMensaje, String texto) {
         this.narracion.agregarMensajeTexto(codigoMensaje, texto);
     }
