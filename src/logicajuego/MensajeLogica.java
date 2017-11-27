@@ -242,7 +242,7 @@ public class MensajeLogica {
 	}
 
         /**
-         * Se utiliza para saber si un mensaje tiene compandos que puede procesar
+         * Se utiliza para saber si un mensaje tiene comandos que puede procesar
          * @return Boolean Devuelve verdadero si el mensaje procesa comandos o falso si no procesa comandos
          */
 	public boolean getProcesarRespuesta() {
